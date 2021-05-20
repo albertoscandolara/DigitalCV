@@ -1,4 +1,3 @@
-import {translations} from '../model.mjs';
 import * as helpers from '../helpers/helpers.mjs';
 
 class ChangeLanguageView {

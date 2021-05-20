@@ -1,5 +1,3 @@
-import {translations} from '../model.mjs';
-
 class ThemeManagerView {
     _parentElement = document.querySelector('.main-menu-side.right .theme-button-container');
     _data;

@@ -1,5 +1,3 @@
-import {translations} from '../model.mjs';
-
 class MainMenuNavigationView {
     _parentElement = document.querySelector('.main-menu .first-level-nav');
     _data;

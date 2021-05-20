@@ -1,8 +1,6 @@
-import {translations} from '../model.mjs';
 // import global not yet implemented for parcel 2
 //import {logos} from '../../assets/images/logos/*';
 // Need to import files individually
-
 import logo_javascript from 'url:../../assets/images/logos/logo_javascript.svg';
 import logo_angular from 'url:../../assets/images/logos/logo_angular.svg';
 import logo_react from 'url:../../assets/images/logos/logo_react.svg';
