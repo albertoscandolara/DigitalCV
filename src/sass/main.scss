@@ -406,14 +406,6 @@ button>span {
                         border-bottom: 3px solid $menu-selected-light;
                       }
                     }
-
-                    &.second-level{
-                      &:hover,
-                      &.selected{
-                        border-left: 3px solid $menu-selected-light;
-                      }
-                    }
-                    
                   }
                 }
               }
@@ -524,6 +516,18 @@ button>span {
             &.left {
 
               .first-level-nav {
+                .menu-item {
+                  .menu-button {
+                    border-radius: 0px;
+
+                    &.first-level{
+                      &:hover,
+                      &.selected{
+                        border-bottom: 3px solid $menu-selected-dark;
+                      }
+                    }
+                  }
+                }
               }
             }
     
