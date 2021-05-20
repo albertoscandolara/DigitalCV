@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My digital cv</title>
+    <link rel="stylesheet" href="src/sass/main.scss" />
+  </head>
+  <body>
+    <div class="app-container">
+      
+      <!-- Language section -->
+      <section class="choose-language hidden">
+        <div class="window raised">
+          <div class="header">
+            <span>
+              Please, pick a language!
+            </span>
+          </div>
+          <div class="body sunk"></div>
+          <div class="footer">
+            <button
+              class="apply raised"
+              title="Apply">
+              <span>
+                Apply
+              </span>
+            </button>
+            <button
+              class="back raised"
+              title="Back">
+              <span>
+                Back
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="main-section">
+        <!-- Header -->
+        <header class="header raised">
+          <div class="main-menu">
+            <nav class="main-menu-side left">
+              <ul class="first-level-nav">
+              </ul>
+            </nav>
+            <div class="main-menu-side right">
+              <button class="raised choose-language-btn">
+                <span></span>
+              </button>
+              <div class="theme-button-container"></div>
+            </div>
+          </div>
+        </header>
+        <section class="body raised">
+          <ul class="second-level-nav"></ul>
+        </section>
+        <footer class="footer"></footer>
+      </section>
+    </div>
+  </body>
+  
+  <script src="src/js/controller.mjs"></script>
+</html>
