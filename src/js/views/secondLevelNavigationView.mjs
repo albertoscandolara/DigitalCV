@@ -36,9 +36,11 @@ class SecondLevelNavigationView {
     }
 
     _generateMarkup(){
-        return this._data.map(
-            voice => this._generateMainMenuNavigationVoiceMarkup(voice)
-        ).join('');
+        return `
+            ${this._data.map(
+                voice => this._generateMainMenuNavigationVoiceMarkup(voice)
+            ).join('')}
+        `;
     }
 
     _generateMainMenuNavigationVoiceMarkup(voice){

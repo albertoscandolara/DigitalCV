@@ -8,6 +8,44 @@
     <link rel="stylesheet" href="src/sass/main.scss" />
   </head>
   <body>
+    <template id="body-section-template">
+      <div class="body-panel" style="
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+">
+        <section class="topic-container" style="
+    width: 30%;
+    height: 100%;
+    padding: 0 10px 0 0;
+    display: flex;
+    flex-direction: column;
+">
+    <section class="overview-container" style="
+    display: flex;
+    flex: 1;
+"></section>
+    <footer class="topic-navigation-container" style="
+    height: 90px;
+    border-top: 1px solid white;
+" class="">
+    </footer>
+</section>
+        <div class="sub-section-container sunk" style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #191919;
+">
+    
+</div>
+    </div>
+    </template>
     <div class="app-container">
       
       <!-- Language section -->
@@ -55,7 +93,22 @@
           </div>
         </header>
         <section class="body raised">
-          <ul class="second-level-nav"></ul>
+          
+          <!-- Second level navigation container -->
+          <ul class="second-level-nav">
+          </ul>
+          
+          <!-- Panel structure -->
+          <div class="body-panel">
+            <section class="topic-container">
+            </section>
+            <div class="sub-section-container">
+              <div class="resizer vertical" 
+                title="Drag to resize"></div>
+              <div class="sub-section sunk"></div>
+            </div>
+          </div>
+
         </section>
         <footer class="footer"></footer>
       </section>

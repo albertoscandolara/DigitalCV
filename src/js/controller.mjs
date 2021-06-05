@@ -1,10 +1,13 @@
 import * as model from './model.mjs';
 import * as helpers from './helpers/helpers.mjs';
 
+import pageView from './views/pageView.mjs'
 import themeManagerView from './views/themeManagerView.mjs';
 import changeLanguageView from './views/changeLanguageView.mjs';
 import mainMenuNavigationView from './views/mainMenuNavigationView.mjs';
 import secondLevelNavigationView from './views/secondLevelNavigationView.mjs';
+
+import topicOverview from './views/body-content-views/topicOverview.mjs';
 
 if(module.hot){
     module.hot.accept
@@ -49,26 +52,70 @@ const setThemeManagerViewHandlers = function() {
     themeManagerView.addHandlerClick(controlSetTheme);
 }
 
-//////////////////////////////////////////
-//         Main menu navigation         //
-//////////////////////////////////////////
+////////////////////////////////////////////////
+//      First & second navigation voices      //
+////////////////////////////////////////////////
 
-const controlMainMenuNavigation = function(){
+const controlMainMenuNavigation = function() {
     const firstLevelVoices = model.state.navigationVoices;
     mainMenuNavigationView.render(firstLevelVoices);
 }
 
-const controlOpenSecondNavigationVoices = function(mainMenuVoiceId){
-    const navigationVoice = model.state.navigationVoices.find(voice => voice.id === mainMenuVoiceId);
-    const secondLevelNavigationVoices = navigationVoice.children;
+const controlOpenSecondNavigationVoices = function(navigationVoiceId) {
+    const navigationVoice = model.getNavigationVoice(navigationVoiceId);
+    
+    if(navigationVoice.open === 1) {
+        pageView.showTopicPage();
 
-    if(secondLevelNavigationVoices.length === 0) return;
-    secondLevelNavigationView.render(secondLevelNavigationVoices);
+        if(navigationVoiceId === "About me") {
+            //aboutMeTopicView.render(navigationVoice.children);
+        } else if(navigationVoiceId === "About this app") {
+            //aboutThisAppTopicView.render(navigationVoice.children);
+        } else {
+            secondLevelNavigationView.render(navigationVoice.children);
+            setSecondLevelNavigationViewHandlers();
+        }
+    } else if(navigationVoice.open === 2) {
+        pageView.showSecondLevelNavigation();
+        secondLevelNavigationView.render(navigationVoice.children);
+        setSecondLevelNavigationViewHandlers();
+    }
 }
 
-const setMainMenuNavigationViewHandlers = function(){
+const setMainMenuNavigationViewHandlers = function() {
     mainMenuNavigationView.addHandlerClick(controlOpenSecondNavigationVoices);
 }
+
+const setSecondLevelNavigationViewHandlers = function() {
+    secondLevelNavigationView.addHandlerClick(controlLoadBodyContent);
+}
+
+//////////////////////////////////////////
+//         Sections management          //
+//////////////////////////////////////////
+
+const controlLoadBodyContent = function(navigationVoiceId) {
+    const navigationVoice = model.getNavigationVoice(navigationVoiceId);
+    pageView.showTopicPage();
+    //Load overview section
+    topicOverview.render(navigationVoice);
+
+    // Load footer
+}
+
+//////////////////////////////////////////
+//         Page event handlers          //
+//////////////////////////////////////////
+
+const controlPageEventHandlers = function() {
+    setPageResizers();
+
+}
+
+const setPageResizers = function() {
+
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -87,6 +134,12 @@ function init(){
     model.loadMainMenuNavigation();
     controlMainMenuNavigation();
     setMainMenuNavigationViewHandlers();
+
+    // Load body content
+    controlLoadBodyContent();
+
+    // Set eventListeners on page elements
+    controlPageEventHandlers();
 }
 
 init();

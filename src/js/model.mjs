@@ -79,6 +79,49 @@ export const setSelectedLanguage = function(languageAcronym) {
 //////////////////////////////////////////
 //         Main menu navigation         //
 //////////////////////////////////////////
-export const loadMainMenuNavigation = function(){
+export const loadMainMenuNavigation = function() {
     state.navigationVoices = navigationVoices;
+}
+
+export const getNavigationVoice = function(navigationVoiceId, voices = state.navigationVoices){
+    let navigationVoice = null;
+    
+    for(let i=0; i<voices.length; i++){
+        if(voices[i].id === navigationVoiceId){
+            navigationVoice = voices[i]; 
+            break;
+        }
+
+        if(voices[i].children.length > 0){
+            navigationVoice = getNavigationVoice(navigationVoiceId, voices[i].children);
+        
+            if(navigationVoice) {
+                break;
+            }
+        }
+    }
+    return navigationVoice;
+}
+
+// Recursive function to get menu voices that need to show some content in a panel
+export const getMenuVoicesRequiringPanel = function(panels = state.navigationVoices) {
+    let menuVoicesRequiringPanel = [];
+
+    panels.forEach(
+        voice => {
+            if(voice.requirePanel){
+                menuVoicesRequiringPanel.push(voice);
+            }else{
+                if(voice.children.length !== 0) { 
+                    let subPanelsToLoad = getMenuVoicesRequiringPanel(voice.children);
+                    menuVoicesRequiringPanel.push(
+                        ...subPanelsToLoad
+                    );
+                }
+                
+            }
+        }
+    );
+
+    return menuVoicesRequiringPanel;
 }
