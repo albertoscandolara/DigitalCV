@@ -22,7 +22,35 @@ export const navigationVoices = [
       "ready": false,
       "toLearn": false,
       "requirePanel": true,
-      "children": []
+      "custom": false,
+      "children": [
+        {
+          "id": "Travels",
+          "open": null,
+          "selected": false,
+          "text": "Travels",
+          "title": "Travels",
+          "icon": "airplane",
+          "ready": true,
+          "toLearn": false,
+          "requirePanel": false,
+          "custom": true,
+          "children": []
+        },
+        {
+          "id": "Languages",
+          "open": null,
+          "selected": false,
+          "text": "Languages",
+          "title": "Languages",
+          "icon": "languages",
+          "ready": false,
+          "toLearn": false,
+          "requirePanel": false,
+          "custom": true,
+          "children": []
+        }
+      ]
     },
     {
       "id": "Front end",
@@ -34,6 +62,7 @@ export const navigationVoices = [
       "ready": false,
       "toLearn": false,
       "requirePanel": false,
+      "custom": false,
       "children": [
         {
           "id": "Javascript",
@@ -45,6 +74,7 @@ export const navigationVoices = [
           "ready": false,
           "toLearn": false,
           "requirePanel": true,
+          "custom": false,
           "overviewText": "",
           "children": [
             {
@@ -57,6 +87,7 @@ export const navigationVoices = [
               "ready": false,
               "toLearn": false,
               "requirePanel": false,
+              "custom": false,
               "children": []
             },
             {
@@ -69,6 +100,7 @@ export const navigationVoices = [
               "ready": false,
               "toLearn": false,
               "requirePanel": false,
+              "custom": false,
               "children": []
             }
           ],
@@ -83,6 +115,7 @@ export const navigationVoices = [
           "ready": false,
           "toLearn": false,
           "requirePanel": true,
+          "custom": false,
           "overviewText": "",
           "children": [
             {
@@ -95,6 +128,7 @@ export const navigationVoices = [
               "ready": false,
               "toLearn": false,
               "requirePanel": false,
+              "custom": false,
               "children": []
             },
             {
@@ -107,6 +141,7 @@ export const navigationVoices = [
               "ready": false,
               "toLearn": false,
               "requirePanel": false,
+              "custom": false,
               "children": []
             }
           ]
@@ -121,6 +156,7 @@ export const navigationVoices = [
           "ready": false,
           "toLearn": true,
           "requirePanel": true,
+          "custom": false,
           "children": [
             {
               "id": "Certificates",
@@ -132,6 +168,7 @@ export const navigationVoices = [
               "ready": false,
               "toLearn": false,
               "requirePanel": false,
+              "custom": false,
               "children": []
             },
             {
@@ -144,6 +181,7 @@ export const navigationVoices = [
               "ready": false,
               "toLearn": false,
               "requirePanel": false,
+              "custom": false,
               "children": []
             }
           ]
@@ -159,6 +197,7 @@ export const navigationVoices = [
       "ready": false,
       "toLearn": false,
       "requirePanel": false,
+      "custom": false,
       "children": [
         {
           "id": "C",
@@ -169,6 +208,7 @@ export const navigationVoices = [
           "ready": false,
           "toLearn": false,
           "requirePanel": true,
+          "custom": false,
           "children": [
             {
               "id": "Certificates",
@@ -179,6 +219,7 @@ export const navigationVoices = [
               "ready": false,
               "toLearn": false,
               "requirePanel": false,
+              "custom": false,
               "children": []
             },
             {
@@ -190,6 +231,7 @@ export const navigationVoices = [
               "ready": false,
               "toLearn": false,
               "requirePanel": false,
+              "custom": false,
               "children": []
             }
           ]
@@ -204,6 +246,7 @@ export const navigationVoices = [
           "ready": false,
           "toLearn": false,
           "requirePanel": true,
+          "custom": false,
           "children": [
             {
               "id": "Certificates",
@@ -215,6 +258,7 @@ export const navigationVoices = [
               "ready": false,
               "toLearn": false,
               "requirePanel": false,
+              "custom": false,
               "children": []
             },
             {
@@ -227,6 +271,7 @@ export const navigationVoices = [
               "ready": false,
               "toLearn": false,
               "requirePanel": false,
+              "custom": false,
               "children": []
             }
           ]
@@ -241,6 +286,7 @@ export const navigationVoices = [
           "ready": false,
           "toLearn": true,
           "requirePanel": true,
+          "custom": false,
           "children": [
             {
               "id": "Certificates",
@@ -252,6 +298,7 @@ export const navigationVoices = [
               "ready": false,
               "toLearn": false,
               "requirePanel": false,
+              "custom": false,
               "children": []
             },
             {
@@ -264,6 +311,7 @@ export const navigationVoices = [
               "ready": false,
               "toLearn": false,
               "requirePanel": false,
+              "custom": false,
               "children": []
             }
           ]
@@ -280,6 +328,7 @@ export const navigationVoices = [
       "ready": false,
       "toLearn": false,
       "requirePanel": false,
+      "custom": false,
       "children": [
         {
           "id": "Blender",    
@@ -291,6 +340,7 @@ export const navigationVoices = [
           "ready": false,
           "toLearn": true,
           "requirePanel": true,
+          "custom": false,
           "children": [
             {
               "id": "Certificates",
@@ -302,6 +352,7 @@ export const navigationVoices = [
               "ready": false,
               "toLearn": false,
               "requirePanel": false,
+              "custom": false,
               "children": []
             },
             {
@@ -314,6 +365,7 @@ export const navigationVoices = [
               "ready": false,
               "toLearn": false,
               "requirePanel": false,
+              "custom": false,
               "children": []
             }
           ]
@@ -330,7 +382,8 @@ export const navigationVoices = [
       "ready": false,
       "toLearn": false,
       "requirePanel": true,
+      "custom": false,
       "children": []
     },
-  ]
+  ];
   

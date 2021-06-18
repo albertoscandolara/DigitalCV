@@ -11,6 +11,8 @@ import logo_c_sharp from 'url:../../../assets/images/logos/logo_c_sharp.svg';
 
 import certificate from 'url:../../../assets/images/certificate.svg';
 import project from 'url:../../../assets/images/project.svg';
+import airplane from 'url:../../../assets/images/airplane.svg';
+import languages from 'url:../../../assets/images/languages.svg';
 
 const logos = { 
     logo_javascript, logo_angular, logo_react, 
@@ -20,7 +22,9 @@ const logos = {
 
 const footerVoices = {
     certificate,
-    project
+    project,
+    airplane,
+    languages
 }
 
 class TopicOverview {
@@ -78,7 +82,7 @@ class TopicOverview {
 
     _generateTopicFooterMarkup() {
         return `
-            <div class="arrow-container"  title="Previous">
+            <div class="arrow-container" title="Previous">
                 <button class="arrow previous">&lt;</button>
             </div>
             <div class="topic-navigation-bar">
@@ -97,25 +101,31 @@ class TopicOverview {
     _generateTopicNavigationVoiceMarkup(voice){
         return `
             <li>
-                <button style="
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    width: inherit;
-                    height: inherit;
-                    "
-                    title="${voice.title}">
-                    <img style="height:50px; width: 50px;"
+                <button 
+                    class="topic-footer-button"
+                    title="${voice.title}"
+                    data-id="${voice.id}">
+                    <img 
+                        class="topic-footer-button-img"
                         src="${footerVoices[voice.icon]}" 
-                        alt="${voice.icon}">
-                    <span style="
-                        font-size: 12px;
-                        ">
+                        alt="${voice.text}">
+                    <span 
+                        class="topic-footer-button-text">
                         ${voice.text}
                     </span>
                 </button>
             </li>
         `;
+    }
+
+    addHandlerClick(handler){
+        this._footerParentElement.addEventListener('click', function(e){
+            const element = e.target.closest('button');
+            if(!element) return;
+
+            const elementId = element.dataset.id;
+            handler(elementId);
+        })
     }
 }
 

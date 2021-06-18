@@ -51,11 +51,13 @@ class ChangeLanguageView {
     _openLanguageView() {
         this._mainSectionElement.classList.add('blurred');
         this._parentElement.classList.remove('hidden');
+        this._parentElement.classList.add('semi-transparent-background');
     }
 
     _closeLanguageView() {
         this._mainSectionElement.classList.remove('blurred');
         this._parentElement.classList.add('hidden');
+        this._parentElement.classList.remove('semi-transparent-background');
     }
 
     _updateHeaderLanguageButtonTextContent() {

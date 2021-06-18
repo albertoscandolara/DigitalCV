@@ -8,6 +8,8 @@ import mainMenuNavigationView from './views/mainMenuNavigationView.mjs';
 import secondLevelNavigationView from './views/secondLevelNavigationView.mjs';
 
 import topicOverview from './views/body-content-views/topicOverview.mjs';
+import projectsView from './views/projectsView.mjs';
+import certificatesView from './views/certificatesView.mjs';
 
 if(module.hot){
     module.hot.accept
@@ -61,7 +63,13 @@ const controlMainMenuNavigation = function() {
     mainMenuNavigationView.render(firstLevelVoices);
 }
 
+const setMainMenuNavigationViewHandlers = function() {
+    mainMenuNavigationView.addHandlerClick(controlOpenSecondNavigationVoices);
+}
+
 const controlOpenSecondNavigationVoices = function(navigationVoiceId) {
+    model.selectLevelOneNavigationVoice(navigationVoiceId);
+    mainMenuNavigationView.selectLevelOneNavigationVoice(navigationVoiceId);
     const navigationVoice = model.getNavigationVoice(navigationVoiceId);
     
     if(navigationVoice.open === 1) {
@@ -82,10 +90,6 @@ const controlOpenSecondNavigationVoices = function(navigationVoiceId) {
     }
 }
 
-const setMainMenuNavigationViewHandlers = function() {
-    mainMenuNavigationView.addHandlerClick(controlOpenSecondNavigationVoices);
-}
-
 const setSecondLevelNavigationViewHandlers = function() {
     secondLevelNavigationView.addHandlerClick(controlLoadBodyContent);
 }
@@ -96,11 +100,64 @@ const setSecondLevelNavigationViewHandlers = function() {
 
 const controlLoadBodyContent = function(navigationVoiceId) {
     const navigationVoice = model.getNavigationVoice(navigationVoiceId);
+    model.selectLevelTwoNavigationVoice(navigationVoice.id);
+
     pageView.showTopicPage();
     //Load overview section
     topicOverview.render(navigationVoice);
 
-    // Load footer
+    // Load first footer voice
+    let footerNavigationVoice = model.getFirstFooterNavigationVoice(navigationVoice.id);
+    controlLoadBodySectionContent(footerNavigationVoice.id);
+
+    topicOverview.addHandlerClick(controlLoadBodySectionContent);
+}
+
+const controlLoadBodySectionContent = function(navigationVoiceId) {
+    const navigationVoice = model.getNavigationVoice(navigationVoiceId);
+    const parentNavigationVoice = model.getParentNavigationVoice(navigationVoice.id);
+
+    navigationVoice.custom ? 
+        controlLoadCustomNavigationVoiceBody(navigationVoice) : 
+        controlLoadStandardNavigationVoiceBody(navigationVoice, parentNavigationVoice);
+}
+
+const controlLoadCustomNavigationVoiceBody = function(navigationVoice) {
+    const travelsString = 'travels';
+    const languagesString = 'languages';
+
+    switch(navigationVoice.id.toLowerCase()){
+        case travelsString: 
+            controlLoadTravelsBodySection();
+            break;
+        case languagesString:
+            controlLoadLanguagesBodySection();
+            break;
+    }
+}
+
+const controlLoadStandardNavigationVoiceBody = function(navigationVoice, parentNavigationVoice) {
+    const certificatesString = 'certificates';
+    const projectsString = 'projects'
+
+    switch(navigationVoice.id.toLowerCase()){
+        case certificatesString:
+            let certificates = model.state[certificatesString][parentNavigationVoice.id.toLowerCase()];
+            certificatesView.render(certificates);
+            break;
+        case projectsString:
+            let projects = model.state[projectsString][parentNavigationVoice.id.toLowerCase()];
+            projectsView.render(projects);
+        break;
+    }
+}
+
+const controlLoadTravelsBodySection = function() {
+
+}
+
+const controlLoadLanguagesBodySection = function() {
+
 }
 
 //////////////////////////////////////////
@@ -109,17 +166,16 @@ const controlLoadBodyContent = function(navigationVoiceId) {
 
 const controlPageEventHandlers = function() {
     setPageResizers();
-
 }
 
 const setPageResizers = function() {
-
+    pageView.addResizerHandler();
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-function init(){
+function init() {
     // Load languages and translations
     model.loadLanguages();
     controlLanguages();
@@ -136,7 +192,10 @@ function init(){
     setMainMenuNavigationViewHandlers();
 
     // Load body content
-    controlLoadBodyContent();
+    let navigationVoice = model.getFirstNavigationVoiceOpeningBodySection();
+    if(navigationVoice) {
+        controlLoadBodyContent(navigationVoice.id);
+    }
 
     // Set eventListeners on page elements
     controlPageEventHandlers();

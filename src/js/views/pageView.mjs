@@ -14,8 +14,31 @@ class PageView {
         this._topic_panel.classList.remove(this._hiddenClass);
     }
 
-    addHandlerClick(handler){
-        
+    // This handler is all view-related. 
+    // No need for publisher-subscriber pattern
+    addResizerHandler() {
+        this._topic_panel.querySelector('.sub-section-container .resizer')
+            .addEventListener(
+                'mousedown', 
+                (e) => {
+                    function doDrag(e) {
+                        overviewSection.style.width = (startWidth + e.clientX - startX) + 'px';
+                    }
+                     
+                    function stopDrag(e) {
+                        document.documentElement.removeEventListener('mousemove', doDrag, false);
+                        document.documentElement.removeEventListener('mouseup', stopDrag, false);
+                    }
+
+                    let overviewSection = this._topic_panel.querySelector('.topic-container');
+                    let startX = e.clientX;
+                    let startWidth = parseInt(overviewSection.getBoundingClientRect().width);
+
+                    document.documentElement.addEventListener('mousemove', doDrag, false);
+                    document.documentElement.addEventListener('mouseup', stopDrag, false);
+
+                }
+            );
     }
 }
 
