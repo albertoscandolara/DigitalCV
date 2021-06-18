@@ -11,8 +11,10 @@
   "license": "ISC",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.0-beta.2",
-    "parcel": "^2.0.0-beta.2",
     "prettier": "2.2.1",
     "sass": "^1.32.12"
+  },
+  "dependencies": {
+    "parcel": "^2.0.0-beta.2"
   }
 }
