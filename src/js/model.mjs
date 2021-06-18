@@ -4,6 +4,18 @@ import {languages} from '../json/languages.mjs';
 import {allTranslations} from '../json/translations.mjs';
 import {navigationVoices} from '../json/navigationVoices.mjs';
 
+// Projects 
+import {javascript} from '../json/projects/javascript';
+const projects = { 
+    javascript
+};
+
+// Certificates
+//import {javascript} from '../json/certificates/javascript';
+const certificates = { 
+    //javascript
+};
+
 import {getSelectedItem} from './helpers/helpers.mjs';
 
 let translations = {};
@@ -12,6 +24,8 @@ export const state = {
     themes: {},
     languages: [],
     navigationVoices: [],
+    projects: projects,
+    certificates: certificates
 }
 
 //////////////////////////////////////////
@@ -76,24 +90,24 @@ export const setSelectedLanguage = function(languageAcronym) {
     loadTranslations(languageAcronym);
 }
 
-//////////////////////////////////////////
-//         Main menu navigation         //
-//////////////////////////////////////////
+///////////////////////////////////////////
+//            Menu navigation            //
+///////////////////////////////////////////
 export const loadMainMenuNavigation = function() {
     state.navigationVoices = navigationVoices;
 }
 
-export const getNavigationVoice = function(navigationVoiceId, voices = state.navigationVoices){
+export const getNavigationVoice = function(navigationVoiceId, navigationVoices = state.navigationVoices){
     let navigationVoice = null;
     
-    for(let i=0; i<voices.length; i++){
-        if(voices[i].id === navigationVoiceId){
-            navigationVoice = voices[i]; 
+    for(let i=0; i<navigationVoices.length; i++){
+        if(navigationVoices[i].id === navigationVoiceId){
+            navigationVoice = navigationVoices[i]; 
             break;
         }
 
-        if(voices[i].children.length > 0){
-            navigationVoice = getNavigationVoice(navigationVoiceId, voices[i].children);
+        if(navigationVoices[i].children.length > 0){
+            navigationVoice = getNavigationVoice(navigationVoiceId, navigationVoices[i].children);
         
             if(navigationVoice) {
                 break;
@@ -103,25 +117,91 @@ export const getNavigationVoice = function(navigationVoiceId, voices = state.nav
     return navigationVoice;
 }
 
-// Recursive function to get menu voices that need to show some content in a panel
-export const getMenuVoicesRequiringPanel = function(panels = state.navigationVoices) {
-    let menuVoicesRequiringPanel = [];
+export const selectLevelOneNavigationVoice = function(navigationVoiceId) {
+    this.deselectAllLevelOneNavigationVoices();
 
-    panels.forEach(
-        voice => {
-            if(voice.requirePanel){
-                menuVoicesRequiringPanel.push(voice);
-            }else{
-                if(voice.children.length !== 0) { 
-                    let subPanelsToLoad = getMenuVoicesRequiringPanel(voice.children);
-                    menuVoicesRequiringPanel.push(
-                        ...subPanelsToLoad
-                    );
-                }
-                
+    let levelOneNavigationVoiceToSelect = this.state.navigationVoices.find(navigationVoice => navigationVoice.id === navigationVoiceId);
+    this.selectNavigationVoice(levelOneNavigationVoiceToSelect);
+}
+
+export const selectLevelTwoNavigationVoice = function(navigationVoiceId) {
+    let levelOneNavigationVoiceSelected = getSelectedItem(this.state.navigationVoices);
+    if(levelOneNavigationVoiceSelected.open === 2) {
+        this.deselectAllLevelTwoNavigationVoices(levelOneNavigationVoiceSelected);
+
+        let levelTwoNavigationVoiceToSelect = levelOneNavigationVoiceSelected.children.find(navigationVoice => navigationVoice.id === navigationVoiceId);
+        this.selectNavigationVoice(levelTwoNavigationVoiceToSelect);
+    }
+}
+
+export const deselectAllLevelOneNavigationVoices = function(){
+    this.state.navigationVoices.forEach(navigationVoice => {
+        this.deselectNavigationVoice(navigationVoice);
+
+        // Children must be deselected too
+        this.deselectAllLevelTwoNavigationVoices(navigationVoice);
+    });
+}
+
+export const deselectAllLevelTwoNavigationVoices = function(levelOneNavigationVoice) {
+    levelOneNavigationVoice.children.forEach(navigationVoice => {
+        this.deselectNavigationVoice(navigationVoice);
+    })
+}
+
+export const deselectNavigationVoice = function(navigationVoice) {
+    navigationVoice.selected = false;
+}
+
+export const selectNavigationVoice = function(navigationVoice) {
+    navigationVoice.selected = true;
+}
+
+export const getFirstNavigationVoiceOpeningBodySection = function(navigationVoices = state.navigationVoices) {
+    let navigationVoice = null;
+    
+    for(let i=0; i<navigationVoices.length; i++){
+        if(navigationVoices[i].open === 1){
+            navigationVoice = navigationVoices[i]; 
+            break;
+        }
+
+        if(navigationVoices[i].children.length > 0){
+            navigationVoice = getFirstNavigationVoiceOpeningBodySection(navigationVoices[i].children);
+        
+            if(navigationVoice) {
+                break;
             }
         }
-    );
+    }
+    return navigationVoice;
+}
 
-    return menuVoicesRequiringPanel;
+export const getFirstFooterNavigationVoice = function(navigationVoiceId) {
+    let navigationVoice = getNavigationVoice(navigationVoiceId);
+
+    if(navigationVoice.children.count === 0) return;
+
+    return navigationVoice.children[0];
+}
+
+// Given a navigation voice id, this function retrieve its parent navigation voice from state.navigationVoices
+export const getParentNavigationVoice = function(navigationVoiceId, navigationVoices = state.navigationVoices) {
+    let navigationVoice = null;
+    
+    for(let i=0; i<navigationVoices.length; i++){
+        if(navigationVoices[i].children.length == 0) break;
+
+        if(navigationVoices[i].selected && navigationVoices[i].children.some(child => child.id === navigationVoiceId)) {
+            navigationVoice = navigationVoices[i];
+            break;
+        }
+        
+        navigationVoice = getParentNavigationVoice(navigationVoiceId, navigationVoices[i].children);
+        
+        if(navigationVoice) {
+            break;
+        }
+    }
+    return navigationVoice;
 }

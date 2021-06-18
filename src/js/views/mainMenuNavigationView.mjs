@@ -10,40 +10,51 @@ class MainMenuNavigationView {
         this._parentElement.insertAdjacentHTML('beforeend', markup);
     }
 
-    _clear(){
+    _clear() {
         this._parentElement.innerHTML = '';
     }
 
-    renderSpinner = function(){
+    renderSpinner = function() {
         const markup = ``;
     }
 
-    _generateMarkup(){
+    _generateMarkup() {
         return this._data.map(
             voice => this._generateMainMenuNavigationVoiceMarkup(voice)
         ).join('');
     }
 
-    _generateMainMenuNavigationVoiceMarkup(voice){
+    _generateMainMenuNavigationVoiceMarkup(voice) {
         return `
             <li class="menu-item"
                 title="${voice.title}"
                 data-id="${voice.id}">
-                <button class="menu-button first-level">
+                <button 
+                    class="menu-button first-level ${voice.selected ? 'selected' : ''}">
                     <span>${voice.text}</span>
                 </button>
             </li>
         `;
     }
 
-    addHandlerClick(handler){
-        this._parentElement.addEventListener('click', function(e){
+    selectLevelOneNavigationVoice(navigationVoiceId) {
+        const selectedClass = 'selected';
+        Object.values(this._parentElement.querySelectorAll('.menu-item')).forEach(item => {
+            let menuButton = item.querySelector('.menu-button');
+            item.dataset.id === navigationVoiceId ? 
+                menuButton.classList.add(selectedClass) : 
+                menuButton.classList.remove(selectedClass);
+        });
+    }
+
+    addHandlerClick(handler) {
+        this._parentElement.addEventListener('click', function(e) {
             const navigationVoice = e.target.closest('.menu-item');
             if(!navigationVoice) return;
 
             const navigationVoiceId = navigationVoice.dataset.id;
             handler(navigationVoiceId);
-        })
+        });
     }
 }
 
