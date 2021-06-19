@@ -118,34 +118,34 @@ export const getNavigationVoice = function(navigationVoiceId, navigationVoices =
 }
 
 export const selectLevelOneNavigationVoice = function(navigationVoiceId) {
-    this.deselectAllLevelOneNavigationVoices();
+    deselectAllLevelOneNavigationVoices();
 
-    let levelOneNavigationVoiceToSelect = this.state.navigationVoices.find(navigationVoice => navigationVoice.id === navigationVoiceId);
-    this.selectNavigationVoice(levelOneNavigationVoiceToSelect);
+    let levelOneNavigationVoiceToSelect = state.navigationVoices.find(navigationVoice => navigationVoice.id === navigationVoiceId);
+    selectNavigationVoice(levelOneNavigationVoiceToSelect);
 }
 
 export const selectLevelTwoNavigationVoice = function(navigationVoiceId) {
-    let levelOneNavigationVoiceSelected = getSelectedItem(this.state.navigationVoices);
+    let levelOneNavigationVoiceSelected = getSelectedItem(state.navigationVoices);
     if(levelOneNavigationVoiceSelected.open === 2) {
-        this.deselectAllLevelTwoNavigationVoices(levelOneNavigationVoiceSelected);
+        deselectAllLevelTwoNavigationVoices(levelOneNavigationVoiceSelected);
 
         let levelTwoNavigationVoiceToSelect = levelOneNavigationVoiceSelected.children.find(navigationVoice => navigationVoice.id === navigationVoiceId);
-        this.selectNavigationVoice(levelTwoNavigationVoiceToSelect);
+        selectNavigationVoice(levelTwoNavigationVoiceToSelect);
     }
 }
 
 export const deselectAllLevelOneNavigationVoices = function(){
-    this.state.navigationVoices.forEach(navigationVoice => {
-        this.deselectNavigationVoice(navigationVoice);
+    state.navigationVoices.forEach(navigationVoice => {
+        deselectNavigationVoice(navigationVoice);
 
         // Children must be deselected too
-        this.deselectAllLevelTwoNavigationVoices(navigationVoice);
+        deselectAllLevelTwoNavigationVoices(navigationVoice);
     });
 }
 
 export const deselectAllLevelTwoNavigationVoices = function(levelOneNavigationVoice) {
     levelOneNavigationVoice.children.forEach(navigationVoice => {
-        this.deselectNavigationVoice(navigationVoice);
+        deselectNavigationVoice(navigationVoice);
     })
 }
 
