@@ -3,14 +3,52 @@
 // Need to import files individually
 
 // Certificates previews images
-// import preview_real_time_flights_tracker from 'url:../../assets/images/projects-previews/Real_time_flights_tracker.PNG';
-// import preview_eye_movement from 'url:../../assets/images/projects-previews/Eye_movement.PNG';
+// Front-end
+// javascript
+import preview_the_complete_javaScript_course_2021 from 'url:../../assets/images/certificates-previews/front-end/The_complete_javaScript_course_2021.jpg';
+
+// angular
+import preview_reactive_angular_with_rxjs from 'url:../../assets/images/certificates-previews/front-end/Reactive_angular_with_rxjs.jpg';
+
+// react
+
+// Back-end
+// c
+
+// c++
+
+// c#
+import preview_csharp_for_beginners_foundamentals from 'url:../../assets/images/certificates-previews/back-end/Csharp_for_beginners_foundamentals.jpg';
+import preview_csharp_intermediate_classes_interfaces_OOP from 'url:../../assets/images/certificates-previews/back-end/Csharp_intermediate_classes_interfaces_OOP.jpg';
+import preview_double_your_coding_speed_with_visual_studio from 'url:../../assets/images/certificates-previews/back-end/Double_your_coding_speed_with_visual_studio.jpg';
+
+ // 3D Modeling
+ // blender
 
 
 
 const previews = {
-    // preview_real_time_flights_tracker,
-    // preview_eye_movement
+    // Front-end
+    // javascript
+    preview_the_complete_javaScript_course_2021,
+
+    // angular
+    preview_reactive_angular_with_rxjs,
+
+    // react
+
+    // Back-end
+    // c
+
+    // c++
+
+    // c#
+    preview_csharp_for_beginners_foundamentals,
+    preview_csharp_intermediate_classes_interfaces_OOP,
+    preview_double_your_coding_speed_with_visual_studio,
+
+    // 3D Modeling
+    // blender  
 }
 
 class CertificatesView {
@@ -20,13 +58,12 @@ class CertificatesView {
     render(data) {
         this._data = data;
 
-        // Overview section
         const markup = this._generateMarkup();
         this._clear();
         this._parentElement.insertAdjacentHTML('beforeend', markup);
     }
 
-    _clear(){
+    _clear() {
         this._parentElement.innerHTML = '';
     }
 
@@ -35,45 +72,44 @@ class CertificatesView {
     }
 
     _generateMarkup() {
-        if(!this._data){
+        if(!this._data || this._data.length === 0) {
             return `
                 <span>No certificates available yet!</span>
             `;
         }
 
         return `${this._data.map(
-            projectData => this._generateProjectMarkup(projectData)
+            certificateData => this._generateProjectMarkup(certificateData)
         ).join('')}`;
     }
 
-    _generateProjectMarkup(projectData){
+    _generateProjectMarkup(certificateData) {
         return `
         <button 
-            class="card raised"
-            data-id="${projectData.id}">
+            class="card-certificate raised" 
+            data-id="${certificateData.id}">
             <div class="card-header">
-                <span class="card-title">
-                    ${projectData.title}
-                </span>
+                <span class="card-title">${certificateData.title}</span>
             </div>
             <div class="card-body">
-            <div class="preview-container">
-                <img 
-                    class="preview" 
-                    alt="'${projectData.title}' project preview" 
-                    src="${previews[projectData.preview]}">
+                <div class="preview-container">
+                    <img 
+                        class="preview" 
+                        alt="'${certificateData.title}' certificate preview" 
+                        src="${previews[certificateData.preview]}">
+                </div>
+                <div class="info-container">
+                    <span>Instructor: ${certificateData.instructors.join(', ')}</span>
+                    <span>Released by: ${certificateData.platform}</span>
+                    <span>Completed: ${certificateData.completionDate}</span>
+                </div>
             </div>
-            <span class="card-description">
-                ${projectData.description ? projectData.description : 'No description available yet!'}
-            </span>
-            </div>
-            <div class="card-footer">
-            </div>
+            <div class="card-footer"></div>
         </button>
         `;
     }
 
-    addHandlerClick(handler){
+    addHandlerClick(handler) {
         this._footerParentElement.addEventListener('click', function(e){
             const element = e.target.closest('button');
             if(!element) return;

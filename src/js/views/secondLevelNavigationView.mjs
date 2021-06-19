@@ -58,8 +58,8 @@ class SecondLevelNavigationView {
         `;
     }
 
-    addHandlerClick(handler){
-        this._parentElement.addEventListener('click', function(e){
+    addHandlerClick(handler) {
+        this._parentElement.addEventListener('click', function(e) {
             const navigationVoice = e.target.closest('.second-level-nav-item');
             if(!navigationVoice) return;
 

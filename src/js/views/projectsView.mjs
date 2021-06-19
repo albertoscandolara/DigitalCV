@@ -3,14 +3,45 @@
 // Need to import files individually
 
 // Projects previews images
-import preview_real_time_flights_tracker from 'url:../../assets/images/projects-previews/Real_time_flights_tracker.PNG';
-import preview_eye_movement from 'url:../../assets/images/projects-previews/Eye_movement.PNG';
+// Front-end
+// javascript
+import preview_real_time_flights_tracker from 'url:../../assets/images/projects-previews/front-end/Real_time_flights_tracker.PNG';
+import preview_eye_movement from 'url:../../assets/images/projects-previews/front-end/Eye_movement.PNG';
 
+// angular
+
+// react
+
+// Back-end
+// c
+
+// c++
+
+// c#
+
+// 3D Modeling
+// blender
 
 
 const previews = {
+    // Front-end
+    // javascript
     preview_real_time_flights_tracker,
     preview_eye_movement
+
+    // angular
+
+    // react
+
+    // Back-end
+    // c
+
+    // c++
+
+    // c#
+
+    // 3D Modeling
+    // blender                 
 }
 
 class ProjectsView {
@@ -20,13 +51,12 @@ class ProjectsView {
     render(data) {
         this._data = data;
 
-        // Overview section
         const markup = this._generateMarkup();
         this._clear();
         this._parentElement.insertAdjacentHTML('beforeend', markup);
     }
 
-    _clear(){
+    _clear() {
         this._parentElement.innerHTML = '';
     }
 
@@ -35,7 +65,7 @@ class ProjectsView {
     }
 
     _generateMarkup() {
-        if(!this._data){
+        if(!this._data || this._data.length === 0) {
             return `
                 <span>No projects available yet!</span>
             `;
@@ -46,10 +76,10 @@ class ProjectsView {
         ).join('')}`;
     }
 
-    _generateProjectMarkup(projectData){
+    _generateProjectMarkup(projectData) {
         return `
         <button 
-            class="card raised"
+            class="card-project raised"
             data-id="${projectData.id}">
             <div class="card-header">
                 <span class="card-title">
@@ -73,7 +103,7 @@ class ProjectsView {
         `;
     }
 
-    addHandlerClick(handler){
+    addHandlerClick(handler) {
         this._footerParentElement.addEventListener('click', function(e){
             const element = e.target.closest('button');
             if(!element) return;

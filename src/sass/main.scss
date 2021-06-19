@@ -269,7 +269,7 @@ button>span {
       }
     }
   
-    .body{
+    .body {
       display: flex;
       justify-content: center;
       margin: 5px 8px 8px 8px;
@@ -282,11 +282,12 @@ button>span {
         justify-content: center;
 
         .second-level-nav-item {
+          margin: 0 20px;
+
           .second-level-nav-button {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0 20px;
             height: fit-content;
             width: fit-content;
             padding: 20px;
@@ -471,7 +472,81 @@ button>span {
             justify-content: space-around;
             overflow-y: auto;
 
-            .card {
+            .card-certificate {
+              height: 290px; 
+              width: 500px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 10px 12px;
+              margin: 20px 10px;
+              box-sizing: border-box;
+              border-radius: 5px;
+
+              &:hover {
+                font-weight: inherit;
+              }
+
+              &:hover .preview {
+                transition: transform .5s ease;
+                transform: scale(1.2);
+              }
+
+              &:not(:hover) .preview {
+                transition: transform .5s ease;
+                transform: scale(1);
+              }
+
+              .card-header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 25px;
+
+                .card-title{
+                  font-weight: 700;
+                  font-size: 15px;
+                }
+              }
+
+              .card-body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex: 1;
+                width: 100%;
+                padding: 10px 0 0 0;
+
+                .preview-container {
+                  width: 270px;
+                  height: 150px;
+                  border-radius: 5px;
+                  margin-bottom: 10px;
+                  overflow: hidden;
+
+                  .preview {
+                    width: 100%;
+                    height: 100%;
+                  }
+                }
+
+                .info-container {
+                  display: flex;
+                  flex-direction: column;
+                  line-height: 1.5;
+                }
+              }
+
+              .card-footer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 0px;
+                padding-bottom: 0;
+              }
+            }
+
+            .card-project {
               height: 400px;
               width: 300px;
               display: flex;
@@ -714,7 +789,41 @@ button>span {
               background-color: $light-gray-6;
               border: 1px solid $light-gray-6;
 
-              .card {
+              .card-certificate {
+                background-color: $light-gray-10;
+  
+                &:hover {
+                }
+  
+                &:hover .preview {
+                }
+  
+                &:not(:hover) .preview {
+                }
+  
+                .card-header {
+  
+                  .card-title {
+                  }
+                }
+  
+                .card-body {
+  
+                  .preview-container {
+  
+                    .preview {
+                    }
+                  }
+  
+                  .info-container {
+                  }
+                }
+  
+                .card-footer {
+                }
+              }
+
+              .card-project {
                 background-color: $light-gray-10;
   
                 &:hover {
@@ -734,7 +843,7 @@ button>span {
   
                 .card-body {
                   border-bottom: 1px solid $light-gray-0;
-  
+
                   .preview-container {
   
                     .preview {
@@ -916,7 +1025,41 @@ button>span {
               background-color: $dark-gray-6;
               border: 1px solid $dark-gray-6;
 
-              .card {
+              .card-certificate {
+                background-color: $dark-gray-10;
+  
+                &:hover {
+                }
+  
+                &:hover .preview {
+                }
+  
+                &:not(:hover) .preview {
+                }
+  
+                .card-header {
+  
+                  .card-title {
+                  }
+                }
+  
+                .card-body {
+  
+                  .preview-container {
+  
+                    .preview {
+                    }
+                  }
+  
+                  .info-container {
+                  }
+                }
+  
+                .card-footer {
+                }
+              }
+
+              .card-project {
                 background-color: $dark-gray-10;
   
                 &:hover {

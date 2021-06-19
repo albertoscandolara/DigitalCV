@@ -5,15 +5,39 @@ import {allTranslations} from '../json/translations.mjs';
 import {navigationVoices} from '../json/navigationVoices.mjs';
 
 // Projects 
-import {javascript} from '../json/projects/javascript';
+import {javascriptProjects} from '../json/projects/front-end/javascript';
+import {angularProjects} from '../json/projects/front-end/angular';
+import {reactProjects} from '../json/projects/front-end/react';
+import {cProjects} from '../json/projects/back-end/c';
+import {cplusplusProjects} from '../json/projects/back-end/cplusplus';
+import {csharpProjects} from '../json/projects/back-end/csharp';
+import {blenderProjects} from '../json/projects/modeling/blender';
 const projects = { 
-    javascript
+    javascript: javascriptProjects,
+    angular: angularProjects,
+    react: reactProjects,
+    c: cProjects,
+    cplusplus: cplusplusProjects,
+    csharp: csharpProjects,
+    blender: blenderProjects
 };
 
 // Certificates
-//import {javascript} from '../json/certificates/javascript';
+import {javascriptCertificates} from '../json/certificates/front-end/javascript';
+import {angularCertificates} from '../json/certificates/front-end/angular';
+import {reactCertificates} from '../json/certificates/front-end/react';
+import {cCertificates} from '../json/certificates/back-end/c';
+import {cplusplusCertificates} from '../json/certificates/back-end/cplusplus';
+import {csharpCertificates} from '../json/certificates/back-end/csharp';
+import {blenderCertificates} from '../json/certificates/modeling/blender';
 const certificates = { 
-    //javascript
+    javascript: javascriptCertificates,
+    angular: angularCertificates,
+    react: reactCertificates,
+    c: cCertificates,
+    cplusplus: cplusplusCertificates,
+    csharp: csharpCertificates,
+    blender: blenderCertificates
 };
 
 import {getSelectedItem} from './helpers/helpers.mjs';

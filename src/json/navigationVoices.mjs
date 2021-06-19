@@ -237,7 +237,7 @@ export const navigationVoices = [
           ]
         },
         {
-          "id": "C++",
+          "id": "CPlusPlus",
           "open": 1,
           "selected": false,
           "text": "C++",
@@ -277,7 +277,7 @@ export const navigationVoices = [
           ]
         },
         {
-          "id": "C#",
+          "id": "cSharp",
           "open": 1,
           "selected": false,
           "text": "C#",

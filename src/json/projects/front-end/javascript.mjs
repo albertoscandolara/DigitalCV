@@ -1,4 +1,4 @@
-export const javascript = [
+export const javascriptProjects = [
     {
       "title": "Real time flights tracker",
       "description": "Fetch a limited number of plane flights info from The OpenSky Network API, plot them on the map and update them every time interval.",
