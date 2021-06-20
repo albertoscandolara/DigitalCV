@@ -81,7 +81,6 @@ class ProjectsView {
     }
 
     _generateProjectMarkup(projectData) {
-        debugger;
         return `
             <div 
                 class="card-project raised"
@@ -105,9 +104,9 @@ class ProjectsView {
                         ${projectData.githubUrl ? 
                             `
                             <button 
-                                data-type="go-to-project"
+                                data-type="go-to-github"
                                 class="card-link"
-                                title="Open project in a new tab">
+                                title="Go to github repo">
                                 ${this._githubSvgIcon}
                             </button>
                             ` : ''
@@ -190,7 +189,7 @@ class ProjectsView {
                     (e) => {
                         let element = e.target.closest('.card-link');
                         if(!element) return;
-
+                        
                         let projectId = e.target.closest('.card-project').dataset.id;
                         let project = this._data.find(project => project.id === projectId);
                         
