@@ -81,6 +81,7 @@ class ProjectsView {
     }
 
     _generateProjectMarkup(projectData) {
+        debugger;
         return `
             <div 
                 class="card-project raised"
@@ -101,12 +102,16 @@ class ProjectsView {
                         ${projectData.description ? projectData.description : 'No description available yet!'}
                     </span>
                     <div class="card-links-container">
-                        <button 
-                            data-type="go-to-github"
-                            class="card-link"
-                            title="Go to github repo">
-                            ${this._githubSvgIcon}
-                        </button>
+                        ${projectData.githubUrl ? 
+                            `
+                            <button 
+                                data-type="go-to-project"
+                                class="card-link"
+                                title="Open project in a new tab">
+                                ${this._githubSvgIcon}
+                            </button>
+                            ` : ''
+                        }
                     </div>
                 </div>
                 <div class="card-footer">
@@ -134,18 +139,26 @@ class ProjectsView {
                         ${projectData.description ? projectData.description : 'No description available yet!'}
                     </span>
                     <div class="card-links-container">
-                        <button 
-                            data-type="go-to-project"
-                            class="card-link"
-                            title="Open project in a new tab">
-                            ${this._githubSvgIcon}
-                        </button>
-                        <button 
-                            data-type="go-to-github"
-                            class="card-link"
-                            title="Go to github repo">
-                            ${this._githubSvgIcon}
-                        </button>
+                        ${projectData.projectUrl ? 
+                            `
+                            <button 
+                                data-type="go-to-project"
+                                class="card-link"
+                                title="Open project in a new tab">
+                                ${this._githubSvgIcon}
+                            </button>
+                            ` : ''
+                        }
+                        ${projectData.githubUrl ? 
+                            `
+                            <button 
+                                data-type="go-to-github"
+                                class="card-link"
+                                title="Go to github repo">
+                                ${this._githubSvgIcon}
+                            </button>
+                            ` : ''
+                        }
                     </div>
                 </div>
                 <div class="card-footer">
