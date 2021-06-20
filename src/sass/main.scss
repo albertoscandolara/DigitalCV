@@ -211,6 +211,66 @@ button>span {
     }
   }
 
+  .certificate-view {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+
+    .window {
+      display: flex;
+      flex-direction: column;
+      padding: 0 10px;
+      border-radius: 10px;
+      height: 95%;
+
+      .header,
+      .body,
+      .footer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .header {
+        height: 70px;
+
+        .certificate-title {
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+
+      .body {
+        box-sizing: border-box;
+        flex: 1;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 15px 10px;
+        border-radius: 10px;
+        overflow-y: auto;
+        min-height: 150px;
+        padding: 10px;
+        
+        .certificate-full-preview {
+          max-width: 100%;
+          max-height:100%;
+          height: auto;
+        }
+      }
+
+      .footer {
+        height: 100px;
+        justify-content: flex-end;
+      }
+    }
+  }
+
   .main-section {
     height: 100%;
     display: flex;
@@ -700,6 +760,32 @@ button>span {
       }
     }
 
+    .certificate-view {
+  
+      .window {
+        background-color: $light-gray-10;
+        border: 1px solid $light-gray-5;
+
+        .header,
+        .body,
+        .footer {
+        }
+  
+        .header {
+        }
+  
+        .body {
+          background-color: $light-gray-8;
+
+          .certificate-full-preview {
+          }
+        }
+  
+        .footer {
+        }
+      }
+    }
+
     .main-section{
       .header,
       .body,
@@ -933,6 +1019,32 @@ button>span {
           }
         }
 
+        .footer {
+        }
+      }
+    }
+
+    .certificate-view {
+  
+      .window {
+        background-color: $dark-gray-10;
+        border: 1px solid $dark-gray-5;
+  
+        .header,
+        .body,
+        .footer {
+        }
+  
+        .header {
+        }
+  
+        .body {
+          background-color: $dark-gray-8;
+
+          .certificate-full-preview {
+          }
+        }
+  
         .footer {
         }
       }

@@ -27,7 +27,7 @@ import preview_double_your_coding_speed_with_visual_studio from 'url:../../asset
 
 
 
-const previews = {
+const fullView = {
     // Front-end
     // javascript
     preview_the_complete_javaScript_course_2021,
@@ -51,8 +51,9 @@ const previews = {
     // blender  
 }
 
-class CertificatesView {
-    _parentElement = document.querySelector('.body .body-panel .sub-section');
+class CertificateView {
+    _parentElement = document.querySelector('.app-container .certificate-view');
+    _mainSectionElement = document.querySelector('.main-section');
     _data;
 
     render(data) {
@@ -61,6 +62,9 @@ class CertificatesView {
         const markup = this._generateMarkup();
         this._clear();
         this._parentElement.insertAdjacentHTML('beforeend', markup);
+        this._openCertificateView();
+
+        this._setViewEventHandlers();
     }
 
     _clear() {
@@ -72,53 +76,45 @@ class CertificatesView {
     }
 
     _generateMarkup() {
-        if(!this._data || this._data.length === 0) {
-            return `
-                <span>No certificates available yet!</span>
-            `;
-        }
-
-        return `${this._data.map(
-            certificateData => this._generateProjectMarkup(certificateData)
-        ).join('')}`;
-    }
-
-    _generateProjectMarkup(certificateData) {
         return `
-        <button 
-            class="card-certificate raised" 
-            data-id="${certificateData.id}">
-            <div class="card-header">
-                <span class="card-title">${certificateData.title}</span>
+            <div class="window">
+            <div class="header">
+                <span class="certificate-title">
+                    ${this._data.title}
+                </span>
             </div>
-            <div class="card-body">
-                <div class="preview-container">
-                    <img 
-                        class="preview" 
-                        alt="'${certificateData.title}' certificate preview" 
-                        src="${previews[certificateData.preview]}">
-                </div>
-                <div class="info-container">
-                    <span>Instructor: ${certificateData.instructors.join(', ')}</span>
-                    <span>Released by: ${certificateData.platform}</span>
-                    <span>Completed: ${certificateData.completionDate}</span>
-                </div>
+            <div class="body">
+                <img 
+                    class="certificate-full-preview" 
+                    alt="'${this._data.title}' certificate full view"
+                    src="${fullView[this._data.preview]}">
             </div>
-            <div class="card-footer"></div>
-        </button>
+            <div class="footer">
+                <button class="back raised" title="Back">
+                <span>
+                    Back
+                </span>
+                </button>
+            </div>
+            </div>
         `;
     }
 
-    addHandlerClick(handler) {
-        this._parentElement.addEventListener('click', (e) => {
-            const element = e.target.closest('.card-certificate');
-            if(!element) return;
+    _openCertificateView() {
+        this._mainSectionElement.classList.add('blurred');
+        this._parentElement.classList.remove('hidden');
+        this._parentElement.classList.add('semi-transparent-background');
+    }
 
-            const elementId = element.dataset.id;
-            const data = this._data.find(certificateData => certificateData.id === elementId);
-            handler(data);
-        });
+    _closeCertificateView() {
+        this._mainSectionElement.classList.remove('blurred');
+        this._parentElement.classList.add('hidden');
+        this._parentElement.classList.remove('semi-transparent-background');
+    }
+
+    _setViewEventHandlers() {
+        this._parentElement.querySelector('.back').addEventListener('click', () => this._closeCertificateView())
     }
 }
 
-export default new CertificatesView();
+export default new CertificateView();

@@ -1,5 +1,6 @@
 export const angularCertificates = [
   {
+    "id": "Front_end_Angular_001",
     "title": "Reactive Angular Course (with RxJs)",
     "instructors": ["Angular university"],
     "platform": "Udemy",

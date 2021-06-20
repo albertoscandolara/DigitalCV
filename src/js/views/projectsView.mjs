@@ -104,13 +104,14 @@ class ProjectsView {
     }
 
     addHandlerClick(handler) {
-        this._footerParentElement.addEventListener('click', function(e){
-            const element = e.target.closest('button');
+        this._parentElement.addEventListener('click', (e) => {
+            const element = e.target.closest('.card-project');
             if(!element) return;
 
-            const elementId = navigationVoice.dataset.id;
-            handler(element);
-        })
+            const elementId = element.dataset.id;
+            const data = this._data.find(projectData => projectData.id === elementId);
+            handler(data);
+        });
     }
 }
 

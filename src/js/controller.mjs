@@ -11,6 +11,8 @@ import topicOverview from './views/body-content-views/topicOverview.mjs';
 import projectsView from './views/projectsView.mjs';
 import certificatesView from './views/certificatesView.mjs';
 
+import certificateView from './views/certificateView.mjs';
+
 if(module.hot){
     module.hot.accept
 }
@@ -144,6 +146,7 @@ const controlLoadStandardNavigationVoiceBody = function(navigationVoice, parentN
         case certificatesString:
             let certificates = model.state[certificatesString][parentNavigationVoice.id.toLowerCase()];
             certificatesView.render(certificates);
+            certificatesView.addHandlerClick(controlManageCertificateClick);
             break;
         case projectsString:
             let projects = model.state[projectsString][parentNavigationVoice.id.toLowerCase()];
@@ -158,6 +161,10 @@ const controlLoadTravelsBodySection = function() {
 
 const controlLoadLanguagesBodySection = function() {
 
+}
+
+const controlManageCertificateClick = function(certificate) {
+    certificateView.render(certificate);
 }
 
 //////////////////////////////////////////

@@ -1,5 +1,6 @@
 export const javascriptCertificates = [
     {
+      "id": "Front_end_Javascript_001",
       "title": "The Complete JavaScript Course 2021: From Zero to Expert!",
       "instructors": ["Jonas Schmedtmann"],
       "platform": "Udemy",
