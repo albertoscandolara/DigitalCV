@@ -637,7 +637,7 @@ button>span {
                 align-items: center;
                 height: 25px;
 
-                .card-title{
+                .card-title {
                   font-weight: 700;
                   font-size: 15px;
                 }
@@ -647,6 +647,8 @@ button>span {
                 width: 100%;
                 flex: 1;
                 padding: 10px 0;
+                display: flex;
+                flex-direction: column;
 
                 .preview-container {
                   width: 100%;
@@ -662,9 +664,22 @@ button>span {
                 }
 
                 .card-description {
+                  flex: 1;
                   font-size: 14px;
                   white-space: pre-line;
                   line-height: 1.7;
+                }
+
+                .card-links-container {
+                  display: flex;
+                  justify-content: flex-end;
+                  align-items: center;
+                  height: 30px;
+
+                  .card-link {
+                    width: 40px;
+                    height: 100%;
+                  }
                 }
               }
 
@@ -938,6 +953,12 @@ button>span {
   
                   .card-description {
                   }
+
+                  .card-links-container {
+                    .card-link {
+                      
+                    }
+                  }
                 }
   
                 .card-footer {
@@ -1199,6 +1220,12 @@ button>span {
                   }
   
                   .card-description {
+                  }
+
+                  .card-links-container {
+                    .card-link {
+                      
+                    }
                   }
                 }
   

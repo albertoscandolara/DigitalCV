@@ -12,6 +12,7 @@ import {cProjects} from '../json/projects/back-end/c';
 import {cplusplusProjects} from '../json/projects/back-end/cplusplus';
 import {csharpProjects} from '../json/projects/back-end/csharp';
 import {blenderProjects} from '../json/projects/modeling/blender';
+
 const projects = { 
     javascript: javascriptProjects,
     angular: angularProjects,
@@ -30,6 +31,7 @@ import {cCertificates} from '../json/certificates/back-end/c';
 import {cplusplusCertificates} from '../json/certificates/back-end/cplusplus';
 import {csharpCertificates} from '../json/certificates/back-end/csharp';
 import {blenderCertificates} from '../json/certificates/modeling/blender';
+
 const certificates = { 
     javascript: javascriptCertificates,
     angular: angularCertificates,
@@ -46,6 +48,7 @@ let translations = {};
 
 export const state = {
     themes: {},
+    svgIcons,
     languages: [],
     navigationVoices: [],
     projects: projects,

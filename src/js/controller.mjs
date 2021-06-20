@@ -150,7 +150,7 @@ const controlLoadStandardNavigationVoiceBody = function(navigationVoice, parentN
             break;
         case projectsString:
             let projects = model.state[projectsString][parentNavigationVoice.id.toLowerCase()];
-            projectsView.render(projects);
+            projectsView.render(projects, model.state.svgIcons.github);
         break;
     }
 }
