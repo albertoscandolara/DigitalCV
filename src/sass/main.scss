@@ -374,7 +374,7 @@ button>span {
         padding: 10px;
 
         .topic-container {
-          width: 30%;
+          width: 500px;
           height: 100%;
           padding: 0 0 0 0;
           display: flex;
@@ -490,7 +490,8 @@ button>span {
           display: flex;
           // align-items: center;
           // justify-content: center;
-          width: 100%;
+          //width: 100%;    
+          flex: 1;
           overflow: hidden;
 
           .resizer {
@@ -504,16 +505,16 @@ button>span {
               cursor: ew-resize;
               background-image: url('../assets/images/resizer-vertical.svg');
               height: 100%;
-              width: 3px;
-              margin: 0 3px;
+              width: 4px;
+              margin: 0px 1px;
             }
 
             &.horizontal {
               cursor: ns-resize;
               background-image: url('../assets/images/resizer-horizontal.svg');
-              height: 3px;
+              height: 4px;
               width: 100%;
-              margin: 3px 0;
+              margin: 1px 0;
             }
 
             &:hover {

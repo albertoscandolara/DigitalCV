@@ -50,10 +50,12 @@ class ProjectsView {
     _parentElement = document.querySelector('.body .body-panel .sub-section');
     _data;
     _githubSvgIcon;
+    _openNewTabSvgIcon;
 
-    render(data, githubSvgIcon) {
+    render(data, githubSvgIcon, openNewTabSvgIcon) {
         this._data = data;
         this._githubSvgIcon = githubSvgIcon;
+        this._openNewTabSvgIcon = openNewTabSvgIcon;
         const markup = this._generateMarkup();
         this._clear();
         this._parentElement.insertAdjacentHTML('beforeend', markup);
@@ -101,50 +103,13 @@ class ProjectsView {
                         ${projectData.description ? projectData.description : 'No description available yet!'}
                     </span>
                     <div class="card-links-container">
-                        ${projectData.githubUrl ? 
-                            `
-                            <button 
-                                data-type="go-to-github"
-                                class="card-link"
-                                title="Go to github repo">
-                                ${this._githubSvgIcon}
-                            </button>
-                            ` : ''
-                        }
-                    </div>
-                </div>
-                <div class="card-footer">
-                </div>
-            </div>
-        `;
-
-        return `
-            <div 
-                class="card-project raised"
-                data-id="${projectData.id}">
-                <div class="card-header">
-                    <span class="card-title">
-                        ${projectData.title}
-                    </span>
-                </div>
-                <div class="card-body">
-                    <div class="preview-container">
-                        <img 
-                            class="preview" 
-                            alt="'${projectData.title}' project preview" 
-                            src="${previews[projectData.preview]}">
-                    </div>
-                    <span class="card-description">
-                        ${projectData.description ? projectData.description : 'No description available yet!'}
-                    </span>
-                    <div class="card-links-container">
                         ${projectData.projectUrl ? 
                             `
                             <button 
                                 data-type="go-to-project"
                                 class="card-link"
                                 title="Open project in a new tab">
-                                ${this._githubSvgIcon}
+                                ${this._openNewTabSvgIcon}
                             </button>
                             ` : ''
                         }

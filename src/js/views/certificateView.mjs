@@ -83,7 +83,7 @@ class CertificateView {
                     ${this._data.title}
                 </span>
             </div>
-            <div class="body">
+            <div class="body sunk">
                 <img 
                     class="certificate-full-preview" 
                     alt="'${this._data.title}' certificate full view"
