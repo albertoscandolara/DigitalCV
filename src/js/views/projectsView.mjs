@@ -9,6 +9,7 @@ import {openInNewTab} from './../helpers/helpers.mjs';
 // javascript
 import preview_real_time_flights_tracker from 'url:../../assets/images/projects-previews/front-end/Real_time_flights_tracker.PNG';
 import preview_eye_movement from 'url:../../assets/images/projects-previews/front-end/Eye_movement.PNG';
+import preview_heroes_heads from 'url:../../assets/images/projects-previews/front-end/Heroes_heads.PNG';
 
 // angular
 
@@ -29,7 +30,8 @@ const previews = {
     // Front-end
     // javascript
     preview_real_time_flights_tracker,
-    preview_eye_movement
+    preview_eye_movement,
+    preview_heroes_heads
 
     // angular
 

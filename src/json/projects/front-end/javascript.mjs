@@ -19,12 +19,12 @@ export const javascriptProjects = [
     },
     {
       "id": "Front_end_Javascript_003",
-      "title": "Pacman",
-      "description": "",
-      "preview": "",
+      "title": "Heroes heads (Pacmen)",
+      "description": "Create a random hero head at every button click. It then moves them casually on the screen. When a head hits a border, the hero changes.",
+      "preview": "preview_heroes_heads",
       "difficulty": 1,
-      "projectUrl": "",
-      "githubUrl": ""
+      "projectUrl": "https://heroes-heads.netlify.app",
+      "githubUrl": "https://github.com/albertoscandolara/Heroes-heads"
     }
   ];
   
