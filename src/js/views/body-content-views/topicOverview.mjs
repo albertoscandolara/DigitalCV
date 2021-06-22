@@ -11,6 +11,7 @@ import logo_c_sharp from 'url:../../../assets/images/logos/logo_c_sharp.svg';
 
 import certificate from 'url:../../../assets/images/certificate.svg';
 import project from 'url:../../../assets/images/project.svg';
+import contacts from 'url:../../../assets/images/contacts.svg';
 import airplane from 'url:../../../assets/images/airplane.svg';
 import languages from 'url:../../../assets/images/languages.svg';
 
@@ -23,6 +24,7 @@ const logos = {
 const footerVoices = {
     certificate,
     project,
+    contacts,
     airplane,
     languages
 }

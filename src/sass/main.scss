@@ -374,6 +374,7 @@ button>span {
         padding: 10px;
 
         .topic-container {
+          min-width: 300px;
           width: 500px;
           height: 100%;
           padding: 0 0 0 0;
@@ -402,6 +403,9 @@ button>span {
             display: flex;
             flex-direction: column;
             flex: 1;
+            box-sizing: border-box;
+            padding: 0 15px;
+            min-height: 0;
 
             .topic-title {   
               margin: 0; 
@@ -417,6 +421,7 @@ button>span {
               text-align: center;
               font-size: 14px;
               line-height: 2.5;
+              overflow-y: auto;
             }
           }
           

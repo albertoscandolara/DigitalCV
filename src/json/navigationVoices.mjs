@@ -25,12 +25,12 @@ export const navigationVoices = [
       "custom": false,
       "children": [
         {
-          "id": "Travels",
+          "id": "Contacts",
           "open": null,
           "selected": false,
-          "text": "Travels",
-          "title": "Travels",
-          "icon": "airplane",
+          "text": "Contacts",
+          "title": "Contacts",
+          "icon": "contacts",
           "ready": true,
           "toLearn": false,
           "requirePanel": false,
@@ -45,6 +45,19 @@ export const navigationVoices = [
           "title": "Languages",
           "icon": "languages",
           "ready": false,
+          "toLearn": false,
+          "requirePanel": false,
+          "custom": true,
+          "children": []
+        },
+        {
+          "id": "Travels",
+          "open": null,
+          "selected": false,
+          "text": "Travels",
+          "title": "Travels",
+          "icon": "airplane",
+          "ready": true,
           "toLearn": false,
           "requirePanel": false,
           "custom": true,
@@ -65,17 +78,17 @@ export const navigationVoices = [
       "custom": false,
       "children": [
         {
-          "id": "Javascript",
+          "id": "JavaScript",
           "open": 1,
           "selected": false,
-          "text": "Javascript",
-          "title": "Javascript",
+          "text": "JavaScript",
+          "title": "JavaScript",
           "icon": "logo_javascript",
           "ready": false,
           "toLearn": false,
           "requirePanel": true,
           "custom": false,
-          "overviewText": "",
+          "overviewText": "Started learning JavaScript in 2019. Experience with intermediate JavaScript concepts and their evolution through subsequent EcmaScript releases, such as OOP pattern (with constructor functions, classes and prototypes), asynchronous code (with XMLHttpRequests, fetch and async/await) and functional coding. At ease with basic tecniques as destructuring, spread operator, event listeners, array manipulation methods. Also familiar with some JavaScript frameworks, such as JQuery and JQuery-UI.",
           "children": [
             {
               "id": "Certificates",
@@ -373,11 +386,11 @@ export const navigationVoices = [
       ]
     },
     {
-      "id": "About this app",
+      "id": "About this website",
       "open": 1,
       "selected": false,
-      "text": "About this app",
-      "title": "About this app",
+      "text": "About this website",
+      "title": "About this website",
       "icon": "",
       "ready": false,
       "toLearn": false,
