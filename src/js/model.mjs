@@ -1,4 +1,6 @@
 import {svgIcons} from '../json/svgIcons.mjs';
+import {anagraphic} from '../json/anagraphic.mjs';
+import {contacts} from '../json/contacts.mjs';
 import {themes} from '../json/themes.mjs';
 import {languages} from '../json/languages.mjs';
 import {allTranslations} from '../json/translations.mjs';
@@ -49,6 +51,8 @@ let translations = {};
 export const state = {
     themes: {},
     svgIcons,
+    anagraphic,
+    contacts,
     languages: [],
     navigationVoices: [],
     projects: projects,
@@ -59,13 +63,13 @@ export const state = {
 //            Themes manager            //
 //////////////////////////////////////////
 
-export const loadThemes = function(){
+export const loadThemes = function() {
     state.themes = Object.values(themes)
         .map(theme => 
             ({...theme, svgIcon: svgIcons[theme.svgIcon]})
         );
 
-    if(!getSelectedItem(state.themes)){
+    if(!getSelectedItem(state.themes)) {
         setSelectedTheme(state.themes[0]);
     }
 }
@@ -80,7 +84,7 @@ export const setSelectedTheme = function(themeID) {
 //////////////////////////////////////////
 //              Languages               //
 //////////////////////////////////////////
-const loadTranslations = function(languageAcronym){
+const loadTranslations = function(languageAcronym) {
     translations = Object.fromEntries(
         Object.entries(allTranslations).map(
             ([key, value]) => [[key], value[languageAcronym]]
@@ -88,7 +92,7 @@ const loadTranslations = function(languageAcronym){
     );
 }
 
-export const loadLanguages = function(){
+export const loadLanguages = function() {
     state.languages = languages;
 
     const localStorageLanguage = window.localStorage.getItem('language');
@@ -96,7 +100,7 @@ export const loadLanguages = function(){
     const defaultLanguage = 'en-GB';
 
     let selectedLanguage;
-    if(localStorageLanguage){
+    if(localStorageLanguage) {
         selectedLanguage = localStorageLanguage;
     } else if (navLanguage && state.languages.some(language => language.acronym === navLanguage)) {
         selectedLanguage = navLanguage;
@@ -127,13 +131,13 @@ export const loadMainMenuNavigation = function() {
 export const getNavigationVoice = function(navigationVoiceId, navigationVoices = state.navigationVoices){
     let navigationVoice = null;
     
-    for(let i=0; i<navigationVoices.length; i++){
-        if(navigationVoices[i].id === navigationVoiceId){
+    for(let i=0; i<navigationVoices.length; i++) {
+        if(navigationVoices[i].id === navigationVoiceId) {
             navigationVoice = navigationVoices[i]; 
             break;
         }
 
-        if(navigationVoices[i].children.length > 0){
+        if(navigationVoices[i].children.length > 0) {
             navigationVoice = getNavigationVoice(navigationVoiceId, navigationVoices[i].children);
         
             if(navigationVoice) {
@@ -187,13 +191,13 @@ export const selectNavigationVoice = function(navigationVoice) {
 export const getFirstNavigationVoiceOpeningBodySection = function(navigationVoices = state.navigationVoices) {
     let navigationVoice = null;
     
-    for(let i=0; i<navigationVoices.length; i++){
-        if(navigationVoices[i].open === 1){
+    for(let i=0; i<navigationVoices.length; i++) {
+        if(navigationVoices[i].open === 1) {
             navigationVoice = navigationVoices[i]; 
             break;
         }
 
-        if(navigationVoices[i].children.length > 0){
+        if(navigationVoices[i].children.length > 0) {
             navigationVoice = getFirstNavigationVoiceOpeningBodySection(navigationVoices[i].children);
         
             if(navigationVoice) {
@@ -216,7 +220,7 @@ export const getFirstFooterNavigationVoice = function(navigationVoiceId) {
 export const getParentNavigationVoice = function(navigationVoiceId, navigationVoices = state.navigationVoices) {
     let navigationVoice = null;
     
-    for(let i=0; i<navigationVoices.length; i++){
+    for(let i=0; i<navigationVoices.length; i++) {
         if(navigationVoices[i].children.length == 0) break;
 
         if(navigationVoices[i].selected && navigationVoices[i].children.some(child => child.id === navigationVoiceId)) {

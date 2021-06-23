@@ -30,8 +30,8 @@ $light-gray-20: #f8f8f8;
 $light-gray-21: #fbfbfb;
 
 $apply-light: #d4dbe2;
-$menu-selected-light: #4784b9;
-$semi-transparent-background-light: #c1c1c1c4;
+$blue-light: #4784b9;
+$semi-transparent-background-light: #4a4a4ac4;
 
 
 // dark palette
@@ -59,7 +59,7 @@ $dark-gray-20: #505050;
 $dark-gray-21: #545454;
 
 $apply-dark: #193558;
-$menu-selected-dark: #4784b9;
+$blue-dark: #4784b9;
 $semi-transparent-background-dark: #101010c4;
 
 // $light-semi-transparent-gray-8: #dadadab3;
@@ -139,24 +139,32 @@ button>span {
     display: none !important;
   }
 
-  .raised{
+  .raised {
 
   }
 
-  .sunk{
+  .sunk {
 
   }
 
-  .apply{
+  .apply {
 
   }
 
-  .back{
+  .back {
 
   }
 
-  .apply + .back{
+  .apply + .back {
     margin-left: 15px;
+  }
+
+  .separator {
+    width: 100%;
+  }
+
+  .selectable {
+    user-select: text;
   }
 
   .choose-language {
@@ -238,11 +246,20 @@ button>span {
       }
 
       .header {
+        position: relative;
         height: 70px;
 
         .certificate-title {
           font-size: 20px;
           font-weight: 600;
+        }
+
+        .close-window-button {
+          position: absolute;
+          right: 0;
+          width: 40px;
+          height: 40px;
+          font-size: 15px;
         }
       }
 
@@ -403,6 +420,7 @@ button>span {
             display: flex;
             flex-direction: column;
             flex: 1;
+            align-items: center;
             box-sizing: border-box;
             padding: 0 15px;
             min-height: 0;
@@ -413,81 +431,142 @@ button>span {
               justify-content: center;
               align-items: center;
               font-size: 18px;
-              color: #036fd0;
             }
 
             .topic-overview {
+              flex: 1;
               width: 100%;
               text-align: center;
               font-size: 14px;
               line-height: 2.5;
               overflow-y: auto;
             }
+
+            .profile-pic-container {
+              height: 200px;
+              width: 200px;
+              margin: 20px 0 0 0;
+
+              .profile-pic {
+                height: 100%;
+                width: 100%;
+                background-color: aliceblue;
+                border-radius: 50%;
+              }
+            }
+
+            .info-container {
+              flex: 1;
+              width: 100%;
+              font-size: 14px;
+
+              .info-container-header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-size: 18px;
+                margin: 15px 0;
+              }
+
+              .info-container-body {
+                display: flex;
+                flex-direction: column;
+
+                .anagraphic-element-container {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  height: 40px;
+                  
+                  .anagraphic-icon {
+                    height: 25px;
+                    width: 25px;
+                    margin-right: 20px;
+                  }
+
+                  .anagraphic-info-value {
+
+                  }
+                }
+              }
+
+              .info-container-footer {
+
+              }
+            }
           }
           
           .topic-footer {
-            height: 90px;
-            box-sizing: border-box;
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            padding: 5px;
+            flex-direction: column;
 
-            .topic-navigation-bar {
+            .topic-footer-navigation-container {
               display: flex;
-              flex: 1;
-              height: 100%;
+              height: 90px;
+              width: 100%;
+              box-sizing: border-box;
+              flex-direction: row;
+              align-items: center;
+              padding: 5px;
 
-              ul {
-                height: 100%;
+              .topic-navigation-bar {
                 display: flex;
-                align-items: center;
-
-                li {
-                  height: 70px;
-                  width: 70px;
-                  margin: 10px;
-
-                  .topic-footer-button {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    width: inherit;
-                    height: inherit;
-
-                    .topic-footer-button-img {
-                      height:50px;
-                      width: 50px;
+                flex: 1;
+                height: 100%;
+  
+                ul {
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+  
+                  li {
+                    height: 70px;
+                    width: 70px;
+                    margin: 10px;
+  
+                    .topic-footer-button {
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      width: inherit;
+                      height: inherit;
+  
+                      .topic-footer-button-img {
+                        height:50px;
+                        width: 50px;
+                      }
+  
+                      .topic-footer-button-text {
+                        font-size: 12px;
+                      }
                     }
-
-                    .topic-footer-button-text {
-                      font-size: 12px;
-                    }
+                  }
+                }
+              }
+  
+              .arrow-container {
+                width: 20px;
+                height: 100%;
+  
+                .arrow {
+                  width: 100%;
+                  height: 100%;
+                  display: flex;
+                  align-items: center;
+          
+                  &.previous {
+                  justify-content: flex-start;
+          
+                  }
+  
+                  &.following {
+                    justify-content: flex-end;
                   }
                 }
               }
             }
 
-            .arrow-container {
-              width: 20px;
-              height: 100%;
-
-              .arrow {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-        
-                &.previous {
-                justify-content: flex-start;
-        
-                }
-
-                &.following {
-                  justify-content: flex-end;
-                }
-              }
-            }
+            
           }
         }
 
@@ -498,6 +577,7 @@ button>span {
           //width: 100%;    
           flex: 1;
           overflow: hidden;
+          min-width: 580px;
 
           .resizer {
             box-sizing: border-box;
@@ -537,6 +617,42 @@ button>span {
             flex-wrap: wrap;
             justify-content: space-around;
             overflow-y: auto;
+
+            .all-contacts-container {
+              display: flex;
+              flex-direction: row;
+              flex-wrap: wrap;
+              justify-content: space-around;
+              width: 100%;
+
+              .contacts-group-container {
+                display: flex;
+                flex-direction: column;
+                padding: 20px;
+    
+                .contact-container {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  justify-content: flex-start;
+                  box-sizing: border-box;
+                  height: auto;
+                  width: 400px;
+                  height: 100px;
+                  padding: 10px;
+
+                  .contact-logo {
+                    height: 60px;
+                    width: auto;
+                    margin-right: 30px;
+                  }
+
+                  .contact-text{
+
+                  }
+                }
+              }
+            }
 
             .card-certificate {
               height: 290px; 
@@ -691,10 +807,16 @@ button>span {
 
               .card-footer {
                 display: flex;
-                justify-content: center;
-                align-items: center;
+                flex-direction: column;
                 height: 25px;
+                width: 100%;
                 padding-bottom: 10px;
+
+                .card-footer-content-container {
+                  flex: 1;
+                  width: 100%;
+                  display: flex;
+                }
               }
             }
           }
@@ -759,6 +881,11 @@ button>span {
 
     }
 
+    .separator {
+      border-top: 2px solid $light-gray-14;
+      border-bottom: 2px solid $light-gray-5;
+    }
+
     .choose-language {
       .window {
         background-color: $light-gray-10;
@@ -793,6 +920,13 @@ button>span {
         }
   
         .header {
+
+          .certificate-title {
+          }
+  
+          .close-window-button {
+          }
+
         }
   
         .body {
@@ -831,7 +965,7 @@ button>span {
                     &.first-level {
                       &:hover,
                       &.selected {
-                        border-bottom: 3px solid $menu-selected-light;
+                        border-bottom: 3px solid $blue-light;
                       }
                     }
                   }
@@ -869,16 +1003,88 @@ button>span {
           }
         }
   
-        .body-panel{
+        .body-panel {
   
-          .topic-container{
-            .topic-header{
+          .topic-container {
+
+            .topic-header {
             }
-            .topic-body{
-            }
+            .topic-body {
+
+              .topic-title { 
+                color: $blue-light;  
+              }
   
-            .topic-footer{
-              border-top: 1px solid $light-gray-0;
+              .topic-overview {
+              }
+  
+              .profile-pic-container {
+  
+                .profile-pic {
+  
+                }
+              }
+              
+              .info-container {
+  
+                .info-container-header {
+                  color: $blue-light;
+                }
+
+                .info-container-body {
+
+                  .anagraphic-element-container {
+                    
+                    .anagraphic-icon {
+
+                    }
+
+                    .anagraphic-info-value {
+
+                    }
+                  }
+                }
+
+                .info-container-footer {
+
+                }
+              }
+            }
+
+            .topic-footer {
+  
+              .topic-footer-navigation-container {
+
+                .topic-navigation-bar {
+    
+                  ul {
+    
+                    li {
+    
+                      .topic-footer-button {
+    
+                        .topic-footer-button-img {
+                        }
+    
+                        .topic-footer-button-text {
+                        }
+                      }
+                    }
+                  }
+                }
+    
+                .arrow-container {
+    
+                  .arrow {
+            
+                    &.previous {
+                    }
+    
+                    &.following {
+                    }
+                  }
+                }
+              }
             }
           }
 
@@ -895,6 +1101,23 @@ button>span {
             .sub-section {
               background-color: $light-gray-6;
               border: 1px solid $light-gray-6;
+
+              .all-contacts-container {
+
+                .contacts-group-container {
+  
+                  .contact-container {
+                    
+                    .contact-logo {
+  
+                    }
+  
+                    .contact-text{
+  
+                    }
+                  }
+                }
+              }
 
               .card-certificate {
                 background-color: $light-gray-10;
@@ -949,7 +1172,6 @@ button>span {
                 }
   
                 .card-body {
-                  border-bottom: 1px solid $light-gray-0;
 
                   .preview-container {
   
@@ -968,6 +1190,9 @@ button>span {
                 }
   
                 .card-footer {
+
+                  .card-footer-content-container {
+                  }
                 }
               }
             }
@@ -1029,6 +1254,11 @@ button>span {
 
     }
 
+    .separator {
+      border-top: 2px solid $dark-gray-14;
+      border-bottom: 2px solid $dark-gray-5;
+    }
+
     .choose-language {
       .window {
         background-color: $dark-gray-10;
@@ -1063,6 +1293,13 @@ button>span {
         }
   
         .header {
+
+          .certificate-title {
+          }
+  
+          .close-window-button {
+          }
+
         }
   
         .body {
@@ -1100,7 +1337,7 @@ button>span {
                     &.first-level {
                       &:hover,
                       &.selected {
-                        border-bottom: 3px solid $menu-selected-dark;
+                        border-bottom: 3px solid $blue-dark;
                       }
                     }
                   }
@@ -1122,32 +1359,105 @@ button>span {
       }
     
       .body {
+
         .second-level-nav {
   
           .second-level-nav-item {
 
             .second-level-nav-button {
   
-              img{
+              img {
               }
   
-              span{
+              span {
                 
               }
             }
           }
         }
   
-        .body-panel{
+        .body-panel {
   
-          .topic-container{
-            .topic-header{
+          .topic-container {
+            .topic-header {
             }
-            .topic-body{
+
+            .topic-body {
+
+              .topic-title {  
+                color: $blue-dark;
+              }
+  
+              .topic-overview {
+              }
+  
+              .profile-pic-container {
+  
+                .profile-pic {
+  
+                }
+              }
+  
+              .info-container {
+
+                .info-container-header {
+                  color: $blue-dark;
+                }
+
+                .info-container-body {
+
+                  .anagraphic-element-container {
+                    
+                    .anagraphic-icon {
+
+                    }
+
+                    .anagraphic-info-value {
+
+                    }
+                  }
+                }
+
+                .info-container-footer {
+
+                }
+              }
             }
   
-            .topic-footer{
-              border-top: 1px solid $dark-gray-0;
+            .topic-footer {
+  
+              .topic-footer-navigation-container {
+
+                .topic-navigation-bar {
+    
+                  ul {
+    
+                    li {
+    
+                      .topic-footer-button {
+    
+                        .topic-footer-button-img {
+                        }
+    
+                        .topic-footer-button-text {
+                        }
+                      }
+                    }
+                  }
+                }
+    
+                .arrow-container {
+    
+                  .arrow {
+            
+                    &.previous {
+                    }
+    
+                    &.following {
+                    }
+                  }
+                }
+              }
             }
           }
   
@@ -1163,6 +1473,23 @@ button>span {
             .sub-section {
               background-color: $dark-gray-6;
               border: 1px solid $dark-gray-6;
+
+              .all-contacts-container {
+
+                .contacts-group-container {
+  
+                  .contact-container {
+                    
+                    .contact-logo {
+  
+                    }
+  
+                    .contact-text{
+  
+                    }
+                  }
+                }
+              }
 
               .card-certificate {
                 background-color: $dark-gray-10;
@@ -1217,7 +1544,6 @@ button>span {
                 }
   
                 .card-body {
-                  border-bottom: 1px solid $dark-gray-0;
   
                   .preview-container {
   
@@ -1236,6 +1562,9 @@ button>span {
                 }
   
                 .card-footer {
+
+                  .card-footer-content-container {
+                  }
                 }
               }
             }

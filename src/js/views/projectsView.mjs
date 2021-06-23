@@ -130,6 +130,8 @@ class ProjectsView {
                     </div>
                 </div>
                 <div class="card-footer">
+                    <div class="separator"></div>
+                    <div class="card-footer-content-container"></div>
                 </div>
             </div>
         `;

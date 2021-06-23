@@ -82,6 +82,9 @@ class CertificateView {
                 <span class="certificate-title">
                     ${this._data.title}
                 </span>
+                <button class="close-window-button raised">
+                    x
+                </button>
             </div>
             <div class="body sunk">
                 <img 
@@ -113,7 +116,14 @@ class CertificateView {
     }
 
     _setViewEventHandlers() {
-        this._parentElement.querySelector('.back').addEventListener('click', () => this._closeCertificateView())
+        // Close certificate view by clicking top-right 'x', bottom-right 'back' or outside modal window
+        this._parentElement.querySelector('.close-window-button').addEventListener('click', () => this._closeCertificateView());
+        this._parentElement.querySelector('.back').addEventListener('click', () => this._closeCertificateView());
+        this._parentElement.addEventListener('click', (e) => {
+            let window = e.target.closest('.window');
+            if(window) return;
+            this._closeCertificateView()}
+        );
     }
 }
 

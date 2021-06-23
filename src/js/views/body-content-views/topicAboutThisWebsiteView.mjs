@@ -11,6 +11,9 @@ import logo_c_sharp from 'url:../../../assets/images/logos/logo_c_sharp.svg';
 
 import certificate from 'url:../../../assets/images/certificate.svg';
 import project from 'url:../../../assets/images/project.svg';
+import contacts from 'url:../../../assets/images/contacts.svg';
+import airplane from 'url:../../../assets/images/airplane.svg';
+import languages from 'url:../../../assets/images/languages.svg';
 
 const logos = { 
     logo_javascript, logo_angular, logo_react, 
@@ -18,12 +21,15 @@ const logos = {
     logo_blender 
 };
 
-const footerIcons = {
+const footerVoices = {
     certificate,
-    project
+    project,
+    contacts,
+    airplane,
+    languages
 }
 
-class TopicOverview {
+class TopicAboutThisWebsiteView {
     _parentElement = document.querySelector('.body .body-panel .topic-container');
     _footerParentElement = null;
     _data;
@@ -43,7 +49,7 @@ class TopicOverview {
         this._footerParentElement.insertAdjacentHTML('beforeend', footerMarkup);
     }
 
-    _clear() {
+    _clear(){
         this._parentElement.innerHTML = '';
     }
 
@@ -58,18 +64,10 @@ class TopicOverview {
     _generateMarkup() {
         return `
             <div class="topic-header">
-                <div class="topic-logo">
-                    <img
-                        src="${logos[this._data.icon]}" 
-                        alt="${this._data.icon}" 
-                        title="${this._data.title}">
-                </div>
+                
             </div>
             <div class="topic-body">
-                <h1 class="topic-title">Overview</h1>
-                <p class="topic-overview">
-                    ${this._data.overviewText ? this._data.overviewText : 'No overview available yet!' }
-                </p>
+                
             </div>
             <div class="topic-footer">
             </div>
@@ -97,7 +95,7 @@ class TopicOverview {
         `;
     }
 
-    _generateTopicNavigationVoiceMarkup(voice) {
+    _generateTopicNavigationVoiceMarkup(voice){
         return `
             <li>
                 <button 
@@ -106,7 +104,7 @@ class TopicOverview {
                     data-id="${voice.id}">
                     <img 
                         class="topic-footer-button-img"
-                        src="${footerIcons[voice.icon]}" 
+                        src="${footerVoices[voice.icon]}" 
                         alt="${voice.text}">
                     <span 
                         class="topic-footer-button-text">
@@ -117,7 +115,7 @@ class TopicOverview {
         `;
     }
 
-    addHandlerClick(handler) {
+    addHandlerClick(handler){
         this._footerParentElement.addEventListener('click', function(e){
             const element = e.target.closest('button');
             if(!element) return;
@@ -128,4 +126,4 @@ class TopicOverview {
     }
 }
 
-export default new TopicOverview();
+export default new TopicAboutThisWebsiteView();

@@ -8,6 +8,10 @@ import mainMenuNavigationView from './views/mainMenuNavigationView.mjs';
 import secondLevelNavigationView from './views/secondLevelNavigationView.mjs';
 
 import topicOverview from './views/body-content-views/topicOverview.mjs';
+import topicAboutMeView from './views/body-content-views/topicAboutMeView.mjs';
+import topicAboutThisWebsiteView from './views/body-content-views/topicAboutThisWebsiteView.mjs';
+
+import contactsView from './views/contactsView.mjs';
 import projectsView from './views/projectsView.mjs';
 import certificatesView from './views/certificatesView.mjs';
 
@@ -77,13 +81,19 @@ const controlOpenSecondNavigationVoices = function(navigationVoiceId) {
     if(navigationVoice.open === 1) {
         pageView.showTopicPage();
 
-        if(navigationVoiceId === "About me") {
-            //aboutMeTopicView.render(navigationVoice.children);
-        } else if(navigationVoiceId === "About this app") {
-            //aboutThisAppTopicView.render(navigationVoice.children);
-        } else {
-            secondLevelNavigationView.render(navigationVoice.children);
-            setSecondLevelNavigationViewHandlers();
+        const aboutMe = "About me";
+        const aboutThisWebsite = "About this website";
+
+        switch(navigationVoiceId) {
+            case aboutMe: 
+                controlLoadAboutMeBodyContent(navigationVoiceId);
+                break;
+            case aboutThisWebsite: 
+                controlLoadAboutThisWebsiteBodyContent(navigationVoiceId);
+                break;
+            default:
+                secondLevelNavigationView.render(navigationVoice.children);
+                setSecondLevelNavigationViewHandlers();
         }
     } else if(navigationVoice.open === 2) {
         pageView.showSecondLevelNavigation();
@@ -99,6 +109,34 @@ const setSecondLevelNavigationViewHandlers = function() {
 //////////////////////////////////////////
 //         Sections management          //
 //////////////////////////////////////////
+
+const controlLoadAboutMeBodyContent = function(navigationVoiceId) {
+    const navigationVoice = model.getNavigationVoice(navigationVoiceId);
+
+    pageView.showTopicPage();
+    //Load overview section
+    topicAboutMeView.render(navigationVoice, model.state.anagraphic);
+
+    // Load first footer voice
+    let footerNavigationVoice = model.getFirstFooterNavigationVoice(navigationVoice.id);
+    controlLoadBodySectionContent(footerNavigationVoice.id);
+
+    topicAboutMeView.addHandlerClick(controlLoadBodySectionContent);
+}
+
+const controlLoadAboutThisWebsiteBodyContent = function(navigationVoiceId) {
+    const navigationVoice = model.getNavigationVoice(navigationVoiceId);
+
+    pageView.showTopicPage();
+    //Load overview section
+    topicAboutThisWebsiteView.render(navigationVoice);
+
+    // Load first footer voice
+    let footerNavigationVoice = model.getFirstFooterNavigationVoice(navigationVoice.id);
+    controlLoadBodySectionContent(footerNavigationVoice.id);
+
+    topicAboutThisWebsiteiew.addHandlerClick(controlLoadBodySectionContent);
+}
 
 const controlLoadBodyContent = function(navigationVoiceId) {
     const navigationVoice = model.getNavigationVoice(navigationVoiceId);
@@ -125,15 +163,19 @@ const controlLoadBodySectionContent = function(navigationVoiceId) {
 }
 
 const controlLoadCustomNavigationVoiceBody = function(navigationVoice) {
-    const travelsString = 'travels';
+    const contactsString = 'contacts';
     const languagesString = 'languages';
+    const travelsString = 'travels';
 
     switch(navigationVoice.id.toLowerCase()){
-        case travelsString: 
-            controlLoadTravelsBodySection();
+        case contactsString: 
+            controlLoadContactsBodySection();
             break;
         case languagesString:
             controlLoadLanguagesBodySection();
+            break;
+        case travelsString: 
+            controlLoadTravelsBodySection();
             break;
     }
 }
@@ -155,13 +197,20 @@ const controlLoadStandardNavigationVoiceBody = function(navigationVoice, parentN
     }
 }
 
-const controlLoadTravelsBodySection = function() {
-
+const controlLoadContactsBodySection = function() {
+    let contacts = model.state.contacts;
+    contactsView.render(contacts);
 }
 
 const controlLoadLanguagesBodySection = function() {
 
 }
+
+const controlLoadTravelsBodySection = function() {
+
+}
+
+
 
 const controlManageCertificateClick = function(certificate) {
     certificateView.render(certificate);
@@ -201,7 +250,7 @@ function init() {
     // Load body content
     let navigationVoice = model.getFirstNavigationVoiceOpeningBodySection();
     if(navigationVoice) {
-        controlLoadBodyContent(navigationVoice.id);
+        controlOpenSecondNavigationVoices(navigationVoice.id);
     }
 
     // Set eventListeners on page elements

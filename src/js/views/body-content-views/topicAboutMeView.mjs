@@ -1,35 +1,42 @@
 // import global not yet implemented for parcel 2
 //import {logos} from '../../assets/images/logos/*';
-// Need to import files individually
-import logo_javascript from 'url:../../../assets/images/logos/logo_javascript.svg';
-import logo_angular from 'url:../../../assets/images/logos/logo_angular.svg';
-import logo_react from 'url:../../../assets/images/logos/logo_react.svg';
-import logo_blender from 'url:../../../assets/images/logos/logo_blender.svg';
-import logo_c from 'url:../../../assets/images/logos/logo_c.svg';
-import logo_c_plus_plus from 'url:../../../assets/images/logos/logo_c_plus_plus.svg';
-import logo_c_sharp from 'url:../../../assets/images/logos/logo_c_sharp.svg';
+// Need to import files individuallyù
 
-import certificate from 'url:../../../assets/images/certificate.svg';
-import project from 'url:../../../assets/images/project.svg';
+// Anagraphic icons 
+import stork from 'url:../../../assets/images/anagraphic/stork.svg';
+import home from 'url:../../../assets/images/anagraphic/home.svg';
+import phone from 'url:../../../assets/images/anagraphic/phone.svg';
+import email from 'url:../../../assets/images/anagraphic/email.svg';
+import graduation from 'url:../../../assets/images/anagraphic/graduation-hat.svg';
 
-const logos = { 
-    logo_javascript, logo_angular, logo_react, 
-    logo_c, logo_c_plus_plus, logo_c_sharp, 
-    logo_blender 
-};
-
-const footerIcons = {
-    certificate,
-    project
+const anagraphicIcons = {
+    stork,
+    home,
+    phone,
+    email,
+    graduation
 }
 
-class TopicOverview {
+// Footer icons
+import contacts from 'url:../../../assets/images/contacts.svg';
+import airplane from 'url:../../../assets/images/airplane.svg';
+import languages from 'url:../../../assets/images/languages.svg';
+
+const footerIcons = {
+    contacts,
+    airplane,
+    languages
+}
+
+class TopicAboutMeView {
     _parentElement = document.querySelector('.body .body-panel .topic-container');
     _footerParentElement = null;
     _data;
+    _anagraphicData;
 
-    render(data) {
+    render(data, anagraphicData) {
         this._data = data;
+        this._anagraphicData = anagraphicData;
 
         // Overview section
         const markup = this._generateMarkup();
@@ -43,7 +50,7 @@ class TopicOverview {
         this._footerParentElement.insertAdjacentHTML('beforeend', footerMarkup);
     }
 
-    _clear() {
+    _clear(){
         this._parentElement.innerHTML = '';
     }
 
@@ -58,20 +65,40 @@ class TopicOverview {
     _generateMarkup() {
         return `
             <div class="topic-header">
-                <div class="topic-logo">
-                    <img
-                        src="${logos[this._data.icon]}" 
-                        alt="${this._data.icon}" 
-                        title="${this._data.title}">
-                </div>
             </div>
             <div class="topic-body">
-                <h1 class="topic-title">Overview</h1>
-                <p class="topic-overview">
-                    ${this._data.overviewText ? this._data.overviewText : 'No overview available yet!' }
-                </p>
+                <div class="profile-pic-container">
+                    <img class="profile-pic"/>
+                </div>
+                <div class="info-container">
+                    <div class="info-container-header">
+                        <h1>Alberto Scandolara</h1>
+                    </div>
+                    <div class="info-container-body">
+                        ${this._anagraphicData.map(
+                            anagraphicElement => this._generateAnagraphicElementMarkup(anagraphicElement)
+                        ).join('')}
+                    </div>
+                    <div class="info-container-footer"></div>
+                </div>
             </div>
             <div class="topic-footer">
+            </div>
+        `;
+    }
+
+    _generateAnagraphicElementMarkup(anagraphicData) {
+        return `
+            <div 
+                class="anagraphic-element-container" 
+                title="${anagraphicData.title}">
+                <img 
+                    class="anagraphic-icon"
+                    src="${anagraphicIcons[anagraphicData.icon]}" 
+                    alt="${anagraphicData.text}">
+                <span class="anagraphic-info-value">
+                    ${anagraphicData.value}
+                </span>
             </div>
         `;
     }
@@ -128,4 +155,4 @@ class TopicOverview {
     }
 }
 
-export default new TopicOverview();
+export default new TopicAboutMeView();
