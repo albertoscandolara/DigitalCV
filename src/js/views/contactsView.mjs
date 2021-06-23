@@ -5,7 +5,7 @@ import {openInNewTab} from './../helpers/helpers.mjs';
 // Need to import files individually
 
 // Contacts icons
-import linkedIn from 'url:../../assets/images/contacts/linkedIn.svg';
+import linkedIn from 'url:../../assets/images/contacts/linkedin.svg';
 import facebook from 'url:../../assets/images/contacts/facebook.svg';
 import instagram from 'url:../../assets/images/contacts/instagram.svg';
 import call from 'url:../../assets/images/contacts/call.svg';
