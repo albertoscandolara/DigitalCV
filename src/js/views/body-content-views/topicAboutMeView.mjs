@@ -83,6 +83,9 @@ class TopicAboutMeView {
                     </div>
                     <div class="info-container-footer"></div>
                 </div>
+                <div class="video-presentation">
+                    <a href="https://www.youtube.com/watch?v=w7W5SKa7xvk">Youtube video presentation</a>
+                </div>
             </div>
             <div class="topic-footer">
             </div>
