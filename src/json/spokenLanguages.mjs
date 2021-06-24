@@ -1,4 +1,4 @@
-export const contacts = [
+export const spokenLanguages = [
     {
         "id": "italian",
         "text": "Italian",
