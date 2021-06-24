@@ -2,6 +2,8 @@
 //import {logos} from '../../assets/images/logos/*';
 // Need to import files individuallyù
 
+import profilePic from 'url:../../../assets/images/profile-pic.jpg';
+
 // Anagraphic icons 
 import stork from 'url:../../../assets/images/anagraphic/stork.svg';
 import home from 'url:../../../assets/images/anagraphic/home.svg';
@@ -68,7 +70,7 @@ class TopicAboutMeView {
             </div>
             <div class="topic-body">
                 <div class="profile-pic-container">
-                    <img class="profile-pic"/>
+                    <img src="${profilePic}" class="profile-pic"/>
                 </div>
                 <div class="info-container">
                     <div class="info-container-header">

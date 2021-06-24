@@ -12,6 +12,8 @@ import topicAboutMeView from './views/body-content-views/topicAboutMeView.mjs';
 import topicAboutThisWebsiteView from './views/body-content-views/topicAboutThisWebsiteView.mjs';
 
 import contactsView from './views/contactsView.mjs';
+import languagesView from './views/languagesView.mjs';
+import travelsView from './views/travelsView.mjs';
 import projectsView from './views/projectsView.mjs';
 import certificatesView from './views/certificatesView.mjs';
 
@@ -203,11 +205,13 @@ const controlLoadContactsBodySection = function() {
 }
 
 const controlLoadLanguagesBodySection = function() {
-
+    let languages = model.state.spokenLanguages;
+    languagesView.render(languages);
 }
 
 const controlLoadTravelsBodySection = function() {
-
+    let travels = model.state.travels;
+    travelsView.render(travels);
 }
 
 

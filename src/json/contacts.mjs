@@ -8,6 +8,13 @@ export const contacts = {
             "url": "https://www.linkedin.com/in/alberto-scandolara-1391a1161/"
         },
         {
+            "id": "angelList",
+            "text": "AngelList",
+            "title": "Go to my AngelList page",
+            "icon": "angelList",
+            "url": "https://angel.co/profile/edit"
+        },
+        {
             "id": "facebook",
             "text": "Facebook",
             "title": "Go to my Facebook page",

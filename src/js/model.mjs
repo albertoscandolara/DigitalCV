@@ -1,6 +1,8 @@
 import {svgIcons} from '../json/svgIcons.mjs';
 import {anagraphic} from '../json/anagraphic.mjs';
 import {contacts} from '../json/contacts.mjs';
+import {spokenLanguages} from '../json/spokenLanguages.mjs';
+import {travels} from '../json/travels.mjs';
 import {themes} from '../json/themes.mjs';
 import {languages} from '../json/languages.mjs';
 import {allTranslations} from '../json/translations.mjs';
@@ -53,6 +55,8 @@ export const state = {
     svgIcons,
     anagraphic,
     contacts,
+    spokenLanguages,
+    travels,
     languages: [],
     navigationVoices: [],
     projects: projects,
