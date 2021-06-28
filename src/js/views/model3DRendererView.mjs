@@ -9,14 +9,16 @@ const gltf = {
     stegosaurus_gltf
 }
 
-let THREEPromise = import("https://unpkg.com/three@0.119.0/build/three.module.js");
-
 let ScenePromise = import("https://unpkg.com/three@0.119.0/src/scenes/Scene.js");
+let ColorPromise = import("https://unpkg.com/three@0.119.0/src/math/Color.js");
+let AmbientLightPromise = import("https://unpkg.com/three@0.119.0/src/lights/AmbientLight.js");
+let DirectionalLightPromise = import("https://unpkg.com/three@0.119.0/src/lights/DirectionalLight.js");
+let PointLightPromise = import("https://unpkg.com/three@0.119.0/src/lights/PointLight.js");
 let WebGLRendererPromise = import("https://unpkg.com/three@0.119.0/src/renderers/WebGLRenderer.js");
 let PerspectiveCameraPromise = import("https://unpkg.com/three@0.119.0/src/cameras/PerspectiveCamera.js");
 let GLTFLoaderPromise = import("https://unpkg.com/three@0.119.0/examples/jsm/loaders/GLTFLoader.js");
 
-let OrbitControlsPromise = import("https://unpkg.com/three@0.116.0/examples/jsm/controls/OrbitControls.js");
+let OrbitControlsPromise = import("https://unpkg.com/three@0.119.0/examples/jsm/controls/OrbitControls.js");
 
 
 class Model3DRendererView {
@@ -97,51 +99,57 @@ class Model3DRendererView {
         let parentElement = this._parentElement;
         let data = this._data;
         Promise.all([
-            THREEPromise, 
             ScenePromise, 
-            WebGLRendererPromise,
+            ColorPromise,
             PerspectiveCameraPromise, 
+            AmbientLightPromise,
+            DirectionalLightPromise,
+            PointLightPromise,
+            WebGLRendererPromise,
             GLTFLoaderPromise, 
             OrbitControlsPromise
         ]).then(
             ([
-                THREE, 
                 {Scene}, 
-                {WebGLRenderer}, 
+                {Color},
                 {PerspectiveCamera},
+                {AmbientLight},
+                {DirectionalLight}, 
+                {PointLight},
+                {WebGLRenderer}, 
                 {GLTFLoader}, 
                 {OrbitControls}
             ]) => {
                 let scene, camera, renderer;
                 async function init() {
                     scene = new Scene();
-                    scene.background = new THREE.Color(0x181818);
+                    scene.background = new Color(0x181818);
 
-                    camera = new THREE.PerspectiveCamera(70, 2, 1, 1000);
+                    camera = new PerspectiveCamera(70, 2, 1, 1000);
                     camera.position.set(30, 1, 15);
                     camera.lookAt(scene.position);
             
-                    let hlight = new THREE.AmbientLight(0x404040, 10);
+                    let hlight = new AmbientLight(0x404040, 10);
                     scene.add(hlight);
                     
-                    let directionalLight = new THREE.DirectionalLight(0x666666, 10);
+                    let directionalLight = new DirectionalLight(0x666666, 10);
                     directionalLight.position.set(0, 1, 0);
                     directionalLight.castShadow = true;
                     scene.add(directionalLight);
                     
-                    let light1 = new THREE.PointLight(0x666666);
+                    let light1 = new PointLight(0x666666);
                     light1.position.set(0, 300, 500);
                     scene.add(light1);
                     
-                    let light2 = new THREE.PointLight(0x666666);
+                    let light2 = new PointLight(0x666666);
                     light2.position.set(500, 100, 0);
                     scene.add(light2);
                     
-                    let light3 = new THREE.PointLight(0x666666);
+                    let light3 = new PointLight(0x666666);
                     light3.position.set(0, 100, -500);
                     scene.add(light3);
                     
-                    let light4 = new THREE.PointLight(0x666666);
+                    let light4 = new PointLight(0x666666);
                     light4.position.set(-500, 300, 0);
                     scene.add(light4);
                     
