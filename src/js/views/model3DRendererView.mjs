@@ -1,10 +1,12 @@
 // Models 
 // Blender 
-import allosaurus_gltf from 'url:../../../static/allosaurus.gltf';
-import stegosaurus_gltf from 'url:../../../static/stegosaurus.gltf';
+import harp_gltf from 'url:../../../static/Harp/harp.gltf';
+import allosaurus_gltf from 'url:../../../static/Allosaurus/allosaurus.gltf';
+import stegosaurus_gltf from 'url:../../../static/Stegosaurus/stegosaurus.gltf';
 
 const gltf = {
     // Blender
+    harp_gltf,
     allosaurus_gltf,
     stegosaurus_gltf
 }

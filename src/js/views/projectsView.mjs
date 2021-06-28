@@ -25,6 +25,7 @@ import preview_heroes_heads from 'url:../../assets/images/projects-previews/fron
 
 // 3D Modeling
 // blender
+import preview_harp from 'url:../../assets/images/projects-previews/modeling/harp.PNG';
 import preview_stegosaurus from 'url:../../assets/images/projects-previews/modeling/stegosaurus.PNG';
 import preview_allosaurus from 'url:../../assets/images/projects-previews/modeling/allosaurus.PNG';
 
@@ -50,6 +51,7 @@ const previews = {
 
     // 3D Modeling
     // blender 
+    preview_harp,
     preview_stegosaurus,
     preview_allosaurus                
 }
