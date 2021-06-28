@@ -6,7 +6,8 @@ export const javascriptProjects = [
     "preview": "preview_digital_CV",
     "difficulty": 3,
     "projectUrl": "",
-    "githubUrl": "https://github.com/albertoscandolara/DigitalCV"
+    "githubUrl": "https://github.com/albertoscandolara/DigitalCV",
+    "blenderFile": ""
   },
   {
     "id": "Front_end_Javascript_002",
@@ -15,7 +16,8 @@ export const javascriptProjects = [
     "preview": "preview_real_time_flights_tracker",
     "difficulty": 2,
     "projectUrl": "https://real-time-planes-tracker.netlify.app/",
-    "githubUrl": "https://github.com/albertoscandolara/Real-time-planes-tracker"
+    "githubUrl": "https://github.com/albertoscandolara/Real-time-planes-tracker",
+    "gltf": ""
   },
   {
     "id": "Front_end_Javascript_003",
@@ -24,7 +26,8 @@ export const javascriptProjects = [
     "preview": "preview_eye_movement",
     "difficulty": 1,
     "projectUrl": "https://eyes-movement.netlify.app/",
-    "githubUrl": "https://github.com/albertoscandolara/Eye_movement"
+    "githubUrl": "https://github.com/albertoscandolara/Eye_movement",
+    "gltf": ""
   },
   {
     "id": "Front_end_Javascript_004",
@@ -33,7 +36,8 @@ export const javascriptProjects = [
     "preview": "preview_heroes_heads",
     "difficulty": 1,
     "projectUrl": "https://heroes-heads.netlify.app",
-    "githubUrl": "https://github.com/albertoscandolara/Heroes-heads"
+    "githubUrl": "https://github.com/albertoscandolara/Heroes-heads",
+    "gltf": ""
   }
 ];
   

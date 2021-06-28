@@ -25,6 +25,8 @@ import preview_heroes_heads from 'url:../../assets/images/projects-previews/fron
 
 // 3D Modeling
 // blender
+import preview_stegosaurus from 'url:../../assets/images/projects-previews/modeling/stegosaurus.PNG';
+import preview_allosaurus from 'url:../../assets/images/projects-previews/modeling/allosaurus.PNG';
 
 
 const previews = {
@@ -33,7 +35,7 @@ const previews = {
     preview_digital_CV,
     preview_real_time_flights_tracker,
     preview_eye_movement,
-    preview_heroes_heads
+    preview_heroes_heads,
 
     // angular
 
@@ -47,7 +49,9 @@ const previews = {
     // c#
 
     // 3D Modeling
-    // blender                 
+    // blender 
+    preview_stegosaurus,
+    preview_allosaurus                
 }
 
 class ProjectsView {
@@ -127,6 +131,16 @@ class ProjectsView {
                             </button>
                             ` : ''
                         }
+                        ${projectData.gltf ? 
+                            `
+                            <button 
+                                data-type="go-to-renderer"
+                                class="card-link"
+                                title="Open rendered model">
+                                ${this._openNewTabSvgIcon}
+                            </button>
+                            ` : ''
+                        }
                     </div>
                 </div>
                 <div class="card-footer">
@@ -172,6 +186,8 @@ class ProjectsView {
                             case 'go-to-github': 
                                 url = project.githubUrl;
                             break;
+                            case 'go-to-renderer': 
+                            break;
                         }
 
                         if(url) {
@@ -180,6 +196,30 @@ class ProjectsView {
                     }
                 )
             );
+    }
+
+
+    open3DModelRendererHandler(handler) {
+        Object.values(this._parentElement.querySelectorAll('.card-links-container'))
+            .forEach(cardLinksContainer => {
+
+
+                if(!Object.values(cardLinksContainer.querySelectorAll('.card-link')).some(cardLink => cardLink.dataset.type === 'go-to-renderer')) return;
+
+
+                let open3DModelViewButton = Object.values(cardLinksContainer.querySelectorAll('.card-link')).filter(cardLink => cardLink.dataset.type === 'go-to-renderer')[0];
+                if(!open3DModelViewButton) return;
+
+                open3DModelViewButton.addEventListener('click', (e) => {
+                    const element = e.target.closest('.card-project');
+                    if(!element) return;
+    
+                    const elementId = element.dataset.id;
+                    const data = this._data.find(projectData => projectData.id === elementId);
+                    handler(data);
+                });
+            }
+        );
     }
 }
 

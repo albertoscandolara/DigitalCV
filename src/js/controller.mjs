@@ -16,6 +16,7 @@ import languagesView from './views/languagesView.mjs';
 import travelsView from './views/travelsView.mjs';
 import projectsView from './views/projectsView.mjs';
 import certificatesView from './views/certificatesView.mjs';
+import model3DRendererView from './views/model3DRendererView.mjs';
 
 import certificateView from './views/certificateView.mjs';
 
@@ -195,6 +196,7 @@ const controlLoadStandardNavigationVoiceBody = function(navigationVoice, parentN
         case projectsString:
             let projects = model.state[projectsString][parentNavigationVoice.id.toLowerCase()];
             projectsView.render(projects, model.state.svgIcons.github, model.state.svgIcons.open_new_tab);
+            projectsView.open3DModelRendererHandler(controlOpen3DModelRenderer);
         break;
     }
 }
@@ -218,6 +220,10 @@ const controlLoadTravelsBodySection = function() {
 
 const controlManageCertificateClick = function(certificate) {
     certificateView.render(certificate);
+}
+
+const controlOpen3DModelRenderer = function(project) {
+    model3DRendererView.render(project);
 }
 
 //////////////////////////////////////////
