@@ -23,6 +23,7 @@ export const navigationVoices = [
       "toLearn": false,
       "requirePanel": true,
       "custom": false,
+      "overviewText": "",
       "children": [
         {
           "id": "Contacts",
@@ -35,6 +36,7 @@ export const navigationVoices = [
           "toLearn": false,
           "requirePanel": false,
           "custom": true,
+          "overviewText": "",
           "children": []
         },
         {
@@ -48,6 +50,7 @@ export const navigationVoices = [
           "toLearn": false,
           "requirePanel": false,
           "custom": true,
+          "overviewText": "",
           "children": []
         },
         {
@@ -61,6 +64,7 @@ export const navigationVoices = [
           "toLearn": false,
           "requirePanel": false,
           "custom": true,
+          "overviewText": "",
           "children": []
         }
       ]
@@ -76,6 +80,7 @@ export const navigationVoices = [
       "toLearn": false,
       "requirePanel": false,
       "custom": false,
+      "overviewText": "",
       "children": [
         {
           "id": "JavaScript",
@@ -101,6 +106,7 @@ export const navigationVoices = [
               "toLearn": false,
               "requirePanel": false,
               "custom": false,
+              "overviewText": "",
               "children": []
             },
             {
@@ -114,6 +120,7 @@ export const navigationVoices = [
               "toLearn": false,
               "requirePanel": false,
               "custom": false,
+              "overviewText": "",
               "children": []
             }
           ],
@@ -142,6 +149,7 @@ export const navigationVoices = [
               "toLearn": false,
               "requirePanel": false,
               "custom": false,
+              "overviewText": "",
               "children": []
             },
             {
@@ -155,6 +163,7 @@ export const navigationVoices = [
               "toLearn": false,
               "requirePanel": false,
               "custom": false,
+              "overviewText": "",
               "children": []
             }
           ]
@@ -170,6 +179,7 @@ export const navigationVoices = [
           "toLearn": true,
           "requirePanel": true,
           "custom": false,
+          "overviewText": "",
           "children": [
             {
               "id": "Certificates",
@@ -182,6 +192,7 @@ export const navigationVoices = [
               "toLearn": false,
               "requirePanel": false,
               "custom": false,
+              "overviewText": "",
               "children": []
             },
             {
@@ -195,6 +206,7 @@ export const navigationVoices = [
               "toLearn": false,
               "requirePanel": false,
               "custom": false,
+              "overviewText": "",
               "children": []
             }
           ]
@@ -211,6 +223,7 @@ export const navigationVoices = [
       "toLearn": false,
       "requirePanel": false,
       "custom": false,
+      "overviewText": "",
       "children": [
         {
           "id": "C",
@@ -222,6 +235,7 @@ export const navigationVoices = [
           "toLearn": false,
           "requirePanel": true,
           "custom": false,
+          "overviewText": "",
           "children": [
             {
               "id": "Certificates",
@@ -233,6 +247,7 @@ export const navigationVoices = [
               "toLearn": false,
               "requirePanel": false,
               "custom": false,
+              "overviewText": "",
               "children": []
             },
             {
@@ -245,6 +260,7 @@ export const navigationVoices = [
               "toLearn": false,
               "requirePanel": false,
               "custom": false,
+              "overviewText": "",
               "children": []
             }
           ]
@@ -260,6 +276,7 @@ export const navigationVoices = [
           "toLearn": false,
           "requirePanel": true,
           "custom": false,
+          "overviewText": "",
           "children": [
             {
               "id": "Certificates",
@@ -272,6 +289,7 @@ export const navigationVoices = [
               "toLearn": false,
               "requirePanel": false,
               "custom": false,
+              "overviewText": "",
               "children": []
             },
             {
@@ -285,6 +303,7 @@ export const navigationVoices = [
               "toLearn": false,
               "requirePanel": false,
               "custom": false,
+              "overviewText": "",
               "children": []
             }
           ]
@@ -300,6 +319,7 @@ export const navigationVoices = [
           "toLearn": true,
           "requirePanel": true,
           "custom": false,
+          "overviewText": "",
           "children": [
             {
               "id": "Certificates",
@@ -312,6 +332,7 @@ export const navigationVoices = [
               "toLearn": false,
               "requirePanel": false,
               "custom": false,
+              "overviewText": "",
               "children": []
             },
             {
@@ -325,6 +346,7 @@ export const navigationVoices = [
               "toLearn": false,
               "requirePanel": false,
               "custom": false,
+              "overviewText": "",
               "children": []
             }
           ]
@@ -342,6 +364,7 @@ export const navigationVoices = [
       "toLearn": false,
       "requirePanel": false,
       "custom": false,
+      "overviewText": "",
       "children": [
         {
           "id": "Blender",    
@@ -354,6 +377,7 @@ export const navigationVoices = [
           "toLearn": true,
           "requirePanel": true,
           "custom": false,
+          "overviewText": "During my thesis, I worked with Unity 3D Engine. Since the very beginning, I've wanted to add my own assets to the scenes. That's how I discovered Blender. I only had a beginner course before diving into web development, but I still do some exercises now and then. While developing this website, I've seen how powerful the marriage between 3D models and web pages can be (higher engagement and a whole new world of possible user interactions among the others), so I'm definitely going to create more hybrid projects to explore the offered possibilities.",
           "children": [
             {
               "id": "Certificates",
@@ -366,6 +390,7 @@ export const navigationVoices = [
               "toLearn": false,
               "requirePanel": false,
               "custom": false,
+              "overviewText": "",
               "children": []
             },
             {
@@ -379,6 +404,7 @@ export const navigationVoices = [
               "toLearn": false,
               "requirePanel": false,
               "custom": false,
+              "overviewText": "",
               "children": []
             }
           ]
@@ -396,6 +422,7 @@ export const navigationVoices = [
       "toLearn": false,
       "requirePanel": true,
       "custom": false,
+      "overviewText": "",
       "children": []
     },
   ];

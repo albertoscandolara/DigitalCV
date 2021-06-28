@@ -2,7 +2,7 @@ export const blenderProjects = [
   {
     "id": "3DModel_Blender_001",
     "title": "Stegosaurus",
-    "description": "This was my first attempt using sculpting tools in Blender",
+    "description": "My first attempt using brushes and sculpting tools in Blender.",
     "preview": "preview_stegosaurus",
     "difficulty": 3,
     "projectUrl": "",
@@ -12,7 +12,7 @@ export const blenderProjects = [
   {
     "id": "3DModel_Blender_002",
     "title": "Allosaurus",
-    "description": "",
+    "description": "This was the model I created while studying mirror modifiers.",
     "preview": "preview_allosaurus",
     "difficulty": 3,
     "projectUrl": "",
