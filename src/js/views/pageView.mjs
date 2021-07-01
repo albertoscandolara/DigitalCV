@@ -17,7 +17,7 @@ class PageView {
     // This handler is all view-related. 
     // No need for publisher-subscriber pattern
     addResizerHandler() {
-        this._topic_panel.querySelector('.sub-section-container .resizer')
+        this._topic_panel.querySelector('.topic-page-external .resizer')
             .addEventListener(
                 'mousedown', 
                 (e) => {

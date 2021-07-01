@@ -25,6 +25,7 @@ import preview_heroes_heads from 'url:../../assets/images/projects-previews/fron
 
 // 3D Modeling
 // blender
+import preview_mnms from 'url:../../assets/images/projects-previews/modeling/m&ms.PNG';
 import preview_harp from 'url:../../assets/images/projects-previews/modeling/harp.PNG';
 import preview_stegosaurus from 'url:../../assets/images/projects-previews/modeling/stegosaurus.PNG';
 import preview_allosaurus from 'url:../../assets/images/projects-previews/modeling/allosaurus.PNG';
@@ -51,13 +52,14 @@ const previews = {
 
     // 3D Modeling
     // blender 
+    preview_mnms,
     preview_harp,
     preview_stegosaurus,
     preview_allosaurus                
 }
 
 class ProjectsView {
-    _parentElement = document.querySelector('.body .body-panel .sub-section');
+    _parentElement = document.querySelector('.body .body-panel .topic-page');
     _data;
     _githubSvgIcon;
     _openNewTabSvgIcon;

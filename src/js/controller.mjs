@@ -29,7 +29,9 @@ if(module.hot){
 //////////////////////////////////////////
 
 const controlLanguages = function() {
-    changeLanguageView.render(model.state.languages);
+    changeLanguageView.render(
+        model.state.languages.filter(language => language.translated)
+        );
 }
 
 const controlSetLanguage = function(languageAcronym){
@@ -207,7 +209,7 @@ const controlLoadContactsBodySection = function() {
 }
 
 const controlLoadLanguagesBodySection = function() {
-    let languages = model.state.spokenLanguages;
+    let languages = model.state.languages;
     languagesView.render(languages);
 }
 

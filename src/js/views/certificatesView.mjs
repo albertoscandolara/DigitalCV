@@ -5,12 +5,14 @@
 // Certificates previews images
 // Front-end
 // javascript
-import preview_the_complete_javaScript_course_2021 from 'url:../../assets/images/certificates-previews/front-end/The_complete_javaScript_course_2021.jpg';
+import preview_the_complete_javaScript_course_2021 from 'url:../../assets/images/certificates-previews/front-end/javascript/The_complete_javaScript_course_2021.jpg';
+import preview_functional_light_javascript_for_production from 'url:../../assets/images/certificates-previews/front-end/javascript/Functional_light_javascript_for_production.jpg';
 
 // angular
-import preview_reactive_angular_with_rxjs from 'url:../../assets/images/certificates-previews/front-end/Reactive_angular_with_rxjs.jpg';
+import preview_reactive_angular_with_rxjs from 'url:../../assets/images/certificates-previews/front-end/angular/Reactive_angular_with_rxjs.jpg';
 
 // react
+import preview_mini_corso_su_react_e_typescript_2020 from 'url:../../assets/images/certificates-previews/front-end/react/Mini_corso_su_react_e_typescript_2020.jpg';
 
 // Back-end
 // c
@@ -31,11 +33,13 @@ const previews = {
     // Front-end
     // javascript
     preview_the_complete_javaScript_course_2021,
+    preview_functional_light_javascript_for_production,
 
     // angular
     preview_reactive_angular_with_rxjs,
 
     // react
+    preview_mini_corso_su_react_e_typescript_2020,
 
     // Back-end
     // c
@@ -49,10 +53,10 @@ const previews = {
 
     // 3D Modeling
     // blender  
-}
+};
 
 class CertificatesView {
-    _parentElement = document.querySelector('.body .body-panel .sub-section');
+    _parentElement = document.querySelector('.body .body-panel .topic-page');
     _data;
 
     render(data) {
@@ -79,29 +83,29 @@ class CertificatesView {
         }
 
         return `${this._data.map(
-            certificateData => this._generateProjectMarkup(certificateData)
+            certificate => this._generateCertificateMarkup(certificate)
         ).join('')}`;
     }
 
-    _generateProjectMarkup(certificateData) {
+    _generateCertificateMarkup(certificate) {
         return `
         <button 
             class="card-certificate raised" 
-            data-id="${certificateData.id}">
+            data-id="${certificate.id}">
             <div class="card-header">
-                <span class="card-title">${certificateData.title}</span>
+                <span class="card-title">${certificate.title}</span>
             </div>
             <div class="card-body">
                 <div class="preview-container">
                     <img 
                         class="preview" 
-                        alt="'${certificateData.title}' certificate preview" 
-                        src="${previews[certificateData.preview]}">
+                        alt="'${certificate.title}' certificate preview" 
+                        src="${previews[certificate.preview]}">
                 </div>
                 <div class="info-container">
-                    <span>Instructor: ${certificateData.instructors.join(', ')}</span>
-                    <span>Released by: ${certificateData.platform}</span>
-                    <span>Completed: ${certificateData.completionDate}</span>
+                    <span>Instructor: ${certificate.instructors.join(', ')}</span>
+                    <span>Released by: ${certificate.platform}</span>
+                    <span>Completed: ${certificate.completionDate}</span>
                 </div>
             </div>
             <div class="card-footer"></div>

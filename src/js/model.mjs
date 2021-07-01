@@ -1,12 +1,28 @@
 import {svgIcons} from '../json/svgIcons.mjs';
 import {anagraphic} from '../json/anagraphic.mjs';
 import {contacts} from '../json/contacts.mjs';
-import {spokenLanguages} from '../json/spokenLanguages.mjs';
 import {travels} from '../json/travels.mjs';
 import {themes} from '../json/themes.mjs';
 import {languages} from '../json/languages.mjs';
 import {allTranslations} from '../json/translations.mjs';
 import {navigationVoices} from '../json/navigationVoices.mjs';
+
+// Languages
+import {englishCertificates} from '../json/certificates/languages/english';
+import {frenchCertificates} from '../json/certificates/languages/french';
+import {germanCertificates} from '../json/certificates/languages/german';
+import {italianCertificates} from '../json/certificates/languages/italian';
+import {russianCertificates} from '../json/certificates/languages/russian';
+import {spanishCertificates} from '../json/certificates/languages/spanish';
+
+const languageCertificates = {
+    englishCertificates,
+    frenchCertificates,
+    germanCertificates,
+    italianCertificates,
+    russianCertificates,
+    spanishCertificates
+};
 
 // Projects 
 import {javascriptProjects} from '../json/projects/front-end/javascript';
@@ -55,7 +71,6 @@ export const state = {
     svgIcons,
     anagraphic,
     contacts,
-    spokenLanguages,
     travels,
     languages: [],
     navigationVoices: [],
@@ -97,7 +112,14 @@ const loadTranslations = function(languageAcronym) {
 }
 
 export const loadLanguages = function() {
-    state.languages = languages;
+    languages.forEach(language => {
+        state.languages.push(
+            {
+                ...language, 
+                certificates: languageCertificates[`${language.certificates}`]
+            }
+        )
+    });
 
     const localStorageLanguage = window.localStorage.getItem('language');
     const navLanguage = navigator.language;

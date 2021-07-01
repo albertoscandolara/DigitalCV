@@ -5,12 +5,13 @@
 // Certificates previews images
 // Front-end
 // javascript
-import preview_the_complete_javaScript_course_2021 from 'url:../../assets/images/certificates-previews/front-end/The_complete_javaScript_course_2021.jpg';
-
+import preview_the_complete_javaScript_course_2021 from 'url:../../assets/images/certificates-previews/front-end/javascript/The_complete_javaScript_course_2021.jpg';
+import preview_functional_light_javascript_for_production from 'url:../../assets/images/certificates-previews/front-end/javascript/Functional_light_javascript_for_production.jpg';
 // angular
-import preview_reactive_angular_with_rxjs from 'url:../../assets/images/certificates-previews/front-end/Reactive_angular_with_rxjs.jpg';
+import preview_reactive_angular_with_rxjs from 'url:../../assets/images/certificates-previews/front-end/angular/Reactive_angular_with_rxjs.jpg';
 
 // react
+import preview_mini_corso_su_react_e_typescript_2020 from 'url:../../assets/images/certificates-previews/front-end/react/Mini_corso_su_react_e_typescript_2020.jpg';
 
 // Back-end
 // c
@@ -31,11 +32,13 @@ const fullView = {
     // Front-end
     // javascript
     preview_the_complete_javaScript_course_2021,
-
+    preview_functional_light_javascript_for_production,
+    
     // angular
     preview_reactive_angular_with_rxjs,
 
     // react
+    preview_mini_corso_su_react_e_typescript_2020,
 
     // Back-end
     // c

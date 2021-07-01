@@ -1,11 +1,13 @@
 // Models 
 // Blender 
+import mnms_gltf from 'url:../../../static/M&Ms/M&Ms.gltf';
 import harp_gltf from 'url:../../../static/Harp/harp.gltf';
 import allosaurus_gltf from 'url:../../../static/Allosaurus/allosaurus.gltf';
 import stegosaurus_gltf from 'url:../../../static/Stegosaurus/stegosaurus.gltf';
 
 const gltf = {
     // Blender
+    mnms_gltf,
     harp_gltf,
     allosaurus_gltf,
     stegosaurus_gltf
@@ -131,11 +133,11 @@ class Model3DRendererView {
                     camera.position.set(30, 1, 15);
                     camera.lookAt(scene.position);
             
-                    let hlight = new AmbientLight(0x404040, 10);
+                    let hlight = new AmbientLight(0x404040, 2);
                     scene.add(hlight);
                     
-                    let directionalLight = new DirectionalLight(0x666666, 10);
-                    directionalLight.position.set(0, 1, 0);
+                    let directionalLight = new DirectionalLight(0x666666, 5);
+                    directionalLight.position.set(2, 5, 0);
                     directionalLight.castShadow = true;
                     scene.add(directionalLight);
                     

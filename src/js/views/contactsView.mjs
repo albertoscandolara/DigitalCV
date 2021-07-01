@@ -22,7 +22,7 @@ const contactIcons = {
 }
 
 class ContactsView {
-    _parentElement = document.querySelector('.body .body-panel .sub-section');
+    _parentElement = document.querySelector('.body .body-panel .topic-page');
     _data;
 
     render(data) {
