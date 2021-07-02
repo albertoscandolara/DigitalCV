@@ -15,6 +15,13 @@ export const contacts = {
             "url": "https://angel.co/profile/edit"
         },
         {
+            "id": "github",
+            "text": "Github",
+            "title": "Go to my Github page",
+            "icon": "github",
+            "url": "https://github.com/albertoscandolara"
+        },
+        {
             "id": "facebook",
             "text": "Facebook",
             "title": "Go to my Facebook page",

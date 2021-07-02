@@ -3,6 +3,19 @@
 // Need to import files individually
 
 // Certificates previews images
+
+// Languages
+
+// French
+// English
+// German
+
+// Russian
+import preview_russian_made_easy from 'url:../../assets/images/certificates-previews/languages/russian/Russian_Made_Easy_Accelerated_Learning_for_Russian.jpg';
+
+// Spanish
+
+
 // Front-end
 // javascript
 import preview_the_complete_javaScript_course_2021 from 'url:../../assets/images/certificates-previews/front-end/javascript/The_complete_javaScript_course_2021.jpg';
@@ -29,6 +42,10 @@ import preview_double_your_coding_speed_with_visual_studio from 'url:../../asset
 
 
 const fullView = {
+    // Languages
+    // Russian
+    preview_russian_made_easy,
+
     // Front-end
     // javascript
     preview_the_complete_javaScript_course_2021,

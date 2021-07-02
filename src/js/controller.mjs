@@ -211,6 +211,7 @@ const controlLoadContactsBodySection = function() {
 const controlLoadLanguagesBodySection = function() {
     let languages = model.state.languages;
     languagesView.render(languages);
+    languagesView.addHandlerClick(controlManageCertificateClick);
 }
 
 const controlLoadTravelsBodySection = function() {

@@ -843,6 +843,41 @@ button>span {
                   }
                 }
               }
+
+              .all-languages-container {
+                display: flex;
+                flex-direction: column;
+                align-content: flex-start;
+                width: 100%;
+                font-size: 14px;
+
+                .single-language-container {
+
+                  .single-language-padded-container {
+                    padding: 20px;
+
+                    .language-title {
+
+                    }
+
+                    .language-info-container {
+
+                      .language-info-label {
+
+                      }
+
+                      .language-info-value {
+
+                      }
+
+                      .language-certificates-container {
+                        display: flex; 
+                        padding: 10px 0
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -1225,6 +1260,31 @@ button>span {
                     }
                   }
                 }
+
+                .all-languages-container {
+  
+                  .single-language-container {
+  
+                    .single-language-padded-container {
+  
+                      .language-title {
+
+                      }
+  
+                      .language-info-container {
+  
+                        .language-info-label {
+                        }
+  
+                        .language-info-value {
+                        }
+  
+                        .language-certificates-container {
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -1602,8 +1662,32 @@ button>span {
                     }
                   }
                 }
+
+                .all-languages-container {
+  
+                  .single-language-container {
+  
+                    .single-language-padded-container {
+  
+                      .language-title {
+
+                      }
+  
+                      .language-info-container {
+  
+                        .language-info-label {
+                        }
+  
+                        .language-info-value {
+                        }
+  
+                        .language-certificates-container {
+                        }
+                      }
+                    }
+                  }
+                }
               }
-              
             }
           }
         }

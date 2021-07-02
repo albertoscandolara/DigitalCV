@@ -55,13 +55,7 @@ class LanguagesView {
 
     _generateMarkup() {
         return `
-                <div class="all-languages-container" style="
-                display: flex;
-                flex-direction: column;
-                align-content: flex-start;
-                width: 100%;
-                font-size: 14px;
-                ">
+            <div class="all-languages-container">
                 ${this._data.map(
                     language => this._generateSingleLanguageMarkup(language)
                 ).join('')}
@@ -71,16 +65,24 @@ class LanguagesView {
 
     _generateSingleLanguageMarkup(language) {
         return `
-            <div>
-                <div style="padding: 20px;">
-                    <h2>${language.text}</h2>
-                    <div>
-                        <span>Level: </span>
-                        <span>${language.level}</span>
+            <div 
+                class="single-language-container"
+                data-language=${language.id}>
+                <div class="single-language-padded-container">
+                    <h2 class="language-title">${language.text}</h2>
+                    <div class="language-info-container">
+                        <span class="language-info-label">
+                            Level: 
+                        </span>
+                        <span class="language-info-value">
+                            ${language.level}
+                        </span>
                     </div>
-                    <div>
-                        <div>Certificates:</div>
-                        <div style="display: flex; padding: 10px 0">
+                    <div  class="language-info-container>
+                        <span class="language-info-label">
+                            Certificates:
+                        </span>
+                        <div class="language-certificates-container">
                             ${language.certificates.map(
                                 certificate => this._generateCertificateMarkup(certificate)
                             ).join('')}
@@ -123,12 +125,18 @@ class LanguagesView {
     }
 
     addHandlerClick(handler) {
-        this._parentElement.addEventListener('click', (e) => {
-            const element = e.target.closest('.card-certificate');
-            if(!element) return;
+        this._parentElement.addEventListener('click', (e) => {debugger;
+            const languageElement = e.target.closest('.single-language-container');
+            const certificateElement = e.target.closest('.card-certificate');
+            if(!languageElement || !certificateElement) return;
 
-            const elementId = element.dataset.id;
-            const data = this._data.find(certificateData => certificateData.id === elementId);
+            const languageElementId = languageElement.dataset.language;
+            const certificateElementId = certificateElement.dataset.id;
+
+            const data = this._data
+                .find(language => language.id === languageElementId)
+                .certificates
+                .find(certificate => certificate.id === certificateElementId);
             handler(data);
         });
     }
