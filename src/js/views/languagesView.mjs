@@ -125,7 +125,7 @@ class LanguagesView {
     }
 
     addHandlerClick(handler) {
-        this._parentElement.addEventListener('click', (e) => {debugger;
+        this._parentElement.addEventListener('click', (e) => {
             const languageElement = e.target.closest('.single-language-container');
             const certificateElement = e.target.closest('.card-certificate');
             if(!languageElement || !certificateElement) return;
