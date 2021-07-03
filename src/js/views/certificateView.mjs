@@ -7,7 +7,10 @@
 // Languages
 
 // French
+
 // English
+import preview_english_uic from 'url:../../assets/images/certificates-previews/languages/english/UIC_languages_for_living.jpg';
+
 // German
 
 // Russian
@@ -43,8 +46,20 @@ import preview_double_your_coding_speed_with_visual_studio from 'url:../../asset
 
 const fullView = {
     // Languages
+
+    // French
+
+    // English
+    preview_english_uic,
+    
+    // German
+
+    // Italian
+
     // Russian
     preview_russian_made_easy,
+
+    // Spanish
 
     // Front-end
     // javascript

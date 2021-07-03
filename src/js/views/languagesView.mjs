@@ -3,6 +3,7 @@ import {openInNewTab} from './../helpers/helpers.mjs';
 // Certificates previews images
 
 // English
+import preview_english_uic from 'url:../../assets/images/certificates-previews/languages/english/UIC_languages_for_living.jpg';
 
 // French
 
@@ -17,10 +18,13 @@ import preview_russian_made_easy from 'url:../../assets/images/certificates-prev
 
 
 const previews = {
-    // English
+     // Languages
 
     // French
 
+    // English
+    preview_english_uic,
+    
     // German
 
     // Italian
@@ -28,7 +32,7 @@ const previews = {
     // Russian
     preview_russian_made_easy
 
-    // Spanish 
+    // Spanish
 };
 
 class LanguagesView {
