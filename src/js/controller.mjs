@@ -217,6 +217,7 @@ const controlLoadLanguagesBodySection = function() {
 const controlLoadTravelsBodySection = function() {
     let travels = model.state.travels;
     travelsView.render(travels);
+    travelsView.addImageHandlerClick(controlManageCertificateClick);
 }
 
 

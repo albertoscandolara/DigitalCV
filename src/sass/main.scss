@@ -919,6 +919,85 @@ button>span {
                     border-radius: 10px;
                   }
                 }
+
+                .travels-container {
+                  font-size: 14px;
+
+                  .travel-container {
+                    .travel-info-container {
+                      cursor: pointer;
+                      
+                      .travel-header {
+                        .travel-title {
+
+                        }
+                      }
+
+                      .travel-body {
+
+                      }
+
+                      .travel-footer {
+
+                      }
+                    }
+
+                    .travel-stops {
+                      padding-left: 20px;
+
+                      .stop-container {
+                        .stop-header {
+                          .stop-title {
+  
+                          }
+                        }
+  
+                        .stop-body {
+  
+                        }
+  
+                        .stop-footer {
+  
+                        }
+
+                        .stop-gallery {
+                          display: flex;
+                          flex-direction: row;
+                          padding: 20px 0;
+
+                          .card-travel {
+                            width: auto;
+                            height: auto;
+                            padding: 10px;
+                            margin: 0 10px;
+
+                            .card-header {
+
+                            }
+
+                            .card-body {
+                              .preview-container {
+                                .preview {
+                                  height: 150px;
+                                  width: 150px;
+                                  border-radius: 5px;
+                                }
+                              }
+
+                              .info-container {
+
+                              }
+                            }
+
+                            .card-footer {
+                              
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }

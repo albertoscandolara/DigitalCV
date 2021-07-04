@@ -2,7 +2,53 @@
 //import {logos} from '../../assets/images/logos/*';
 // Need to import files individually
 
-// Certificates previews images
+// Travels pictures
+
+// Russia-Finland-Estonia
+// Moscow
+import moscow_01 from 'url:../../assets/images/travels/Russia/Moscow/Moscow_01.jpg';
+import moscow_02 from 'url:../../assets/images/travels/Russia/Moscow/Moscow_02.jpg';
+import moscow_03 from 'url:../../assets/images/travels/Russia/Moscow/Moscow_03.jpg';
+import moscow_04 from 'url:../../assets/images/travels/Russia/Moscow/Moscow_04.jpg';
+import moscow_05 from 'url:../../assets/images/travels/Russia/Moscow/Moscow_05.jpg';
+
+// Saint Petersburg
+import saint_petersburg_01 from 'url:../../assets/images/travels/Russia/Saint Petersburg/Saint_Petersburg_01.jpg';
+import saint_petersburg_02 from 'url:../../assets/images/travels/Russia/Saint Petersburg/Saint_Petersburg_02.jpg';
+import saint_petersburg_03 from 'url:../../assets/images/travels/Russia/Saint Petersburg/Saint_Petersburg_03.jpg';
+import saint_petersburg_04 from 'url:../../assets/images/travels/Russia/Saint Petersburg/Saint_Petersburg_04.jpg';
+import saint_petersburg_05 from 'url:../../assets/images/travels/Russia/Saint Petersburg/Saint_Petersburg_05.jpg';
+
+// Cuba
+// Havana
+import havana_01 from 'url:../../assets/images/travels/Cuba/Havana/Havana_01.jpg';
+import havana_02 from 'url:../../assets/images/travels/Cuba/Havana/Havana_02.jpg';
+import havana_03 from 'url:../../assets/images/travels/Cuba/Havana/Havana_03.jpg';
+import havana_04 from 'url:../../assets/images/travels/Cuba/Havana/Havana_04.jpg';
+import havana_05 from 'url:../../assets/images/travels/Cuba/Havana/Havana_05.jpg';
+
+// Cayo Largo
+import cayo_largo_01 from 'url:../../assets/images/travels/Cuba/Cayo Largo/Cayo_Largo_01.jpg';
+import cayo_largo_02 from 'url:../../assets/images/travels/Cuba/Cayo Largo/Cayo_Largo_02.jpg';
+import cayo_largo_03 from 'url:../../assets/images/travels/Cuba/Cayo Largo/Cayo_Largo_03.jpg';
+
+// Varadero
+import varadero_01 from 'url:../../assets/images/travels/Cuba/Varadero/Varadero_01.jpg';
+import varadero_02 from 'url:../../assets/images/travels/Cuba/Varadero/Varadero_02.jpg';
+import varadero_03 from 'url:../../assets/images/travels/Cuba/Varadero/Varadero_03.jpg';
+import varadero_04 from 'url:../../assets/images/travels/Cuba/Varadero/Varadero_04.jpg';
+
+// Scotland
+// Edinburgh
+import edinburgh_01 from 'url:../../assets/images/travels/Scotland/Edinburgh/Edinburgh_01.jpg';
+import edinburgh_02 from 'url:../../assets/images/travels/Scotland/Edinburgh/Edinburgh_02.jpg';
+import edinburgh_03 from 'url:../../assets/images/travels/Scotland/Edinburgh/Edinburgh_03.jpg';
+import edinburgh_04 from 'url:../../assets/images/travels/Scotland/Edinburgh/Edinburgh_04.jpg';
+import edinburgh_05 from 'url:../../assets/images/travels/Scotland/Edinburgh/Edinburgh_05.jpg';
+
+
+
+// Certificates images
 
 // Languages
 
@@ -45,6 +91,51 @@ import preview_double_your_coding_speed_with_visual_studio from 'url:../../asset
 
 
 const fullView = {
+    // Russia-Finland-Estonia
+    // Moscow
+    moscow_01,
+    moscow_02,
+    moscow_03,
+    moscow_04,
+    moscow_05,
+
+    // Saint_Petersburg
+    saint_petersburg_01,
+    saint_petersburg_02,
+    saint_petersburg_03,
+    saint_petersburg_04,
+    saint_petersburg_05,
+
+    // Cuba
+    // Havana
+    havana_01,
+    havana_02,
+    havana_03,
+    havana_04,
+    havana_05,
+
+    // Cayo Largo
+    cayo_largo_01,
+    cayo_largo_02,
+    cayo_largo_03,
+
+    // Varadero
+    varadero_01,
+    varadero_02,
+    varadero_03,
+    varadero_04,
+
+    // Scotland
+    // Edinburgh
+    edinburgh_01,
+    edinburgh_02,
+    edinburgh_03,
+    edinburgh_04,
+    edinburgh_05,
+
+
+
+
     // Languages
 
     // French
