@@ -11,6 +11,11 @@ This project contains different sections about me, my skills, example projects I
 4. Projects integration
 5. Certificates/Projects previews
 6. Link to github repo and to published project
+7. About me section: 
+	- contacts
+	- languages
+	- trails
+	- travels
 
 ## Next features
 1. Translations
