@@ -30,9 +30,9 @@ import garda_lake from 'url:../../assets/images/trails/Monte Altissimo di Nago/g
 import indicator from 'url:../../assets/images/trails/Monte Altissimo di Nago/indicator.jpg';
 
 // Tre cime di Lavaredo
-import tre_cime_lavaredo from 'url:../../assets/images/trails/Tre cime di Lavaredo/tre_cime_lavaredo.jpg';
-import sorapis from 'url:../../assets/images/trails/Tre cime di Lavaredo/sorapis.jpg';
-import tre_cime_di_lavaredo_panorama from 'url:../../assets/images/trails/Tre cime di Lavaredo/panorama.jpg';
+import tre_cime_lavaredo from 'url:../../assets/images/trails/Tre Cime di Lavaredo/tre_cime_lavaredo.jpg';
+import sorapis from 'url:../../assets/images/trails/Tre Cime di Lavaredo/sorapis.jpg';
+import tre_cime_di_lavaredo_panorama from 'url:../../assets/images/trails/Tre Cime di Lavaredo/panorama.jpg';
 
 // Val di Genova
 import val_di_genova_01 from 'url:../../assets/images/trails/Val di Genova/val_di_genova_01.jpg';
