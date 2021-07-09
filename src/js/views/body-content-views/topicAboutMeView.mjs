@@ -21,11 +21,13 @@ const anagraphicIcons = {
 
 // Footer icons
 import contacts from 'url:../../../assets/images/contacts.svg';
+import trekking from 'url:../../../assets/images/trekking.svg';
 import airplane from 'url:../../../assets/images/airplane.svg';
 import languages from 'url:../../../assets/images/languages.svg';
 
 const footerIcons = {
     contacts,
+    trekking,
     airplane,
     languages
 }
@@ -82,9 +84,6 @@ class TopicAboutMeView {
                         ).join('')}
                     </div>
                     <div class="info-container-footer"></div>
-                </div>
-                <div class="video-presentation">
-                    <a href="https://www.youtube.com/watch?v=w7W5SKa7xvk">Youtube video presentation</a>
                 </div>
             </div>
             <div class="topic-footer">

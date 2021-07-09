@@ -1,6 +1,8 @@
 import {svgIcons} from '../json/svgIcons.mjs';
 import {anagraphic} from '../json/anagraphic.mjs';
 import {contacts} from '../json/contacts.mjs';
+import {mapStyles} from '../json/mapStyles.mjs';
+import {trails} from '../json/trails.mjs';
 import {travels} from '../json/travels.mjs';
 import {themes} from '../json/themes.mjs';
 import {languages} from '../json/languages.mjs';
@@ -71,7 +73,9 @@ export const state = {
     svgIcons,
     anagraphic,
     contacts,
+    mapStyles,
     travels,
+    trails,
     languages: [],
     navigationVoices: [],
     projects: projects,

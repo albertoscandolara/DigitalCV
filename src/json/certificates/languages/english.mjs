@@ -5,7 +5,15 @@ export const englishCertificates = [
     "instructors": [],
     "platform": "United International College",
     "completionDate": "2010-08-27", 
-    "preview": "preview_english_uic"
+    "images": [
+      {
+          "id": "preview_english_uic",
+          "title": "General English and conversation course - Upper Intermediate",
+          "text": "General English and conversation course - Upper Intermediate",
+          "description": "",
+          "preview": "preview_english_uic"
+      }
+    ]
   }
 ];
     

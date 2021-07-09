@@ -111,7 +111,7 @@ class LanguagesView {
                     <img 
                         class="preview" 
                         alt="'${certificate.title}' certificate preview" 
-                        src="${previews[certificate.preview]}">
+                        src="${previews[certificate.images[0].preview]}">
                 </div>
                 <div class="info-container">
                     <span>Instructor: ${certificate.instructors.join(', ')}</span>
@@ -141,7 +141,7 @@ class LanguagesView {
                 .find(language => language.id === languageElementId)
                 .certificates
                 .find(certificate => certificate.id === certificateElementId);
-            handler(data);
+            handler(data.images);
         });
     }
 }

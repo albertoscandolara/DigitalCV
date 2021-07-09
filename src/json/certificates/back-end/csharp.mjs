@@ -4,8 +4,16 @@ export const csharpCertificates = [
     "title": "C# Basics for Beginners: Learn C# Fundamentals by Coding",
     "instructors": ["Mosh Hamedani"],
     "platform": "Udemy",
-    "completionDate": "2018-04-18", 
-    "preview": "preview_csharp_for_beginners_foundamentals"
+    "completionDate": "2018-04-18",
+    "images": [
+      {
+          "id": "preview_csharp_for_beginners_foundamentals",
+          "title": "C# Basics for Beginners: Learn C# Fundamentals by Coding",
+          "text": "C# Basics for Beginners: Learn C# Fundamentals by Coding",
+          "description": "",
+          "preview": "preview_csharp_for_beginners_foundamentals"
+      }
+    ]
   },
   {
     "id": "Back_end_C#_002",
@@ -13,7 +21,15 @@ export const csharpCertificates = [
     "instructors": ["Mosh Hamedani"],
     "platform": "Udemy",
     "completionDate": "2018-05-12", 
-    "preview": "preview_csharp_intermediate_classes_interfaces_OOP"
+    "images": [
+      {
+          "id": "preview_csharp_intermediate_classes_interfaces_OOP",
+          "title": "C# Intermediate Classes, Interfaces and OOP",
+          "text": "C# Intermediate Classes, Interfaces and OOP",
+          "description": "",
+          "preview": "preview_csharp_intermediate_classes_interfaces_OOP"
+      }
+    ]
   },
   {
     "id": "Back_end_C#_003",
@@ -21,7 +37,15 @@ export const csharpCertificates = [
     "instructors": ["Mosh Hamedani"],
     "platform": "Udemy",
     "completionDate": "2018-07-04", 
-    "preview": "preview_double_your_coding_speed_with_visual_studio"
+    "images": [
+      {
+          "id": "preview_double_your_coding_speed_with_visual_studio",
+          "title": "C# Developers Double Your Coding Speed with Visual Studio",
+          "text": "C# Developers Double Your Coding Speed with Visual Studio",
+          "description": "",
+          "preview": "preview_double_your_coding_speed_with_visual_studio"
+      }
+    ]
   }
 ];
   

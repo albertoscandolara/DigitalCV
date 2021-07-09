@@ -100,7 +100,7 @@ class CertificatesView {
                     <img 
                         class="preview" 
                         alt="'${certificate.title}' certificate preview" 
-                        src="${previews[certificate.preview]}">
+                        src="${previews[certificate.images[0].preview]}">
                 </div>
                 <div class="info-container">
                     <span>Instructor: ${certificate.instructors.join(', ')}</span>
@@ -120,7 +120,7 @@ class CertificatesView {
 
             const elementId = element.dataset.id;
             const data = this._data.find(certificateData => certificateData.id === elementId);
-            handler(data);
+            handler(data.images);
         });
     }
 }

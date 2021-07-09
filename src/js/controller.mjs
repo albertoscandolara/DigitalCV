@@ -13,12 +13,12 @@ import topicAboutThisWebsiteView from './views/body-content-views/topicAboutThis
 
 import contactsView from './views/contactsView.mjs';
 import languagesView from './views/languagesView.mjs';
+import trailsView from './views/trailsView.mjs';
 import travelsView from './views/travelsView.mjs';
 import projectsView from './views/projectsView.mjs';
 import certificatesView from './views/certificatesView.mjs';
 import model3DRendererView from './views/model3DRendererView.mjs';
-
-import certificateView from './views/certificateView.mjs';
+import slideshowView from './views/slideshowView.mjs';
 
 if(module.hot){
     module.hot.accept
@@ -170,6 +170,7 @@ const controlLoadBodySectionContent = function(navigationVoiceId) {
 const controlLoadCustomNavigationVoiceBody = function(navigationVoice) {
     const contactsString = 'contacts';
     const languagesString = 'languages';
+    const trailsString = 'trails';
     const travelsString = 'travels';
 
     switch(navigationVoice.id.toLowerCase()){
@@ -178,6 +179,9 @@ const controlLoadCustomNavigationVoiceBody = function(navigationVoice) {
             break;
         case languagesString:
             controlLoadLanguagesBodySection();
+            break;
+        case trailsString: 
+            controlLoadTrailsBodySection();
             break;
         case travelsString: 
             controlLoadTravelsBodySection();
@@ -193,7 +197,7 @@ const controlLoadStandardNavigationVoiceBody = function(navigationVoice, parentN
         case certificatesString:
             let certificates = model.state[certificatesString][parentNavigationVoice.id.toLowerCase()];
             certificatesView.render(certificates);
-            certificatesView.addHandlerClick(controlManageCertificateClick);
+            certificatesView.addHandlerClick(controlSlideshow);
             break;
         case projectsString:
             let projects = model.state[projectsString][parentNavigationVoice.id.toLowerCase()];
@@ -211,19 +215,33 @@ const controlLoadContactsBodySection = function() {
 const controlLoadLanguagesBodySection = function() {
     let languages = model.state.languages;
     languagesView.render(languages);
-    languagesView.addHandlerClick(controlManageCertificateClick);
+    languagesView.addHandlerClick(controlSlideshow);
+}
+
+const controlLoadTrailsBodySection = function () {
+    trailsView.render(
+        model.state.mapStyles,
+        model.state.trails, 
+        model.state.svgIcons.trekking,
+        model.state.svgIcons.camera,
+        model.state.svgIcons.global_localization
+    );
+    trailsView.addCameraHandlerClick(controlSlideshow);
 }
 
 const controlLoadTravelsBodySection = function() {
-    let travels = model.state.travels;
-    travelsView.render(travels);
-    travelsView.addImageHandlerClick(controlManageCertificateClick);
+    travelsView.render(
+        model.state.mapStyles,
+        model.state.travels, 
+        model.state.svgIcons.flag,
+        model.state.svgIcons.camera,
+        model.state.svgIcons.global_localization
+    );
+    travelsView.addCameraHandlerClick(controlSlideshow);
 }
 
-
-
-const controlManageCertificateClick = function(certificate) {
-    certificateView.render(certificate);
+const controlSlideshow = function(stop) {
+    slideshowView.render(stop);
 }
 
 const controlOpen3DModelRenderer = function(project) {
