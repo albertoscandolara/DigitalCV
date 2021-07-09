@@ -26,7 +26,7 @@ let OrbitControlsPromise = import("https://unpkg.com/three@0.119.0/examples/jsm/
 
 
 class Model3DRendererView {
-    _parentElement = document.querySelector('.app-container .certificate-view');
+    _parentElement = document.querySelector('.app-container .window-container');
     _mainSectionElement = document.querySelector('.main-section');
     _data;
 

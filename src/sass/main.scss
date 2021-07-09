@@ -1,7 +1,6 @@
 /////////////////////////////////////////////////////////
 //                      Palettes                       //
 /////////////////////////////////////////////////////////
-
 $white: #ffffff;
 $black: #000000;
 
@@ -31,7 +30,7 @@ $light-gray-21: #fbfbfb;
 
 $apply-light: #d4dbe2;
 $blue-light: #4784b9;
-$semi-transparent-background-light: #4a4a4ac4;
+$semi-transparent-background-light: #c0c0c0e3;
 
 
 // dark palette
@@ -60,7 +59,7 @@ $dark-gray-21: #545454;
 
 $apply-dark: #193558;
 $blue-dark: #4784b9;
-$semi-transparent-background-dark: #101010c4;
+$semi-transparent-background-dark: #101010e0;
 
 // $light-semi-transparent-gray-8: #dadadab3;
 
@@ -79,11 +78,13 @@ $semi-transparent-background-dark: #101010c4;
 
 // $dark-blue-1: #182f58;
 
-
-
 /////////////////////////////////////////////////////////
 //             HTML elements customization             //
 /////////////////////////////////////////////////////////
+* {
+  box-sizing:border-box;
+}
+
 body,
 html {
   height: 100%;
@@ -91,6 +92,7 @@ html {
   padding: 0;
   font-family: sans-serif;
   user-select: none;
+  font-size: 14px;
 }
 
 ul {
@@ -110,7 +112,6 @@ button {
   padding: 0;
   border: 0;
   border-radius: 10px;
-  font-size: 15px;
 
   height: 50px;
   width: 100px;
@@ -219,7 +220,7 @@ button>span {
     }
   }
 
-  .certificate-view {
+  .window-container {
     display: flex;
     box-sizing: border-box;
     align-items: center;
@@ -252,7 +253,7 @@ button>span {
         position: relative;
         height: 70px;
 
-        .certificate-title {
+        .title {
           font-size: 20px;
           font-weight: 600;
         }
@@ -277,10 +278,101 @@ button>span {
         min-height: 150px;
         padding: 10px;
         
-        .certificate-full-preview {
-          max-width: 100%;
-          max-height:100%;
-          height: auto;
+        .window-content {
+          height: 100%;
+          width: 100%;
+
+          .slideshow-container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .slideshow {
+              flex: 1;
+              position: relative;
+              height: 100%;
+              width: 100%;
+              min-height: 0;
+
+              .prev, .next {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                width: auto;
+                padding: 16px;
+                font-weight: bold;
+                font-size: 18px;
+                transition: 0.6s ease;
+                border-radius: 0 3px 3px 0;
+                z-index: 5;
+              }
+
+              .next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+              }
+
+              .images-container {
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                min-height: 0;
+
+                .mySlides {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  height: 100%;
+                  width: 100%;
+                  position: relative;
+
+                  .numbertext {
+                    padding: 10px 20px;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    font-size: 15px;
+                  }
+
+                  .slideshow-image {
+                    height: auto;
+                    width: auto;
+                    max-width: 100%;
+                    max-height: 100%;
+                    border-radius: 10px;
+                  }
+                }
+              }
+            }
+            
+          }
+          
+          .dots-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border-radius: 20px;
+
+            .dot {
+              height: 12px;
+              width: 12px;
+              margin: 14px;
+              border-radius: 50%;
+              display: inline-block;
+              transition: background-color 0.6s ease;
+
+              &:hover, &.selected {
+                box-shadow: none;
+              }
+            }
+          }
         }
 
         .canvas {
@@ -879,13 +971,14 @@ button>span {
                 }
               }
 
-              .all-travels-container {
+              .all-travels-container,
+              .all-trails-container {
                 height: 100%; 
                 width: 100%;
 
                 .map-container {
                   position: relative;
-                  height: 100%; 
+                  height: 90%; 
                   width: 100%;
                 
                   .map-style-buttons-container {
@@ -916,21 +1009,130 @@ button>span {
                   #map {
                     height: 100%; 
                     width: 100%; 
-                    border-radius: 10px;
+                    border-radius: 5px;
+
+                    .stop-marker {
+                      background-size: cover;
+                      width: 20px;
+                      height: 30px;
+                      cursor: pointer;
+                    }
+
+                    .mapboxgl-popup {
+
+                      .mapboxgl-popup-close-button {
+                        height: 30px;
+                        width: 30px;
+                        font-size: 15px;
+                      }
+
+                      .mapboxgl-popup-tip {
+                        border-top-color: $semi-transparent-background-dark;
+                        border-bottom-color: $semi-transparent-background-dark;
+                      }
+
+                      .mapboxgl-popup-content {
+                        background-color: $semi-transparent-background-dark;
+
+                        .marker-popup {
+                          display: flex;
+                          flex-direction: column;
+                          align-items: center;
+                          min-width: 200px;
+                          font-size: 14px;
+
+                          .marker-popup-header,
+                          .marker-popup-body,
+                          .marker-popup-footer {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            width: 100%;
+                          }
+
+                          .marker-popup-header {
+                            font-weight: 600;
+                            color: #4784b9;
+
+                            .marker-popup-header-title {
+                              margin: 5px 0;
+                            }
+                          }
+
+                          .marker-popup-body {
+                            flex: 1;
+                          }
+
+                          .marker-popup-footer {
+                            
+                          }
+                          
+                        }
+                      }
+                    }
                   }
                 }
 
-                .travels-container {
+                .travels-container,
+                .trails-container {
+                  display: grid;
+                  gap: 30px;
+                  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
                   font-size: 14px;
+                  padding: 30px 0;
 
-                  .travel-container {
-                    .travel-info-container {
-                      cursor: pointer;
+                  .travel-container,
+                  .trail-container {
+                    border-radius: 5px;
+                    padding: 20px;
+                    background-color: #282828;
+
+                    &.pulse {
+                      animation: pulse-animation 1s infinite;
+                    }
+
+                    .travel-info-container,
+                    .trail-info-container {
                       
                       .travel-header {
-                        .travel-title {
+                        margin-bottom: 15px;
+                      }
 
+                      .travel-header,
+                      .trail-header {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                          
+                        .travel-title,
+                        .trail-title {
+                          flex: 1;
+                          font-weight: 600;
+                          box-sizing: border-box;
+                          color: #4784b9;
                         }
+
+                        .header-buttons-container {
+                          margin-left: 10px;
+
+                          .geolocalize-button {
+                            display: flex;
+                            align-items: center;
+                            width: 30px;
+                            height: 30px;
+                            margin: 0 0 0 2px;
+                          }
+
+                          .camera-button {
+                            display: flex;
+                            align-items: center;
+                            width: 30px;
+                            height: 30px;
+                            margin: 10px 3px 0 0;
+                          }
+                        }
+                        
                       }
 
                       .travel-body {
@@ -943,12 +1145,26 @@ button>span {
                     }
 
                     .travel-stops {
-                      padding-left: 20px;
+                      box-sizing: border-box;
+                      border-radius: 10px;
 
                       .stop-container {
                         .stop-header {
+                          display: flex;
+                          flex-direction: row;
+                          align-items: center;
+                          padding: 10px 0;
+
                           .stop-title {
-  
+                            flex: 1;
+                          }
+
+                          .camera-button {
+                            display: flex;
+                            align-items: center;
+                            width: 30px;
+                            height: 30px;
+                            margin: 0 3px 0 0;
                           }
                         }
   
@@ -968,8 +1184,7 @@ button>span {
                           .card-travel {
                             width: auto;
                             height: auto;
-                            padding: 10px;
-                            margin: 0 10px;
+                            padding: 2px;
 
                             .card-header {
 
@@ -978,9 +1193,8 @@ button>span {
                             .card-body {
                               .preview-container {
                                 .preview {
-                                  height: 150px;
-                                  width: 150px;
-                                  border-radius: 5px;
+                                  height: 30px;
+                                  width: 30px;
                                 }
                               }
 
@@ -1093,7 +1307,7 @@ button>span {
       }
     }
 
-    .certificate-view {
+    .window-container {
   
       .window {
         background-color: $light-gray-10;
@@ -1117,7 +1331,48 @@ button>span {
         .body {
           background-color: $light-gray-8;
 
-          .certificate-full-preview {
+          .window-content {
+
+            .slideshow-container {
+  
+              .slideshow {
+  
+                .prev, .next {
+  
+                  &:hover {
+                    background-color: $semi-transparent-background-light;
+                  }
+                }
+  
+                .next {
+                }
+  
+                .images-container {
+  
+                  .mySlides {
+  
+                    .numbertext {
+                      background-color: $light-gray-8;
+                    }
+  
+                    .slideshow-image {
+                    }
+                  }
+                }
+              }
+              
+            }
+
+            .dots-container {
+  
+              .dot {
+                background-color: $light-gray-18;
+  
+                &:hover, &.selected {
+                  background-color: $light-gray-0 !important;
+                }
+              }
+            }
           }
         }
   
@@ -1407,29 +1662,165 @@ button>span {
                   }
                 }
 
-                .all-travels-container {
+                .all-travels-container,
+                .all-trails-container {
 
                   .map-container {
-  
+                  
                     .map-style-buttons-container {
-  
-                      .map-styles-toggler {
-  
+                      background-color: $semi-transparent-background-light;
+
+                      button {
                       }
-  
+
+                      .map-styles-toggler {
+                      }
+
                       .map-style-buttons {
-  
+
                         .map-style-list-item {
-  
+
                           .map-style-button {
-  
                           }
                         }
                       }
                     }
-  
+
                     #map {
-                      
+
+                      .stop-marker {
+                      }
+
+                      .mapboxgl-popup {
+
+                        .mapboxgl-popup-close-button {
+                        }
+
+                        .mapboxgl-popup-tip {
+                          border-top-color: $semi-transparent-background-light;
+                          border-bottom-color: $semi-transparent-background-light;
+                        }
+
+                        .mapboxgl-popup-content {
+                          background-color: $semi-transparent-background-light;
+
+                          .marker-popup {
+
+                            .marker-popup-header,
+                            .marker-popup-body,
+                            .marker-popup-footer {
+                            }
+
+                            .marker-popup-header {
+                              color: $blue-light;
+
+                              .marker-popup-header-title {
+                              }
+                            }
+
+                            .marker-popup-body {
+                            }
+
+                            .marker-popup-footer {
+                              
+                            }
+                            
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  .travels-container,
+                  .trails-container {
+
+                    .travel-container,
+                    .trail-container {
+                      background-color: $light-gray-10;
+
+                      &.pulse {
+                      }
+
+                      .travel-info-container,
+                      .trail-info-container {
+                        
+                        .travel-header {
+                        }
+
+                        .travel-header,
+                        .trail-header {
+                            
+                          .travel-title,
+                          .trail-title {
+                            color: $blue-light;
+                          }
+
+                          .header-buttons-container {
+
+                            .geolocalize-button {
+                            }
+
+                            .camera-button {
+                            }
+                          }
+                          
+                        }
+
+                        .travel-body {
+
+                        }
+
+                        .travel-footer {
+
+                        }
+                      }
+
+                      .travel-stops {
+
+                        .stop-container {
+                          .stop-header {
+
+                            .stop-title {
+                            }
+
+                            .camera-button {
+                            }
+                          }
+    
+                          .stop-body {
+    
+                          }
+    
+                          .stop-footer {
+    
+                          }
+
+                          .stop-gallery {
+
+                            .card-travel {
+
+                              .card-header {
+
+                              }
+
+                              .card-body {
+                                .preview-container {
+                                  .preview {
+                                  }
+                                }
+
+                                .info-container {
+
+                                }
+                              }
+
+                              .card-footer {
+                                
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -1441,6 +1832,18 @@ button>span {
 
       .footer {
     
+      }
+    }
+
+    @keyframes pulse-animation {
+      0% {
+        box-shadow: 0 0 0 0px transparent;
+      }
+      50% {
+        box-shadow: 0 0 4px 2px $blue-light;
+      }
+      100% {
+        box-shadow: 0 0 0 0px transparent;
       }
     }
   }
@@ -1524,7 +1927,7 @@ button>span {
       }
     }
 
-    .certificate-view {
+    .window-container {
   
       .window {
         background-color: $dark-gray-10;
@@ -1548,7 +1951,48 @@ button>span {
         .body {
           background-color: $dark-gray-8;
 
-          .certificate-full-preview {
+          .window-content {
+
+            .slideshow-container {
+  
+              .slideshow {
+  
+                .prev, .next {
+  
+                  &:hover {
+                    background-color: $semi-transparent-background-dark;
+                  }
+                }
+  
+                .next {
+                }
+  
+                .images-container {
+  
+                  .mySlides {
+  
+                    .numbertext {
+                      background-color: $dark-gray-8;
+                    }
+  
+                    .slideshow-image {
+                    }
+                  }
+                }
+              }
+              
+            }
+
+            .dots-container {
+  
+              .dot {
+                background-color: $dark-gray-18;
+  
+                &:hover, &.selected {
+                  background-color: $dark-gray-0 !important;
+                }
+              }
+            }
           }
         }
   
@@ -1836,29 +2280,165 @@ button>span {
                   }
                 }
 
-                .all-travels-container {
+                .all-travels-container,
+                .all-trails-container {
 
                   .map-container {
-  
+                  
                     .map-style-buttons-container {
-  
-                      .map-styles-toggler {
-  
+                      background-color: $semi-transparent-background-dark;
+
+                      button {
                       }
-  
+
+                      .map-styles-toggler {
+                      }
+
                       .map-style-buttons {
-  
+
                         .map-style-list-item {
-  
+
                           .map-style-button {
-  
                           }
                         }
                       }
                     }
-  
+
                     #map {
-                      
+
+                      .stop-marker {
+                      }
+
+                      .mapboxgl-popup {
+
+                        .mapboxgl-popup-close-button {
+                        }
+
+                        .mapboxgl-popup-tip {
+                          border-top-color: $semi-transparent-background-dark;
+                          border-bottom-color: $semi-transparent-background-dark;
+                        }
+
+                        .mapboxgl-popup-content {
+                          background-color: $semi-transparent-background-dark;
+
+                          .marker-popup {
+
+                            .marker-popup-header,
+                            .marker-popup-body,
+                            .marker-popup-footer {
+                            }
+
+                            .marker-popup-header {
+                              color: $blue-dark;
+
+                              .marker-popup-header-title {
+                              }
+                            }
+
+                            .marker-popup-body {
+                            }
+
+                            .marker-popup-footer {
+                              
+                            }
+                            
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  .travels-container,
+                  .trails-container {
+
+                    .travel-container,
+                    .trail-container {
+                      background-color: $dark-gray-10;
+
+                      &.pulse {
+                      }
+
+                      .travel-info-container,
+                      .trail-info-container {
+                        
+                        .travel-header {
+                        }
+
+                        .travel-header,
+                        .trail-header {
+                            
+                          .travel-title,
+                          .trail-title {
+                            color: $blue-dark;
+                          }
+
+                          .header-buttons-container {
+
+                            .geolocalize-button {
+                            }
+
+                            .camera-button {
+                            }
+                          }
+                          
+                        }
+
+                        .travel-body {
+
+                        }
+
+                        .travel-footer {
+
+                        }
+                      }
+
+                      .travel-stops {
+
+                        .stop-container {
+                          .stop-header {
+
+                            .stop-title {
+                            }
+
+                            .camera-button {
+                            }
+                          }
+    
+                          .stop-body {
+    
+                          }
+    
+                          .stop-footer {
+    
+                          }
+
+                          .stop-gallery {
+
+                            .card-travel {
+
+                              .card-header {
+
+                              }
+
+                              .card-body {
+                                .preview-container {
+                                  .preview {
+                                  }
+                                }
+
+                                .info-container {
+
+                                }
+                              }
+
+                              .card-footer {
+                                
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -1868,6 +2448,18 @@ button>span {
         }
       }
       .footer {
+      }
+    }
+
+    @keyframes pulse-animation {
+      0% {
+        box-shadow: 0 0 0 0px transparent;
+      }
+      50% {
+        box-shadow: 0 0 4px 2px $blue-dark;
+      }
+      100% {
+        box-shadow: 0 0 0 0px transparent;
       }
     }
   }

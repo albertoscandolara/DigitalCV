@@ -54,6 +54,20 @@ export const navigationVoices = [
           "children": []
         },
         {
+          "id": "Trails",
+          "open": null,
+          "selected": false,
+          "text": "Trails",
+          "title": "Trails",
+          "icon": "trekking",
+          "ready": true,
+          "toLearn": false,
+          "requirePanel": false,
+          "custom": true,
+          "overviewText": "",
+          "children": []
+        },
+        {
           "id": "Travels",
           "open": null,
           "selected": false,
