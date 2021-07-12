@@ -9,11 +9,11 @@ import logo_c from 'url:../../../assets/images/logos/logo_c.svg';
 import logo_c_plus_plus from 'url:../../../assets/images/logos/logo_c_plus_plus.svg';
 import logo_c_sharp from 'url:../../../assets/images/logos/logo_c_sharp.svg';
 
-import certificate from 'url:../../../assets/images/certificate.svg';
-import project from 'url:../../../assets/images/project.svg';
-import contacts from 'url:../../../assets/images/contacts.svg';
-import airplane from 'url:../../../assets/images/airplane.svg';
-import languages from 'url:../../../assets/images/languages.svg';
+import certificate from 'url:../../../assets/images/icons/certificate.svg';
+import project from 'url:../../../assets/images/icons/project.svg';
+import contacts from 'url:../../../assets/images/icons/contacts.svg';
+import airplane from 'url:../../../assets/images/icons/airplane.svg';
+import languages from 'url:../../../assets/images/icons/languages.svg';
 
 const logos = { 
     logo_javascript, logo_angular, logo_react, 
@@ -78,8 +78,13 @@ class TopicAboutThisWebsiteView {
         return `
             <div class="separator"></div>
             <div class="topic-footer-navigation-container">
-                <div class="arrow-container" title="Previous">
-                    <button class="arrow previous">&lt;</button>
+                <div 
+                    class="arrow-container" 
+                    title="Previous"
+                    data-id="previous">
+                    <button class="arrow-button">
+                        <span class="arrow arrow-left"></span>
+                    </button>
                 </div>
                 <div class="topic-navigation-bar">
                     <ul>
@@ -88,8 +93,13 @@ class TopicAboutThisWebsiteView {
                         ).join('')}
                     </ul>
                 </div>
-                <div class="arrow-container" title="Next">
-                    <button class="arrow following">&gt;</button>
+                <div 
+                    class="arrow-container" 
+                    title="Next"
+                    data-id="next">
+                    <button class="arrow-button">
+                        <span class="arrow arrow-right"></span>
+                    </button>
                 </div>
             </div>
         `;

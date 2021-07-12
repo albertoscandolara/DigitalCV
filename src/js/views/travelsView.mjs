@@ -147,6 +147,7 @@ class TravelsView {
                     <div class="map-style-buttons-container">
                         <button class="map-styles-toggler">
                             <span>Map styles</span>
+                            <span class="arrow arrow-down"></span>
                         </button>
                         <ul class="map-style-buttons hidden">
                             ${this._mapStyles.map(
@@ -282,6 +283,9 @@ class TravelsView {
                 () => {
                     const DOMElement = this._parentElement.querySelector('.map-container .map-style-buttons');
                     DOMElement.classList.toggle('hidden');
+
+                    const arrowDOMElement = this._parentElement.querySelector('.map-container .map-styles-toggler .arrow');
+                    this._toggleArrow(arrowDOMElement);
                 }
             );
         
@@ -492,6 +496,30 @@ class TravelsView {
 
     _getStopFromStopID(stopID) {
         return this._getTravelFromStopID(stopID).stops.find(stop => stop.id === stopID);
+    }
+
+    _toggleArrow(arrowDOMElement) {
+        const arrowUp = 'arrow-up';
+        const arrowRight = 'arrow-right';
+        const arrowDown = 'arrow-down';
+        const arrowLeft = 'arrow-left';
+
+        if(arrowDOMElement.classList.contains(arrowUp)) {
+            arrowDOMElement.classList.remove(arrowUp);
+            arrowDOMElement.classList.add(arrowDown);
+        } else if(arrowDOMElement.classList.contains(arrowRight)) {
+            arrowDOMElement.classList.remove(arrowRight);
+            arrowDOMElement.classList.add(arrowLeft);
+
+        } else if(arrowDOMElement.classList.contains(arrowDown)) {
+            arrowDOMElement.classList.remove(arrowDown);
+            arrowDOMElement.classList.add(arrowUp);
+
+        } else if(arrowDOMElement.classList.contains(arrowLeft)) {
+            arrowDOMElement.classList.remove(arrowLeft);
+            arrowDOMElement.classList.add(arrowRight);
+
+        }
     }
 }
 

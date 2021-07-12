@@ -20,10 +20,10 @@ const anagraphicIcons = {
 }
 
 // Footer icons
-import contacts from 'url:../../../assets/images/contacts.svg';
-import trekking from 'url:../../../assets/images/trekking.svg';
-import airplane from 'url:../../../assets/images/airplane.svg';
-import languages from 'url:../../../assets/images/languages.svg';
+import contacts from 'url:../../../assets/images/icons/contacts.svg';
+import trekking from 'url:../../../assets/images/icons/trekking.svg';
+import airplane from 'url:../../../assets/images/icons/airplane.svg';
+import languages from 'url:../../../assets/images/icons/languages.svg';
 
 const footerIcons = {
     contacts,
@@ -111,8 +111,13 @@ class TopicAboutMeView {
         return `
             <div class="separator"></div>
             <div class="topic-footer-navigation-container">
-                <div class="arrow-container" title="Previous">
-                    <button class="arrow previous">&lt;</button>
+                <div 
+                    class="arrow-container" 
+                    title="Previous"
+                    data-id="previous">
+                    <button class="arrow-button">
+                        <span class="arrow arrow-left"></span>
+                    </button>
                 </div>
                 <div class="topic-navigation-bar">
                     <ul>
@@ -121,8 +126,13 @@ class TopicAboutMeView {
                         ).join('')}
                     </ul>
                 </div>
-                <div class="arrow-container" title="Next">
-                    <button class="arrow following">&gt;</button>
+                <div 
+                    class="arrow-container" 
+                    title="Next"
+                    data-id="next">
+                    <button class="arrow-button">
+                        <span class="arrow arrow-right"></span>
+                    </button>
                 </div>
             </div>
         `;
