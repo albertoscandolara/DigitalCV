@@ -1731,24 +1731,25 @@ button>span {
   
                         &.mapboxgl-popup-anchor-top {
                           .mapboxgl-popup-tip {
-                            border-bottom-color: $semi-transparent-background-dark;
+                            border-bottom-color: $semi-transparent-background-light;
                           }
                         }
   
                         &.mapboxgl-popup-anchor-right {
                           .mapboxgl-popup-tip {
-                            border-left-color: $semi-transparent-background-dark;
+                            border-left-color: $semi-transparent-background-light;
                           }
                         }
   
                         &.mapboxgl-popup-anchor-bottom {
                           .mapboxgl-popup-tip {
-                            border-top-color: $semi-transparent-background-dark;
+                            border-top-color: $semi-transparent-background-light;
                           }
                         }
   
                         &.mapboxgl-popup-anchor-left {
                           .mapboxgl-popup-tip {
+                            border-right-color: $semi-transparent-background-light;
                           }
                         }
 
