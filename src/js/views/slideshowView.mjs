@@ -132,6 +132,7 @@ import preview_russian_made_easy from 'url:../../assets/images/certificates-prev
 // Front-end
 // javascript
 import preview_the_complete_javaScript_course_2021 from 'url:../../assets/images/certificates-previews/front-end/javascript/The_complete_javaScript_course_2021.jpg';
+import JavaScript_2019_JavaScript_ES6_Certification_Course from 'url:../../assets/images/certificates-previews/front-end/javascript/JavaScript_2019_JavaScript_ES6_Certification_Course.jpg';
 import preview_functional_light_javascript_for_production from 'url:../../assets/images/certificates-previews/front-end/javascript/Functional_light_javascript_for_production.jpg';
 // angular
 import preview_reactive_angular_with_rxjs from 'url:../../assets/images/certificates-previews/front-end/angular/Reactive_angular_with_rxjs.jpg';
@@ -287,6 +288,7 @@ const fullView = {
     // Front-end
     // javascript
     preview_the_complete_javaScript_course_2021,
+    JavaScript_2019_JavaScript_ES6_Certification_Course,
     preview_functional_light_javascript_for_production,
     
     // angular

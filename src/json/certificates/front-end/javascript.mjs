@@ -16,6 +16,22 @@ export const javascriptCertificates = [
       ]
     },
     {
+      "id": "JavaScript_2019_JavaScript_ES6_Certification_Course",
+      "title": "JavaScript 2019: JavaScript ES6 Certification Course",
+      "instructors": ["Mark Lassoff"],
+      "platform": "Udemy",
+      "completionDate": "2021-07-13", 
+      "images": [
+        {
+            "id": "JavaScript_2019_JavaScript_ES6_Certification_Course",
+            "title": "JavaScript 2019: JavaScript ES6 Certification Course",
+            "text": "JavaScript 2019: JavaScript ES6 Certification Course",
+            "description": "",
+            "preview": "JavaScript_2019_JavaScript_ES6_Certification_Course"
+        }
+      ]
+    },
+    {
       "id": "Front_end_Javascript_002",
       "title": "Functional-light Javascript for production",
       "instructors": ["Michele Riva"],
