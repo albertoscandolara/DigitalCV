@@ -1,4 +1,4 @@
-import {iconsList} from '../json/iconsList.mjs';
+import {iconsList} from '../json/IconsList.mjs';
 import {svgIcons} from '../json/svgIcons.mjs';
 import {anagraphic} from '../json/anagraphic.mjs';
 import {contacts} from '../json/contacts.mjs';
