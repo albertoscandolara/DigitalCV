@@ -62,7 +62,7 @@ class Model3DRendererView {
                 </button>
             </div>
             <div class="body sunk">
-                <div class="canvas">
+                <div class="canvas fit">
                 </div>
             </div>
             <div class="footer">

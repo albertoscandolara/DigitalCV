@@ -99,7 +99,7 @@ class TrailsView {
 
     _generateMarkup() {
         return `
-            <div class="all-trails-container">
+            <div class="all-trails-container fit">
                 <div class="map-container">
                     <div class="map-style-buttons-container">
                         <button class="map-styles-toggler">
@@ -112,7 +112,10 @@ class TrailsView {
                             ).join('')}
                         </ul>
                     </div>
-                    <div id="map"></div>
+                    <div 
+                        id="map" 
+                        class="fit">
+                    </div>
                 </div>
                 <div class="trails-container">
                     ${this._data.map(

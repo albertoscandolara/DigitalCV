@@ -1,32 +1,12 @@
 // import global not yet implemented for parcel 2
 //import {logos} from '../../assets/images/logos/*';
 // Need to import files individually
-import logo_javascript from 'url:../../../assets/images/logos/logo_javascript.svg';
-import logo_angular from 'url:../../../assets/images/logos/logo_angular.svg';
-import logo_react from 'url:../../../assets/images/logos/logo_react.svg';
-import logo_blender from 'url:../../../assets/images/logos/logo_blender.svg';
-import logo_c from 'url:../../../assets/images/logos/logo_c.svg';
-import logo_c_plus_plus from 'url:../../../assets/images/logos/logo_c_plus_plus.svg';
-import logo_c_sharp from 'url:../../../assets/images/logos/logo_c_sharp.svg';
-
-import certificate from 'url:../../../assets/images/icons/certificate.svg';
-import project from 'url:../../../assets/images/icons/project.svg';
-import contacts from 'url:../../../assets/images/icons/contacts.svg';
-import airplane from 'url:../../../assets/images/icons/airplane.svg';
-import languages from 'url:../../../assets/images/icons/languages.svg';
-
-const logos = { 
-    logo_javascript, logo_angular, logo_react, 
-    logo_c, logo_c_plus_plus, logo_c_sharp, 
-    logo_blender 
-};
+import idea from 'url:../../../assets/images/icons/idea.svg';
+import copyright from 'url:../../../assets/images/icons/copyright.svg';
 
 const footerVoices = {
-    certificate,
-    project,
-    contacts,
-    airplane,
-    languages
+    idea,
+    copyright,
 }
 
 class TopicAboutThisWebsiteView {
@@ -82,7 +62,7 @@ class TopicAboutThisWebsiteView {
                     class="arrow-container" 
                     title="Previous"
                     data-id="previous">
-                    <button class="arrow-button">
+                    <button class="arrow-button fit">
                         <span class="arrow arrow-left"></span>
                     </button>
                 </div>
@@ -97,7 +77,7 @@ class TopicAboutThisWebsiteView {
                     class="arrow-container" 
                     title="Next"
                     data-id="next">
-                    <button class="arrow-button">
+                    <button class="arrow-button fit">
                         <span class="arrow arrow-right"></span>
                     </button>
                 </div>

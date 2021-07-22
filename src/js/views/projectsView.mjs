@@ -83,75 +83,83 @@ class ProjectsView {
     }
 
     _generateMarkup() {
-        if(!this._data || this._data.length === 0) {
-            return `
+        return `
+        <div class="projects-section-container fit">
+            <div class="projects-container">
+            ${(!this._data || this._data.length === 0) ?
+                `
                 <span>No projects available yet!</span>
-            `;
-        }
-
-        return `${this._data.map(
-            projectData => this._generateProjectMarkup(projectData)
-        ).join('')}`;
+                `
+                :
+                `
+                ${this._data.map(
+                    project => this._generateProjectMarkup(project)
+                ).join('')}
+                `
+            }
+            </div>
+        </div>
+        `;
     }
 
     _generateProjectMarkup(projectData) {
         return `
-            <div 
-                class="card-project raised"
-                data-id="${projectData.id}">
-                <div class="card-header">
-                    <span class="card-title">
-                        ${projectData.title}
-                    </span>
+        <div 
+            class="card-project raised"
+            data-id="${projectData.id}">
+            <div class="card-header">
+                <span class="card-title">
+                    ${projectData.title}
+                </span>
+            </div>
+            <div class="card-body">
+                <div class="preview-container">
+                    <img 
+                        class="preview fit" 
+                        alt="'${projectData.title}' project preview" 
+                        src="${previews[projectData.preview]}">
                 </div>
-                <div class="card-body">
-                    <div class="preview-container">
-                        <img 
-                            class="preview" 
-                            alt="'${projectData.title}' project preview" 
-                            src="${previews[projectData.preview]}">
-                    </div>
-                    <span class="card-description">
-                        ${projectData.description ? projectData.description : 'No description available yet!'}
-                    </span>
-                    <div class="card-links-container">
-                        ${projectData.projectUrl ? 
-                            `
-                            <button 
-                                data-type="go-to-project"
-                                class="card-link"
-                                title="Open project in a new tab">
-                                ${this._openNewTabSvgIcon}
-                            </button>
-                            ` : ''
-                        }
-                        ${projectData.githubUrl ? 
-                            `
-                            <button 
-                                data-type="go-to-github"
-                                class="card-link"
-                                title="Go to github repo">
-                                ${this._githubSvgIcon}
-                            </button>
-                            ` : ''
-                        }
-                        ${projectData.gltf ? 
-                            `
-                            <button 
-                                data-type="go-to-renderer"
-                                class="card-link"
-                                title="Open rendered model">
-                                ${this._openNewTabSvgIcon}
-                            </button>
-                            ` : ''
-                        }
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <div class="separator"></div>
-                    <div class="card-footer-content-container"></div>
+                <span class="card-description">
+                    ${projectData.description ? projectData.description : 'No description available yet!'}
+                </span>
+                <div class="card-links-container">
+                    ${projectData.projectUrl ? 
+                        `
+                        <button 
+                            data-type="go-to-project"
+                            class="card-link"
+                            title="Open project in a new tab">
+                            ${this._openNewTabSvgIcon}
+                        </button>
+                        ` : ''
+                    }
+                    ${projectData.githubUrl ? 
+                        `
+                        <button 
+                            data-type="go-to-github"
+                            class="card-link"
+                            title="Go to github repo">
+                            ${this._githubSvgIcon}
+                        </button>
+                        ` : ''
+                    }
+                    ${projectData.gltf ? 
+                        `
+                        <button 
+                            data-type="go-to-renderer"
+                            class="card-link"
+                            title="Open rendered model">
+                            ${this._openNewTabSvgIcon}
+                        </button>
+                        ` : ''
+                    }
                 </div>
             </div>
+            <div class="card-footer">
+                <div class="separator"></div>
+                <div class="card-footer-content-container"></div>
+            </div>
+        </div>
         `;
     }
 

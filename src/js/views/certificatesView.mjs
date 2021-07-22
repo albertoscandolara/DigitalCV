@@ -5,6 +5,7 @@
 // Certificates previews images
 // Front-end
 // javascript
+import preview_MITxPRO_Web_Development_with_JavaScript from 'url:../../assets/images/certificates-previews/front-end/javascript/MITxPRO_Web_Development_with_JavaScript.jpg';
 import preview_the_complete_javaScript_course_2021 from 'url:../../assets/images/certificates-previews/front-end/javascript/The_complete_javaScript_course_2021.jpg';
 import JavaScript_2019_JavaScript_ES6_Certification_Course from 'url:../../assets/images/certificates-previews/front-end/javascript/JavaScript_2019_JavaScript_ES6_Certification_Course.jpg';
 import preview_functional_light_javascript_for_production from 'url:../../assets/images/certificates-previews/front-end/javascript/Functional_light_javascript_for_production.jpg';
@@ -33,6 +34,7 @@ import preview_double_your_coding_speed_with_visual_studio from 'url:../../asset
 const previews = {
     // Front-end
     // javascript
+    preview_MITxPRO_Web_Development_with_JavaScript,
     preview_the_complete_javaScript_course_2021,
     JavaScript_2019_JavaScript_ES6_Certification_Course,
     preview_functional_light_javascript_for_production,
@@ -78,15 +80,23 @@ class CertificatesView {
     }
 
     _generateMarkup() {
-        if(!this._data || this._data.length === 0) {
-            return `
+        return `
+        <div class="certificates-section-container fit">
+            <div class="certificates-container">
+            ${(!this._data || this._data.length === 0) ?
+                `
                 <span>No certificates available yet!</span>
-            `;
-        }
-
-        return `${this._data.map(
-            certificate => this._generateCertificateMarkup(certificate)
-        ).join('')}`;
+                `
+                :
+                `
+                ${this._data.map(
+                    certificate => this._generateCertificateMarkup(certificate)
+                ).join('')}
+                `
+            }
+            </div>
+        </div>
+        `;
     }
 
     _generateCertificateMarkup(certificate) {
@@ -100,7 +110,7 @@ class CertificatesView {
             <div class="card-body">
                 <div class="preview-container">
                     <img 
-                        class="preview" 
+                        class="preview fit" 
                         alt="'${certificate.title}' certificate preview" 
                         src="${previews[certificate.images[0].preview]}">
                 </div>

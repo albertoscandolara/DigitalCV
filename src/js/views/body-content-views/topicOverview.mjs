@@ -84,7 +84,7 @@ class TopicOverview {
                     class="arrow-container" 
                     title="Previous"
                     data-id="previous">
-                    <button class="arrow-button">
+                    <button class="arrow-button fit">
                         <span class="arrow arrow-left"></span>
                     </button>
                 </div>
@@ -99,7 +99,7 @@ class TopicOverview {
                     class="arrow-container" 
                     title="Next"
                     data-id="next">
-                    <button class="arrow-button">
+                    <button class="arrow-button fit">
                         <span class="arrow arrow-right"></span>
                     </button>
                 </div>

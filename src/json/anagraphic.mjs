@@ -17,7 +17,7 @@ export const anagraphic = [
         "id": "phone",
         "text": "Phone number",
         "title": "Phone number",
-        "icon": "phone",
+        "icon": "phone_monocolor",
         "value": "+39 346 22 44 893",
     },
     {
@@ -31,7 +31,7 @@ export const anagraphic = [
         "id": "education",
         "text": "Education",
         "title": "Education",
-        "icon": "graduation",
+        "icon": "graduation_hat",
         "value": "Bachelor degree in Electronic and telecommunication engineering",
     }
 ];

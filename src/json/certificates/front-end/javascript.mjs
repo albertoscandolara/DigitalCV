@@ -1,4 +1,20 @@
 export const javascriptCertificates = [
+  {
+    "id": "MITxPRO_Web_Development_with_JavaScript",
+    "title": "MITxPRO - Web Development with JavaScript",
+    "instructors": ["John R. Williams", "Abel Sànchez"],
+    "platform": "MITxPRO",
+    "completionDate": "2021-06-30", 
+    "images": [
+      {
+          "id": "MITxPRO_Web_Development_with_JavaScript",
+          "title": "MITxPRO - Web Development with JavaScript",
+          "text": "MITxPRO - Web Development with JavaScript",
+          "description": "",
+          "preview": "preview_MITxPRO_Web_Development_with_JavaScript"
+      }
+    ]
+  },
     {
       "id": "Front_end_Javascript_001",
       "title": "The Complete JavaScript Course 2021: From Zero to Expert!",

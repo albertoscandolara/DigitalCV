@@ -59,11 +59,19 @@ class LanguagesView {
 
     _generateMarkup() {
         return `
-            <div class="all-languages-container">
+        <div class="languages-section-container">
+            ${(!this._data || this._data.length === 0) ?
+                `
+                <span>No certificates available yet!</span>
+                `
+                :
+                `
                 ${this._data.map(
                     language => this._generateSingleLanguageMarkup(language)
                 ).join('')}
-            </div>
+                `
+            }
+        </div>
         `;
     }
 
@@ -82,7 +90,7 @@ class LanguagesView {
                             ${language.level}
                         </span>
                     </div>
-                    <div  class="language-info-container>
+                    <div class="language-info-container">
                         <span class="language-info-label">
                             Certificates:
                         </span>
@@ -109,7 +117,7 @@ class LanguagesView {
             <div class="card-body">
                 <div class="preview-container">
                     <img 
-                        class="preview" 
+                        class="preview fit" 
                         alt="'${certificate.title}' certificate preview" 
                         src="${previews[certificate.images[0].preview]}">
                 </div>

@@ -131,6 +131,7 @@ import preview_russian_made_easy from 'url:../../assets/images/certificates-prev
 
 // Front-end
 // javascript
+import preview_MITxPRO_Web_Development_with_JavaScript from 'url:../../assets/images/certificates-previews/front-end/javascript/MITxPRO_Web_Development_with_JavaScript.jpg';
 import preview_the_complete_javaScript_course_2021 from 'url:../../assets/images/certificates-previews/front-end/javascript/The_complete_javaScript_course_2021.jpg';
 import JavaScript_2019_JavaScript_ES6_Certification_Course from 'url:../../assets/images/certificates-previews/front-end/javascript/JavaScript_2019_JavaScript_ES6_Certification_Course.jpg';
 import preview_functional_light_javascript_for_production from 'url:../../assets/images/certificates-previews/front-end/javascript/Functional_light_javascript_for_production.jpg';
@@ -287,6 +288,7 @@ const fullView = {
 
     // Front-end
     // javascript
+    preview_MITxPRO_Web_Development_with_JavaScript,
     preview_the_complete_javaScript_course_2021,
     JavaScript_2019_JavaScript_ES6_Certification_Course,
     preview_functional_light_javascript_for_production,
@@ -349,9 +351,9 @@ class SlideshowView {
                     <button class="close-window-button raised">x</button>
                 </div>
                 <div class="body sunk">
-                    <div class="window-content">
-                        <div class="slideshow-container">
-                            <div class="slideshow">
+                    <div class="window-content fit">
+                        <div class="slideshow-container fit">
+                            <div class="slideshow fit">
                                 ${this._data.length === 1 ?
                                     '' : 
                                     `
@@ -363,7 +365,7 @@ class SlideshowView {
                                     </button>
                                     `
                                 }
-                                <div class="images-container">
+                                <div class="images-container fit">
                                     ${this._data.map(
                                         image => this._generateImageMarkup(image)
                                     ).join('')}
@@ -404,7 +406,7 @@ class SlideshowView {
     _generateImageMarkup(image) {
         return `
         <div 
-            class="mySlides hidden" 
+            class="mySlides fit hidden" 
             data-id="${image.id}">
             ${this._data.length === 1 ?
                 ''

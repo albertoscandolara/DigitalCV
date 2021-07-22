@@ -142,7 +142,7 @@ class TravelsView {
 
     _generateMarkup() {
         return `
-            <div class="all-travels-container">
+            <div class="all-travels-container fit">
                 <div class="map-container">
                     <div class="map-style-buttons-container">
                         <button class="map-styles-toggler">
@@ -155,7 +155,10 @@ class TravelsView {
                             ).join('')}
                         </ul>
                     </div>
-                    <div id="map"></div>
+                    <div 
+                        id="map" 
+                        class="fit">
+                    </div>
                 </div>
                 <div class="travels-container">
                     ${this._data.map(

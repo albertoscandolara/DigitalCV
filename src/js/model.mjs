@@ -1,3 +1,4 @@
+import {iconsList} from '../json/iconsList.mjs';
 import {svgIcons} from '../json/svgIcons.mjs';
 import {anagraphic} from '../json/anagraphic.mjs';
 import {contacts} from '../json/contacts.mjs';
@@ -70,6 +71,7 @@ let translations = {};
 
 export const state = {
     themes: {},
+    iconsList,
     svgIcons,
     anagraphic,
     contacts,

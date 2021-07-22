@@ -437,7 +437,36 @@ export const navigationVoices = [
       "requirePanel": true,
       "custom": false,
       "overviewText": "",
-      "children": []
+      "children": [
+        {
+          "id": "idea",
+          "open": null,
+          "selected": false,
+          "text": "The idea",
+          "title": "The idea",
+          "icon": "idea",
+          "ready": false,
+          "toLearn": false,
+          "requirePanel": false,
+          "custom": true,
+          "overviewText": "",
+          "children": []
+        },
+        {
+          "id": "credits",
+          "open": null,
+          "selected": false,
+          "text": "Credits",
+          "title": "Credits",
+          "icon": "copyright",
+          "ready": false,
+          "toLearn": false,
+          "requirePanel": false,
+          "custom": true,
+          "overviewText": "",
+          "children": []
+        }
+      ]
     },
   ];
   

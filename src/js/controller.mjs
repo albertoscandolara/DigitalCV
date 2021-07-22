@@ -15,6 +15,8 @@ import contactsView from './views/contactsView.mjs';
 import languagesView from './views/languagesView.mjs';
 import trailsView from './views/trailsView.mjs';
 import travelsView from './views/travelsView.mjs';
+import websiteIdeaView from './views/websiteIdeaView.mjs';
+import creditsView from './views/creditsView.mjs';
 import projectsView from './views/projectsView.mjs';
 import certificatesView from './views/certificatesView.mjs';
 import model3DRendererView from './views/model3DRendererView.mjs';
@@ -140,7 +142,7 @@ const controlLoadAboutThisWebsiteBodyContent = function(navigationVoiceId) {
     let footerNavigationVoice = model.getFirstFooterNavigationVoice(navigationVoice.id);
     controlLoadBodySectionContent(footerNavigationVoice.id);
 
-    topicAboutThisWebsiteiew.addHandlerClick(controlLoadBodySectionContent);
+    topicAboutThisWebsiteView.addHandlerClick(controlLoadBodySectionContent);
 }
 
 const controlLoadBodyContent = function(navigationVoiceId) {
@@ -161,7 +163,7 @@ const controlLoadBodyContent = function(navigationVoiceId) {
 const controlLoadBodySectionContent = function(navigationVoiceId) {
     const navigationVoice = model.getNavigationVoice(navigationVoiceId);
     const parentNavigationVoice = model.getParentNavigationVoice(navigationVoice.id);
-
+    
     navigationVoice.custom ? 
         controlLoadCustomNavigationVoiceBody(navigationVoice) : 
         controlLoadStandardNavigationVoiceBody(navigationVoice, parentNavigationVoice);
@@ -172,7 +174,9 @@ const controlLoadCustomNavigationVoiceBody = function(navigationVoice) {
     const languagesString = 'languages';
     const trailsString = 'trails';
     const travelsString = 'travels';
-
+    const websiteIdeaString = 'idea';
+    const creditsString = 'credits';
+    
     switch(navigationVoice.id.toLowerCase()){
         case contactsString: 
             controlLoadContactsBodySection();
@@ -186,6 +190,12 @@ const controlLoadCustomNavigationVoiceBody = function(navigationVoice) {
         case travelsString: 
             controlLoadTravelsBodySection();
             break;
+        case websiteIdeaString: 
+            controlLoadWebsiteIdeaBodySection();
+            break;
+        case creditsString: 
+            controlLoadCreditsBodySection();
+            break;
     }
 }
 
@@ -196,12 +206,18 @@ const controlLoadStandardNavigationVoiceBody = function(navigationVoice, parentN
     switch(navigationVoice.id.toLowerCase()){
         case certificatesString:
             let certificates = model.state[certificatesString][parentNavigationVoice.id.toLowerCase()];
-            certificatesView.render(certificates);
+            certificatesView.render(
+                certificates
+            );
             certificatesView.addHandlerClick(controlSlideshow);
             break;
         case projectsString:
             let projects = model.state[projectsString][parentNavigationVoice.id.toLowerCase()];
-            projectsView.render(projects, model.state.svgIcons.github, model.state.svgIcons.open_new_tab);
+            projectsView.render(
+                projects, 
+                model.state.svgIcons.github_monocolor, 
+                model.state.svgIcons.open_new_tab
+            );
             projectsView.open3DModelRendererHandler(controlOpen3DModelRenderer);
         break;
     }
@@ -238,6 +254,19 @@ const controlLoadTravelsBodySection = function() {
         model.state.svgIcons.global_localization
     );
     travelsView.addCameraHandlerClick(controlSlideshow);
+}
+
+const controlLoadWebsiteIdeaBodySection = function() {
+    websiteIdeaView.render();
+}
+
+const controlLoadCreditsBodySection = function() {
+    const icons = model.state.iconsList;
+    const svgIcons = model.state.svgIcons;
+    creditsView.render(
+        icons,
+        svgIcons
+    );
 }
 
 const controlSlideshow = function(stop) {

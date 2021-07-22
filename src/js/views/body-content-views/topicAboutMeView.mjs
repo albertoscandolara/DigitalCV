@@ -7,16 +7,16 @@ import profilePic from 'url:../../../assets/images/profile-pic.jpg';
 // Anagraphic icons 
 import stork from 'url:../../../assets/images/anagraphic/stork.svg';
 import home from 'url:../../../assets/images/anagraphic/home.svg';
-import phone from 'url:../../../assets/images/anagraphic/phone.svg';
+import phone_monocolor from 'url:../../../assets/images/anagraphic/phone_monocolor.svg';
 import email from 'url:../../../assets/images/anagraphic/email.svg';
-import graduation from 'url:../../../assets/images/anagraphic/graduation-hat.svg';
+import graduation_hat from 'url:../../../assets/images/anagraphic/graduation_hat.svg';
 
 const anagraphicIcons = {
     stork,
     home,
-    phone,
+    phone_monocolor,
     email,
-    graduation
+    graduation_hat
 }
 
 // Footer icons
@@ -72,7 +72,7 @@ class TopicAboutMeView {
             </div>
             <div class="topic-body">
                 <div class="profile-pic-container">
-                    <img src="${profilePic}" class="profile-pic"/>
+                    <img src="${profilePic}" class="profile-pic fit"/>
                 </div>
                 <div class="info-container">
                     <div class="info-container-header">
@@ -115,7 +115,7 @@ class TopicAboutMeView {
                     class="arrow-container" 
                     title="Previous"
                     data-id="previous">
-                    <button class="arrow-button">
+                    <button class="arrow-button fit">
                         <span class="arrow arrow-left"></span>
                     </button>
                 </div>
@@ -130,7 +130,7 @@ class TopicAboutMeView {
                     class="arrow-container" 
                     title="Next"
                     data-id="next">
-                    <button class="arrow-button">
+                    <button class="arrow-button fit">
                         <span class="arrow arrow-right"></span>
                     </button>
                 </div>
